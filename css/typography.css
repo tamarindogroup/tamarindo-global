@@ -1,0 +1,191 @@
+<style>
+
+		/* basic reset */
+    body {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    /* define heading weights and line height */
+    h1, h2, h3, h4, h5, h6, [class^=heading-] {    
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        /* heading color is set via WF UI as otherwise this causes specificity / inheritance issues for rich text elements */
+    }
+    
+    /* heading and text sizes use a fluid type scale */
+		/* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1140,16,1.25,6,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+    :root {
+        --step--3: clamp(0.51rem, calc(0.78rem + -0.37vw), 0.70rem);
+        --step--2: clamp(0.64rem, calc(0.85rem + -0.29vw), 0.79rem);
+        --step--1: clamp(0.80rem, calc(0.92rem + -0.17vw), 0.89rem);
+        --step-0: clamp(1.00rem, calc(1.00rem + 0.00vw), 1.00rem);
+        --step-1: clamp(1.13rem, calc(1.08rem + 0.24vw), 1.25rem);
+        --step-2: clamp(1.27rem, calc(1.15rem + 0.58vw), 1.56rem);
+        --step-3: clamp(1.42rem, calc(1.22rem + 1.03vw), 1.95rem);
+        --step-4: clamp(1.60rem, calc(1.27rem + 1.64vw), 2.44rem);
+        --step-5: clamp(1.80rem, calc(1.31rem + 2.44vw), 3.05rem);
+        --step-6: clamp(2.03rem, calc(1.33rem + 3.49vw), 3.82rem);
+    }
+
+		/* set font sizes for each heading element and class, based on fluid scale. We also add a fallback value based on the max size of the clamp for that step */
+    .heading-xxl {
+        font-size: var(--step-6, 3.82rem);  
+    }
+    h1, .heading-xl {
+        font-size: var(--step-5, 3.05rem);
+    }
+    h2, .heading-l {
+        font-size: var(--step-4, 2.44rem);
+    }
+    h3, .heading-m {
+        font-size: var(--step-3, 1.95rem);
+    }
+    h4, .heading-s {
+        font-size: var(--step-2, 1.56rem);
+    }
+    h5, .heading-xs {
+        font-size: var(--step-1, 1.25rem);
+    }
+    h6, .heading-xxs {
+        font-size: var(--step-0, 1.00rem);
+    }
+    
+    /* set font sizes for each text-size class */
+    .text-size-l {
+        font-size: var(--step-2, 1.56rem);
+        line-height: 1.2; /* also adjust line height since text is now large */
+    }
+    .text-size-m {
+        font-size: var(--step-1, 1.25rem); 
+    }
+    .text-size-reg {
+        font-size: var(--step-0, 1.00rem);
+    }
+    .text-size-s {
+        font-size: var(--step--1, 0.89rem);
+    }
+    .text-size-xs {
+        font-size: var(--step--2, 0.79rem);
+    }
+    .text-size-xxs {
+        font-size: var(--step--3, 0.70rem);
+    }
+    
+    /* caps styling */
+    [class^="caps-"] {
+    	font-weight: 500;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: -0.05em;
+    }
+    .caps-l {
+    		font-size: var(--step-2, 1.56rem);
+    }
+    .caps-m {
+    		font-size: var(--step-0, 1.00rem);
+    }
+    .caps-s {
+    		font-size: var(--step--1, 0.89rem);
+    }
+    
+    /* links */
+
+    /* links in headings inherit parent styling */
+    h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, [class^="heading-"] a {
+        color: inherit;
+        font-weight: inherit;
+        font-size: inherit;
+        text-decoration: inherit;
+    }
+    
+    /* set underline color for links */
+    a, .text-style-link {
+    		color: var(--color-accent);
+    		text-decoration-color: var(--color-accent);
+    }
+    
+    /* add underlines to links inside headings on hover */
+    h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, [class^="heading-"] a:hover, .hover-underline:hover {
+    		text-decoration: underline;
+    }
+    
+    /* lists */
+    
+    /* custom bullet point color*/
+    li::marker {
+        color: var(--color-accent);
+		}
+    
+    /* hack support for nested list elements in RT */
+    .sub-bullet {
+      margin-left: 16px;
+    }
+    .sub-bullet-2 {
+      margin-left: 32px;
+    }
+    @media (max-width: 767px) {
+      .sub-bullet {
+        margin-left: 12px;
+      }
+      .sub-bullet-2 {
+        margin-left: 24px;
+      }
+    }
+
+    /* quotes */
+    blockquote, text-style-quote {
+        border-left-color: var(--color-accent);
+    }
+
+
+    
+    
+    /* make unstyled links inside hero elements or on dark backgrounds (ie those in rich text, not buttons or nav links) accent */
+    /*.hero a:not([class]), 
+    .style-dark a:not([class]), 
+    .text-color-accent a:not([class]),
+    .text-color-white a:not([class]),
+    .text-color-white [class="text-style-link"] {
+    		color:var(--color-accent);
+    }/
+    
+    /* white links on hover go accent, except those in buttons */
+    /*a.text-color-white:not(.button):not(.icon-button):hover, 
+    .text-color-white a:not(.button):not(.icon-button):hover {
+    		color: var(--color-accent);
+    }*/
+    
+    /* if an ancestor of a heading or blockquote element has a text color set, use that instead of the default element color... */
+    /*[class*="text-color-"] h1,
+    [class*="text-color-"] h2,
+    [class*="text-color-"] h3,
+    [class*="text-color-"] h4,
+    [class*="text-color-"] h5,
+    [class*="text-color-"] h6,
+    [class*="text-color-"] blockquote,
+    [class*="text-color-"] [class*="heading-"],
+    [class*="text-color-"] [class="text-style-quote"] {
+    		color: unset;
+    }*/
+  
+    /* ...but, make blockquotes accent on dark bgs */ 
+    /*.text-color-white blockquote,
+    .text-color-white [class="text-style-quote"] {
+    		color: var(--color-accent);
+    }*/
+     
+     /* colored text spans */
+     /*.colored-bold strong {
+     		color: var(--color-accent);
+        }*/
+    
+    
+
+      
+    
+
+</style>

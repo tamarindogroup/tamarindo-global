@@ -1,0 +1,357 @@
+<style>
+
+		/* Colors */
+    :root {
+      	--magenta: #FF00FF;
+        --white: #FFFFFF;
+        --black: #000000;
+        --navy-010: #E6E9EB;
+        --navy-020: #CCD3D7;
+        --navy-040: #99A8AF;
+        --navy-060: #667D87;
+        --navy-080: #33525F;
+        --navy-100: #002637;
+        --navy-120: #001E2C;
+        --navy-140: #001721;
+        --navy-160: #000F16;
+        --navy-180: #00080B;
+        --sand-060: #FFF8EC;
+        --sand-100: #FFF4E0;
+        --sand-110: #E6DCCA;
+        --sand-120: #CCC3B3;
+        --sand-140: #999286;
+        --sand-160: #66625A;
+        --sand-180: #33312D;
+        --slate-010: #EFF0F0;
+        --slate-020: #D5D7D8;
+        --slate-040: #B9BEC1;
+        --slate-060: #808D93;
+        --slate-080: #65747B;
+        --slate-100: #4C5B61;
+        --slate-120: #364045;
+        --slate-140: #1F2528;
+        --slate-160: #090B0B;
+        --coral-010: #FDEEEF;
+        --coral-020: #FBDCDE;
+        --coral-040: #F6B9BD;
+        --coral-060: #F2969C;
+        --coral-080: #ED737B;
+        --coral-100: #E9505A;
+        --coral-120: #BA4048;
+        --coral-140: #8C3036;
+        --coral-160: #5D2024;
+        --coral-180: #2F1012;  
+    }
+    
+    /* themes */
+    
+    /* primary - navy and sand */
+    :root, .theme-primary {
+    		--color-dark-bg: var(--navy-100);
+        --color-dark-heading: var(--sand-100);
+        --color-dark-text: var(--white);
+    		--color-light-bg: var(--navy-010);
+        --color-light-heading: var(--navy-100);
+        --color-light-text: var(--navy-100);
+        --color-accent: var(--coral-100);
+  	}
+    
+    /* secondary - coral, sand, navy */
+    .theme-secondary {
+    		--color-dark-bg: var(--coral-100);
+        --color-dark-heading: var(--sand-100);
+        --color-dark-text: var(--white);
+    		--color-light-bg: var(--sand-100);
+        --color-light-heading: var(--navy-100);
+        --color-light-text: var(--navy-100);
+        --color-accent: var(--coral-100);
+  	}
+    
+    /* tertiary - monochrome */
+    .theme-tertiary {
+    		--color-dark-bg: var(--slate-140);
+        --color-dark-heading: var(--slate-010);
+        --color-dark-text: var(--slate-010);
+    		--color-light-bg: var(--white);
+        --color-light-heading: var(--navy-100);
+        --color-light-text: var(--navy-100);
+        --color-accent: var(--coral-100);
+  	}
+    
+    /* light and dark styles */
+    
+    /* set bg and text colors to those defined by theme and style */
+    .style-light {
+    		background-color: var(--color-light-bg);
+        color: var(--color-light-text);
+    }
+    .style-dark {
+    		background-color: var(--color-dark-bg);
+        color: var(--color-dark-text);
+    }
+    /* accent style is same as light, but with accent headings */
+    .style-accent {
+    		background-color: var(--color-light-bg);
+        color: var(--color-light-text);
+    }
+    
+    /* set heading colors to those defined by theme and style */
+    .style-light h1, .style-light h2, .style-light h3, .style-light h4, .style-light h5, .style-light h6, .style-light [class^="heading-"] {
+    		color: var(--color-light-heading);
+    }
+    .style-dark h1, .style-dark h2, .style-dark h3, .style-dark h4, .style-dark h5, .style-dark h6, .style-dark [class^="heading-"] {
+    		color: var(--color-dark-heading);
+    }
+   	.style-accent h1, .style-accent h2, .style-accent h3, .style-accent h4, .style-accent h5, .style-accent h6, .style-accent [class^="heading-"] {
+    		color: var(--color-accent);
+    }
+    
+    
+ 
+    
+    /* text colors */
+    
+    .text-color-accent {
+    		color: var(--color-accent);
+    }
+    
+    
+    .text-color-magenta {
+        color: var(--magenta);
+    }
+    .text-color-white {
+        color: var(--white);
+    }
+    .text-color-black {
+        color: var(--black);
+    }
+    .text-color-navy-010 {
+        color: var(--navy-010);
+    }
+    .text-color-navy-020 {
+        color: var(--navy-020);
+    }
+    .text-color-navy-040 {
+        color: var(--navy-040);
+    }
+    .text-color-navy-060 {
+        color: var(--navy-060);
+    }
+    .text-color-navy-080 {
+        color: var(--navy-080);
+    }
+    .text-color-navy-100 {
+        color: var(--navy-100);
+    }
+    .text-color-navy-120 {
+        color: var(--navy-120);
+    }
+    .text-color-navy-140 {
+        color: var(--navy-140);
+    }
+    .text-color-navy-160 {
+        color: var(--navy-160);
+    }
+    .text-color-navy-180 {
+        color: var(--navy-180);
+    }
+    .text-color-sand-060 {
+        color: var(--sand-060);
+    }
+    .text-color-sand-100 {
+        color: var(--sand-100);
+    }
+    .text-color-sand-110 {
+        color: var(--sand-110);
+    }
+    .text-color-sand-120 {
+        color: var(--sand-120);
+    }
+    .text-color-sand-140 {
+        color: var(--sand-140);
+    }
+    .text-color-sand-160 {
+        color: var(--sand-160);
+    }
+    .text-color-sand-180 {
+        color: var(--sand-180);
+    }
+    .text-color-slate-010 {
+        color: var(--slate-010);
+    }
+    .text-color-slate-020 {
+        color: var(--slate-020);
+    }
+    .text-color-slate-040 {
+        color: var(--slate-040);
+    }
+    .text-color-slate-060 {
+        color: var(--slate-060);
+    }
+    .text-color-slate-080 {
+        color: var(--slate-080);
+    }
+    .text-color-slate-100 {
+        color: var(--slate-100);
+    }
+    .text-color-slate-120 {
+        color: var(--slate-120);
+    }
+    .text-color-slate-140 {
+        color: var(--slate-140);
+    }
+    .text-color-slate-160 {
+        color: var(--slate-160);
+    }
+    .text-color-coral-010 {
+        color: var(--coral-010);
+    }
+    .text-color-coral-020 {
+        color: var(--coral-020);
+    }
+    .text-color-coral-040 {
+        color: var(--coral-040);
+    }
+    .text-color-coral-060 {
+        color: var(--coral-060);
+    }
+    .text-color-coral-080 {
+        color: var(--coral-080);
+    }
+    .text-color-coral-100 {
+        color: var(--coral-100);
+    }
+    .text-color-coral-120 {
+        color: var(--coral-120);
+    }
+    .text-color-coral-140 {
+        color: var(--coral-140);
+    }
+    .text-color-coral-160 {
+        color: var(--coral-160);
+    }
+    .text-color-coral-180 {
+        color: var(--coral-180);
+    }
+
+		/* background colors */
+    
+    .bg-color-magenta {
+        background-color: var(--magenta);
+    }
+    .bg-color-white {
+        background-color: var(--white);
+    }
+    .bg-color-black {
+        background-color: var(--black);
+    }
+    .bg-color-navy-010 {
+        background-color: var(--navy-010);
+    }
+    .bg-color-navy-020 {
+        background-color: var(--navy-020);
+    }
+    .bg-color-navy-040 {
+        background-color: var(--navy-040);
+    }
+    .bg-color-navy-060 {
+        background-color: var(--navy-060);
+    }
+    .bg-color-navy-080 {
+        background-color: var(--navy-080);
+    }
+    .bg-color-navy-100 {
+        background-color: var(--navy-100);
+    }
+    .bg-color-navy-120 {
+        background-color: var(--navy-120);
+    }
+    .bg-color-navy-140 {
+        background-color: var(--navy-140);
+    }
+    .bg-color-navy-160 {
+        background-color: var(--navy-160);
+    }
+    .bg-color-navy-180 {
+        background-color: var(--navy-180);
+    }
+    .bg-color-sand-060 {
+        background-color: var(--sand-060);
+    }
+    .bg-color-sand-100 {
+        background-color: var(--sand-100);
+    }
+    .bg-color-sand-110 {
+        background-color: var(--sand-110);
+    }
+    .bg-color-sand-120 {
+        background-color: var(--sand-120);
+    }
+    .bg-color-sand-140 {
+        background-color: var(--sand-140);
+    }
+    .bg-color-sand-160 {
+        background-color: var(--sand-160);
+    }
+    .bg-color-sand-180 {
+        background-color: var(--sand-180);
+    }
+    .bg-color-slate-010 {
+        background-color: var(--slate-010);
+    }
+    .bg-color-slate-020 {
+        background-color: var(--slate-020);
+    }
+    .bg-color-slate-040 {
+        background-color: var(--slate-040);
+    }
+    .bg-color-slate-060 {
+        background-color: var(--slate-060);
+    }
+    .bg-color-slate-080 {
+        background-color: var(--slate-080);
+    }
+    .bg-color-slate-100 {
+        background-color: var(--slate-100);
+    }
+    .bg-color-slate-120 {
+        background-color: var(--slate-120);
+    }
+    .bg-color-slate-140 {
+        background-color: var(--slate-140);
+    }
+    .bg-color-slate-160 {
+        background-color: var(--slate-160);
+    }
+    .bg-color-coral-010 {
+        background-color: var(--coral-010);
+    }
+    .bg-color-coral-020 {
+        background-color: var(--coral-020);
+    }
+    .bg-color-coral-040 {
+        background-color: var(--coral-040);
+    }
+    .bg-color-coral-060 {
+        background-color: var(--coral-060);
+    }
+    .bg-color-coral-080 {
+        background-color: var(--coral-080);
+    }
+    .bg-color-coral-100 {
+        background-color: var(--coral-100);
+    }
+    .bg-color-coral-120 {
+        background-color: var(--coral-120);
+    }
+    .bg-color-coral-140 {
+        background-color: var(--coral-140);
+    }
+    .bg-color-coral-160 {
+        background-color: var(--coral-160);
+    }
+    .bg-color-coral-180 {
+        background-color: var(--coral-180);
+    }
+
+</style>

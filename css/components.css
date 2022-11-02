@@ -1,0 +1,43 @@
+<style>
+
+    
+    
+    
+    /* add commas between taglist items */
+    /* .taglist__item:not(:last-child):after {
+        content: ",";
+        display: inline-block;
+        color: white;
+    } */
+      
+    /* colored tint */
+    /* .client-list__img {
+    		-webkit-filter: saturate(0%);
+    		filter: saturate(0%);
+    		filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.289 0.289 0.289 0 0.133 0.271 0.271 0.271 0 0.188 0.212 0.212 0.212 0 0.365 0 0 0 1 0'/></filter></svg>#grayscale");
+        } */
+    /* fix for Safari as poor implementation of SVG filters */
+    /* https://github.com/Fyrd/caniuse/issues/3803 */
+    /* https://www.bram.us/2021/06/23/css-at-supports-rules-to-target-only-firefox-safari-chromium/#safari */
+    	/* @supports (background: -webkit-named-image(i)) {
+        .client-list__img {
+            -webkit-filter: saturate(0%) !important;
+            filter: saturate(0%) !important;
+            }
+      } */
+    
+    
+	/* remove focus outline on sections in Safari */
+    .sect:focus, .section-id:focus {
+    		outline: none;
+    }
+    
+    
+    /* expand size of lighbox video player. WF lightbox controls occupy left/right 5% */
+    .w-lightbox-frame, .w-lightbox-embed {
+        width: 90vw;
+        height: 90vh;
+    }
+    
+	
+</style>

@@ -1,0 +1,311 @@
+<style>
+:root {
+  --dev-grey: #404040;
+  --dev-lightgrey: #d9d9d9;
+  --dev-blue: #0073e6;
+}
+
+/* code symbol styling */
+
+/* code button */
+html.wf-design-mode div.dev-code {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  background-color: var(--dev-grey);
+  padding: 8px;
+  z-index: 9999;
+  min-width: 100px;
+  color: var(--dev-lightgrey);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-size: 14px;
+}
+/* code button label */
+html.wf-design-mode div.dev-code:before {
+  content: "Code";
+  background-image: url('https://uploads-ssl.webflow.com/62435b1e7e77308254208011/6249a3b53d38112e5d08dc8c_wf-icon-code.svg');
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
+  background-size: 12px 12px;
+  padding-left: 18px;
+  pointer-events: none;
+  }
+/* child embeds */
+html.wf-design-mode div.dev-code .w-embed {
+  padding: 6px;
+  margin: 6px 0px;
+  display: none;
+  border: 2px solid var(--dev-blue);
+  border-radius: 4px;
+  text-transform: capitalize;
+  }
+/* child labels */
+html.wf-design-mode div.dev-code .w-embed::before {
+  content: attr(data-code-name);
+}
+/* show child embeds on parent hover */
+html.wf-design-mode div.dev-code:hover .w-embed {
+  display: block;
+  }
+/* hover behaviour on child embeds */
+html.wf-design-mode div.dev-code .w-embed:hover {
+  background-color: var(--dev-blue);
+  cursor: pointer;
+  }
+
+
+
+/* Add a baseline grid to a page or element */
+.dev-baseline-grid {
+    background-image:linear-gradient(to bottom,rgba(0,170,255,.3)
+    1px,transparent 1px);
+    background-position: left top;
+    background-repeat: repeat;
+    background-size: 100% 24px; /* Replace with your line height*/
+    pointer-events: none;
+    }
+
+/* column overlay */
+.dev-grid {
+		pointer-events: none;
+    }
+
+
+/* add common viewport overlays */
+
+/* hide viewports and parent wrapper when not in Designer */
+html:not(.wf-design-mode) [class^="dev-vp"], html:not(.wf-design-mode) .dev-viewports {
+    display: none !important;
+  }
+/* remove pointer events on viewports and parent wrapper */
+html.wf-design-mode [class^="dev-vp"], html:not(.wf-design-mode) .dev-viewports {
+    pointer-events: none;
+}
+/* add styling to all viewports */
+html.wf-design-mode [class^="dev-vp"] {
+    pointer-events: none;
+    z-index: 999;
+    margin: 0 auto;
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    outline: 2px solid var(--dev-blue) !important;	/* we need important to override the default .wf-empty style */
+  }
+/* set the default for viewports to be hidden. The :where selector has a zero specificity, which allows us to then override the display style with the Webflow UI controls */
+:where([class^="dev-vp"]) {
+  display: none;
+}
+/* show viewport labels below viewport */
+html.wf-design-mode [class^="dev-vp"]:before {
+  content: var(--vp-name, attr(class));
+  color: white;
+  font-size: 10px;
+  line-height: 1.2;
+  padding: 4px;
+  background-color: var(--dev-blue);
+  display: inline-block;
+  position: absolute;
+  bottom: calc(0px - (10px * 1.2) - 10px);
+  outline: 2px solid var(--dev-blue);
+}
+/* set viewport element sizes */
+@media only screen and (min-width: 1px) { 
+  .dev-vp--1440 {
+    --vp-name: "1440 x 1024";
+    width: 1440px;
+    height: 1024px;
+  }
+  .dev-vp--1366 {
+    --vp-name: "1366 x 768";
+    width: 1336px;
+    height: 768px;
+  }
+  .dev-vp--1280 {
+    --vp-name: "1280 x 720";
+    width: 1280px;
+    height: 720px;
+  }
+  .dev-vp--iphone-se {
+    --vp-name: "iPhone SE";
+    width: 320px;
+    height: 568px;
+  }
+  .dev-vp--iphone-13-mini {
+    --vp-name: "iPhone 13 Mini";
+    width: 375px;
+    height: 812px;
+  }
+  .dev-vp--iphone-13-pro-max {
+    --vp-name: "iPhone 13 Pro Max";
+    width: 428px;
+    height: 926px;
+  }
+  .dev-vp--iphone-13 {
+    --vp-name: "iPhone 13";
+    width: 390px;
+    height: 844px;
+  }
+  .dev-vp--android-small {
+    --vp-name: "Android 360 x 640";
+    width: 360px;
+    height: 640px;
+  }
+  .dev-vp--android-large {
+    --vp-name: "Android 360 x 800";
+    width: 360px;
+    height: 800px;
+  }
+  .dev-vp--ipad-mini-83 {
+    --vp-name: "iPad mini 8.3";
+    width: 744px;
+    height: 1133px;
+  }
+  .dev-vp--ipad-pro-11 {
+    --vp-name: "iPad Pro 11";
+    width: 834px;
+    height: 1194px;
+  }
+  .dev-vp--surface-pro-8 {
+    --vp-name: "Surface Pro 8";
+    width: 1440px;
+    height: 960px;
+  }
+
+}
+/* sadly this doesn't work - there is a proposal to allow the attr() function to work with non-string values such as px values, but zero support so far - would have allowed for viewports to be defined using HTML attributes only, rather than classes */
+/*html.wf-design-mode .dev-vp {
+  width: attr(vp-width px);
+  height: attr(vp-height px);
+}*/
+/*html.wf-design-mode .dev-vp:before {
+  content: attr(vp-name);
+}*/
+
+
+    
+/* show different elements in different environments */
+
+/* use in combination with .hidden, which applies display: none !important; */
+/* use on a wrapper element to clashes with other desired display values (eg flex) */
+        
+/* show on Staging domain */
+html[data-wf-domain*="webflow.io"] .dev-show-staging {
+    display: block !important;
+}
+
+/* hide on Staging domain */
+    html[data-wf-domain*="webflow.io"] .dev-hide-staging {
+    display: none !important;
+}
+
+/* show in Designer */
+html.wf-design-mode .dev-show-designer {
+    display: block !important;
+}
+
+/* hide in Designer */
+html.wf-design-mode .dev-hide-designer {
+    display: none !important;
+}
+
+/* show in Editor (includes viewing live site while logged into Editor) */
+html.w-editor .dev-show-editor-all {
+    display: block !important;
+}
+
+/* hide in Editor (includes viewing live site while logged into Editor) */
+html.w-editor .dev-hide-editor-all {
+    display: none !important;
+}
+
+/* show in Editor */
+html.w-editor .w-editor-edit-fade-in .dev-show-editor {
+    display: block !important;
+}
+
+/* hide in Editor */
+html.w-editor .w-editor-edit-fade-in .dev-hide-editor {
+    display: block !important;
+}
+
+/* 
+we could also take a different approach and use an attribute selector to style all classes starting with a certain string, for example: 
+html.wf-design-mode [class^="designer-"] {
+    display: block !important;
+}
+*/
+
+
+
+/* reduce default min height of empty embeds */
+html.wf-design-mode .w-embed:empty {
+  min-height: 24px;  
+}
+
+
+
+/* display style names on Style Guide page */
+
+/*
+
+.style__classes, .style__classes [class^="style__"] {
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: 1fr;
+}
+
+.style__classes > div, .style__classes [class^="style__"] > div {
+	xmargin-bottom: 3rem;
+  }
+
+.style__classes div:not([class^="style__"]) {
+	all: initial; // reset all properties so we can see all divs
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  outline: 1px solid var(--dev-lightgrey);
+  background-color: var(--dev-lightgrey);
+  min-height: 24px;
+  position: relative;
+}
+.style__classes div:not([class^="style__"]):before {
+  content: attr(class);
+  color: white;
+  font-size: 12px;
+  line-height: 1.2;
+  padding: 4px;
+  background-color: var(--dev-grey);
+  display: inline-block;
+  position: absolute;
+  top: calc( -1.2em - 10px);
+  outline: 1px solid var(--dev-grey);
+}
+
+
+/* highlight images without alt text in Editor */
+/* html.w-editor .w-editor-edit-fade-in img:not([alt]) {
+  outline: solid rgb(255 0 255 / 1) 4px;
+  outline-offset: -4px;
+} 
+
+*/
+
+/* style empty cols in Stylesheet */
+[class*="style"] [class*="col-"] {
+	min-height: 40px;
+  outline: 1px solid var(--pink);
+  position: relative;
+  }
+[class*="style"] [class*="col-"]::after {
+	content: attr(class);
+  color: var(--dev-grey);
+  font-size: 10px;
+  line-height: 1;
+  padding: 4px;
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  }
+
+</style>
