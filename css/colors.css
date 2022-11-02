@@ -45,10 +45,10 @@
 
 /* primary - navy and sand */
 :root, .theme-primary {
-        --color-dark-bg: var(--navy-100);
+	--color-dark-bg: var(--navy-100);
     --color-dark-heading: var(--sand-100);
     --color-dark-text: var(--white);
-        --color-light-bg: var(--navy-010);
+	--color-light-bg: var(--navy-010);
     --color-light-heading: var(--navy-100);
     --color-light-text: var(--navy-100);
     --color-accent: var(--coral-100);
@@ -56,10 +56,10 @@
 
 /* secondary - coral, sand, navy */
 .theme-secondary {
-        --color-dark-bg: var(--coral-100);
+	--color-dark-bg: var(--coral-100);
     --color-dark-heading: var(--sand-100);
     --color-dark-text: var(--white);
-        --color-light-bg: var(--sand-100);
+	--color-light-bg: var(--sand-100);
     --color-light-heading: var(--navy-100);
     --color-light-text: var(--navy-100);
     --color-accent: var(--coral-100);
@@ -67,10 +67,10 @@
 
 /* tertiary - monochrome */
 .theme-tertiary {
-        --color-dark-bg: var(--slate-140);
+    --color-dark-bg: var(--slate-140);
     --color-dark-heading: var(--slate-010);
     --color-dark-text: var(--slate-010);
-        --color-light-bg: var(--white);
+    --color-light-bg: var(--white);
     --color-light-heading: var(--navy-100);
     --color-light-text: var(--navy-100);
     --color-accent: var(--coral-100);
@@ -80,28 +80,28 @@
 
 /* set bg and text colors to those defined by theme and style */
 .style-light {
-        background-color: var(--color-light-bg);
+    background-color: var(--color-light-bg);
     color: var(--color-light-text);
 }
 .style-dark {
-        background-color: var(--color-dark-bg);
+	background-color: var(--color-dark-bg);
     color: var(--color-dark-text);
 }
 /* accent style is same as light, but with accent headings */
 .style-accent {
-        background-color: var(--color-light-bg);
+	background-color: var(--color-light-bg);
     color: var(--color-light-text);
 }
 
 /* set heading colors to those defined by theme and style */
 .style-light h1, .style-light h2, .style-light h3, .style-light h4, .style-light h5, .style-light h6, .style-light [class^="heading-"] {
-        color: var(--color-light-heading);
+	color: var(--color-light-heading);
 }
 .style-dark h1, .style-dark h2, .style-dark h3, .style-dark h4, .style-dark h5, .style-dark h6, .style-dark [class^="heading-"] {
-        color: var(--color-dark-heading);
+	color: var(--color-dark-heading);
 }
 .style-accent h1, .style-accent h2, .style-accent h3, .style-accent h4, .style-accent h5, .style-accent h6, .style-accent [class^="heading-"] {
-        color: var(--color-accent);
+	color: var(--color-accent);
 }
 
 
@@ -110,7 +110,10 @@
 /* text colors */
 
 .text-color-accent {
-        color: var(--color-accent);
+	color: var(--color-accent);
+}
+.text-color-primary {
+    color: 
 }
 
 
