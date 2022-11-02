@@ -308,3 +308,6 @@ html.wf-design-mode .w-embed:empty {
   top: 0px;
   }
 
+* {
+    outline: 1px red solid;
+}
