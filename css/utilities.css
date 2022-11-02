@@ -1,86 +1,85 @@
-<style>
-  /* hides from user, but not from screen readers */
-  .visually-hidden:not(:focus):not(:active) {
-      clip: rect(0 0 0 0); 
-      clip-path: inset(50%);
-      height: 1px;
-      overflow: hidden;
-      position: absolute;
-      white-space: nowrap; 
-      width: 1px;
-  }
 
-  /* hide from all */
-  [hidden], .hidden {
-      display: none !important;
-    }
+/* hides from user, but not from screen readers */
+.visually-hidden:not(:focus):not(:active) {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+}
 
-  /* applies flow spacing to .flow and rich elements */
-  /* we exclude elements following .eyebrow text, since we want this .eyebrow text to sit closely */
-  /* the class no-flow also allows us to exclude specific elements */
-  .flow > *:not([class*="eyebrow"]) + *:not(.no-flow),
-	.rich > *:not([class*="eyebrow"]) + *:not(.no-flow), 
-  .flow li + li, /* add flow between descendent list items */
-  .rich li + li,
-  .flow-all *:not([class*="eyebrow"]):not(.no-flow) + * /* add recursively to all descendents */
-  {
-    margin-top: var(--flow-space, 1em); 
-  }
-  /* define default flow-space */
-  .flow, .flow-all, .rich {
-      --flow-space: 1em; 
-  }
-  /* increase flow spacing above buttons to give greater separation from rest of content */
-  .button, .button-row {
-  		--flow-space: 2em;
-  }
-  /* remove space above a button following another button */
-  .flow-all .button + .button {
-  		margin-top: 0px;
-  }
-  .no-flow {
-  		--flow-space: 0px !important; 
-  }
+/* hide from all */
+[hidden], .hidden {
+    display: none !important;
+}
 
-  
-  /* flow gap for horizontal layouts */
-  .row.flow-gap {
-  		gap: var(--flow-space, 1em); 
-  }
+/* applies flow spacing to .flow and rich elements */
+/* we exclude elements following .eyebrow text, since we want this .eyebrow text to sit closely */
+/* the class no-flow also allows us to exclude specific elements */
+.flow > *:not([class*="eyebrow"]) + *:not(.no-flow),
+.rich > *:not([class*="eyebrow"]) + *:not(.no-flow), 
+.flow li + li, /* add flow between descendent list items */
+.rich li + li,
+.flow-all *:not([class*="eyebrow"]):not(.no-flow) + * /* add recursively to all descendents */
+{
+margin-top: var(--flow-space, 1em); 
+}
+/* define default flow-space */
+.flow, .flow-all, .rich {
+    --flow-space: 1em; 
+}
+/* increase flow spacing above buttons to give greater separation from rest of content */
+.button, .button-row {
+    --flow-space: 2em;
+}
+/* remove space above a button following another button */
+.flow-all .button + .button {
+    margin-top: 0px;
+}
+.no-flow {
+    --flow-space: 0px !important; 
+}
 
-  /* full width element */
-  .full-bleed {
-      width: 100vw;
-      margin-left: 50%;
-      transform: translateX(-50%);
-    }
 
-  /* no margin */
-  /* use with care */
-  .nomargin-top {
-      margin-top: 0px !important;
-  }
-  .nomargin-bottom {
-      margin-bottom: 0px !important;
-  }
-  .nomargin {
-      margin-top: 0px !important;
-      margin-bottom: 0px !important;
-  }
-  
-  /* no pointer events */
-  .no-pointer-events {
-  		pointer-events: none;
-  }
-  
-  /* relative */
-  .relative {
-  		position: relative;
-  }
-  
-  /* absolute */
-  .absolute {
-  		position: absolute;
-  }
+/* flow gap for horizontal layouts */
+.row.flow-gap {
+    gap: var(--flow-space, 1em); 
+}
 
-</style>
+/* full width element */
+.full-bleed {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+/* no margin */
+/* use with care */
+.nomargin-top {
+    margin-top: 0px !important;
+}
+.nomargin-bottom {
+    margin-bottom: 0px !important;
+}
+.nomargin {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+/* no pointer events */
+.no-pointer-events {
+    pointer-events: none;
+}
+
+/* relative */
+.relative {
+    position: relative;
+}
+
+/* absolute */
+.absolute {
+    position: absolute;
+}
+
