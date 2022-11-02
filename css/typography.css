@@ -3,6 +3,7 @@ body {
     font-size: 1rem;
     line-height: 1.5;
     color: var(--color-text); /* set text colors to those defined by theme and style */ /* TO DO CHECK THIS */
+    background-color: var(--color-bg);
 }
 
 /* define heading weights and line height */
