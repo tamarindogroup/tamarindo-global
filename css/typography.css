@@ -2,6 +2,7 @@
 body {
     font-size: 1rem;
     line-height: 1.5;
+    color: var(--color-text); /* set text colors to those defined by theme and style */ /* TO DO CHECK THIS */
 }
 
 /* define heading weights and line height */
@@ -11,7 +12,7 @@ h1, h2, h3, h4, h5, h6, [class^=heading-] {
     letter-spacing: -0.03em;
     margin-top: 0px;
     margin-bottom: 0px;
-    /* heading color is set via WF UI as otherwise this causes specificity / inheritance issues for rich text elements */
+    color: var(--color-heading); /* set heading colors to those defined by theme and style */
 }
 
 /* heading and text sizes use a fluid type scale */

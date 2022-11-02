@@ -38,70 +38,195 @@
     --coral-120: #BA4048;
     --coral-140: #8C3036;
     --coral-160: #5D2024;
-    --coral-180: #2F1012;  
+    --coral-180: #2F1012;
+    
+    /* basic aliases for key colors */
+    --navy: var(--navy-100);
+    --sand: var(--sand-100);
+    --coral: var(--coral-100);
+    --slate: var(--slate-100);
 }
 
 /* themes */
 
-/* primary - navy and sand */
-:root, .theme-primary {
-	--color-dark-bg: var(--navy-100);
-    --color-dark-heading: var(--sand-100);
+/* default and primary */
+:root, .theme-primary { 
+
+    /* dark */
+    --color-dark-bg: var(--navy);
+    --color-dark-heading: var(--sand);
     --color-dark-text: var(--white);
-	--color-light-bg: var(--navy-010);
-    --color-light-heading: var(--navy-100);
-    --color-light-text: var(--navy-100);
-    --color-accent: var(--coral-100);
+    --color-dark-accent: var(--coral);
+
+    /* light */
+    --color-light-bg: var(--sand);
+    --color-light-heading: var(--navy);
+    --color-light-text: var(--navy);
+    --color-light-accent: var(--coral);
+
+    /* pale */
+    --color-pale-bg: var(--navy-010);
+    --color-pale-heading: var(--navy);
+    --color-pale-text: var(--navy);
+    --color-pale-accent: var(--coral);
+
+    /* stark */
+    --color-stark-bg: var(--white);
+    --color-stark-heading: var(--navy);
+    --color-stark-text: var(--navy);
+    --color-stark-accent: var(--coral);
+
+    /* loud */
+    --color-loud-bg: var(--coral);
+    --color-loud-heading: var(--sand);
+    --color-loud-text: var(--white);
+    --color-loud-accent: var(--navy);
+
 }
 
-/* secondary - coral, sand, navy */
+/* secondary */
 .theme-secondary {
-	--color-dark-bg: var(--coral-100);
-    --color-dark-heading: var(--sand-100);
+    
+    /* dark */
+    --color-dark-bg: var(--coral);
+    --color-dark-heading: var(--sand);
     --color-dark-text: var(--white);
-	--color-light-bg: var(--sand-100);
-    --color-light-heading: var(--navy-100);
-    --color-light-text: var(--navy-100);
-    --color-accent: var(--coral-100);
+    --color-dark-accent: var(--navy-120);
+
+    /* light */
+    --color-light-bg: var(--sand);
+    --color-light-heading: var(--coral);
+    --color-light-text: var(--navy);
+    --color-light-accent: var(--coral);
+
+    /* pale */
+    --color-pale-bg: var(--coral-020);
+    --color-pale-heading: var(--navy);
+    --color-pale-text: var(--navy);
+    --color-pale-accent: var(--coral);
+
+    /* stark */
+    --color-stark-bg: var(--white);
+    --color-stark-heading: var(--coral);
+    --color-stark-text: var(--navy);
+    --color-stark-accent: var(--coral);
+
+    /* loud */
+    --color-loud-bg: var(--navy-120);
+    --color-loud-heading: var(--coral);
+    --color-loud-text: var(--white);
+    --color-loud-accent: var(--coral);
+
 }
 
-/* tertiary - monochrome */
+/* tertiary */
 .theme-tertiary {
+    
+    /* dark */
+    --color-dark-bg: var(--navy-140);
+    --color-dark-heading: var(--white);
+    --color-dark-text: var(--white);
+    --color-dark-accent: var(--coral);
+
+    /* light */
+    --color-light-bg: var(--navy-040);
+    --color-light-heading: var(--navy);
+    --color-light-text: var(--navy);
+    --color-light-accent: var(--white);
+
+    /* pale */
+    --color-pale-bg: var(--navy-010);
+    --color-pale-heading: var(--navy);
+    --color-pale-text: var(--navy);
+    --color-pale-accent: var(--coral);
+
+    /* stark */
+    --color-stark-bg: var(--white);
+    --color-stark-heading: var(--navy);
+    --color-stark-text: var(--navy);
+    --color-stark-accent: var(--coral);
+
+    /* loud */
+    --color-loud-bg: var(--coral);
+    --color-loud-heading: var(--white);
+    --color-loud-text: var(--white);
+    --color-loud-accent: var(--navy-160);
+}
+
+/* monotone */
+.theme-monotone {
+    
+    /* dark */
     --color-dark-bg: var(--slate-140);
     --color-dark-heading: var(--slate-010);
     --color-dark-text: var(--slate-010);
-    --color-light-bg: var(--white);
-    --color-light-heading: var(--navy-100);
-    --color-light-text: var(--navy-100);
-    --color-accent: var(--coral-100);
+    --color-dark-accent: var(--coral);
+
+    /* light */
+    --color-light-bg: var(--slate-040);
+    --color-light-heading: var(--slate-160);
+    --color-light-text: var(--slate-160);
+    --color-light-accent: var(--coral);
+
+    /* pale */
+    --color-pale-bg: var(--slate-010);
+    --color-pale-heading: var(--slate-160);
+    --color-pale-text: var(--slate-160);
+    --color-pale-accent: var(--coral);
+
+    /* stark */
+    --color-stark-bg: var(--white);
+    --color-stark-heading: var(--slate-160);
+    --color-stark-text: var(--slate-160);
+    --color-stark-accent: var(--coral);
+    
+    /* loud */
+    --color-loud-bg: var(--coral);
+    --color-loud-heading: var(--white);
+    --color-loud-text: var(--white);
+    --color-loud-accent: var(--slate-140);
 }
 
-/* light and dark styles */
+/* styles */
 
-/* set bg and text colors to those defined by theme and style */
+/* default and dark */
+:root, .style-dark {
+	--color-bg: var(--color-dark-bg);
+    --color-heading: var(--color-dark-heading);
+    --color-text: var(--color-dark-text);
+    --color-accent: var(--color-dark-accent);
+}
+
+/* light */
 .style-light {
-    background-color: var(--color-light-bg);
-    color: var(--color-light-text);
-}
-.style-dark {
-	background-color: var(--color-dark-bg);
-    color: var(--color-dark-text);
-}
-/* accent style is same as light, but with accent headings */
-.style-accent {
-	background-color: var(--color-light-bg);
-    color: var(--color-light-text);
+	--color-bg: var(--color-light-bg);
+    --color-heading: var(--color-light-heading);
+    --color-text: var(--color-light-text);
+    --color-accent: var(--color-light-accent);
 }
 
-/* set heading colors to those defined by theme and style */
-.style-light h1, .style-light h2, .style-light h3, .style-light h4, .style-light h5, .style-light h6, .style-light [class^="heading-"] {
-	color: var(--color-light-heading);
+/* pale */
+.style-pale {
+	--color-bg: var(--color-pale-bg);
+    --color-heading: var(--color-pale-heading);
+    --color-text: var(--color-pale-text);
+    --color-accent: var(--color-pale-accent);
 }
-.style-dark h1, .style-dark h2, .style-dark h3, .style-dark h4, .style-dark h5, .style-dark h6, .style-dark [class^="heading-"] {
-	color: var(--color-dark-heading);
+
+/* stark */
+.style-stark {
+	--color-bg: var(--color-stark-bg);
+    --color-heading: var(--color-stark-heading);
+    --color-text: var(--color-stark-text);
+    --color-accent: var(--color-stark-accent);
 }
-.style-accent h1, .style-accent h2, .style-accent h3, .style-accent h4, .style-accent h5, .style-accent h6, .style-accent [class^="heading-"] {
-	color: var(--color-accent);
+
+/* loud */
+.style-loud {
+	--color-bg: var(--color-loud-bg);
+    --color-heading: var(--color-loud-heading);
+    --color-text: var(--color-loud-text);
+    --color-accent: var(--color-loud-accent);
 }
 
 
@@ -109,13 +234,19 @@
 
 /* text colors */
 
+/* TO DO - REVIEW ABSTRACTIONS */
+
+/* accent color is defined by theme/style */
 .text-color-accent {
 	color: var(--color-accent);
 }
+/* primary color defined by theme/style, and is theme/style heading */
 .text-color-primary {
-    color: 
+    color: var(--color-heading);
 }
 
+
+/* standard text color styles */
 
 .text-color-magenta {
     color: var(--magenta);
@@ -235,7 +366,7 @@
     color: var(--coral-180);
 }
 
-    /* background colors */
+/* background colors */
 
 .bg-color-magenta {
     background-color: var(--magenta);
