@@ -189,8 +189,8 @@
 
 /* styles */
 
-/* default and dark */
-:root, .style-dark {
+/* dark */
+.style-dark {
 	--color-bg: var(--color-dark-bg);
     --color-heading: var(--color-dark-heading);
     --color-text: var(--color-dark-text);
@@ -213,8 +213,8 @@
     --color-accent: var(--color-pale-accent);
 }
 
-/* stark */
-.style-stark {
+/* default and stark */
+:root, .style-stark {
 	--color-bg: var(--color-stark-bg);
     --color-heading: var(--color-stark-heading);
     --color-text: var(--color-stark-text);
