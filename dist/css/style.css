@@ -1,0 +1,1239 @@
+/* -- RESET.CSS -- */
+
+	/* based on Andy Bell and Josh Comeau's resets
+  https://piccalil.li/blog/a-modern-css-reset/
+  https://www.joshwcomeau.com/css/custom-css-reset/
+  */
+
+  *, *::before, *::after {
+      box-sizing: border-box;
+    }
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd,
+  img,
+  li,
+  ul,
+  ol {
+      margin: 0;
+      font-size: 1rem; /* set consistent "flow" spacing for all elements - see the utilities section for more details */
+  }
+  html, body {
+      height: 100%;
+  }
+  body {
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+  }
+  img, picture, video, canvas, svg {
+      display: block;
+      max-width: 100%;
+  }
+  input, button, textarea, select {
+      font: inherit;
+  }
+  p, h1, h2, h3, h4, h5, h6 {
+      overflow-wrap: break-word;
+  }
+  a:not([class]) {
+      text-decoration-skip-ink: auto;
+    }
+  
+
+  
+
+/* -- COLORS.CSS -- */
+
+/* Colors */
+:root {
+    --magenta: #FF00FF;
+    --white: #FFFFFF;
+    --black: #000000;
+    --navy-010: #E6E9EB;
+    --navy-020: #CCD3D7;
+    --navy-040: #99A8AF;
+    --navy-060: #667D87;
+    --navy-080: #33525F;
+    --navy-100: #002637;
+    --navy-120: #001E2C;
+    --navy-140: #001721;
+    --navy-160: #000F16;
+    --navy-180: #00080B;
+    --sand-060: #FFF8EC;
+    --sand-100: #FFF4E0;
+    --sand-110: #E6DCCA;
+    --sand-120: #CCC3B3;
+    --sand-140: #999286;
+    --sand-160: #66625A;
+    --sand-180: #33312D;
+    --slate-010: #EFF0F0;
+    --slate-020: #D5D7D8;
+    --slate-040: #B9BEC1;
+    --slate-060: #808D93;
+    --slate-080: #65747B;
+    --slate-100: #4C5B61;
+    --slate-120: #364045;
+    --slate-140: #1F2528;
+    --slate-160: #090B0B;
+    --coral-010: #FDEEEF;
+    --coral-020: #FBDCDE;
+    --coral-040: #F6B9BD;
+    --coral-060: #F2969C;
+    --coral-080: #ED737B;
+    --coral-100: #E9505A;
+    --coral-120: #BA4048;
+    --coral-140: #8C3036;
+    --coral-160: #5D2024;
+    --coral-180: #2F1012;
+    
+    /* basic aliases for key colors */
+    --navy: var(--navy-100);
+    --sand: var(--sand-100);
+    --coral: var(--coral-100);
+    --slate: var(--slate-100);
+}
+
+/* themes */
+
+/* default and primary */
+:root, .theme-primary { 
+
+    /* dark */
+    --color-dark-bg: var(--navy);
+    --color-dark-heading: var(--sand);
+    --color-dark-text: var(--white);
+    --color-dark-accent: var(--coral);
+
+    /* light */
+    --color-light-bg: var(--sand);
+    --color-light-heading: var(--navy);
+    --color-light-text: var(--navy);
+    --color-light-accent: var(--coral);
+
+    /* pale */
+    --color-pale-bg: var(--navy-010);
+    --color-pale-heading: var(--navy);
+    --color-pale-text: var(--navy);
+    --color-pale-accent: var(--coral);
+
+    /* stark */
+    --color-stark-bg: var(--white);
+    --color-stark-heading: var(--navy);
+    --color-stark-text: var(--navy);
+    --color-stark-accent: var(--coral);
+
+    /* loud */
+    --color-loud-bg: var(--coral);
+    --color-loud-heading: var(--sand);
+    --color-loud-text: var(--white);
+    --color-loud-accent: var(--navy);
+
+}
+
+/* secondary */
+.theme-secondary {
+    
+    /* dark */
+    --color-dark-bg: var(--coral);
+    --color-dark-heading: var(--sand);
+    --color-dark-text: var(--white);
+    --color-dark-accent: var(--navy-120);
+
+    /* light */
+    --color-light-bg: var(--sand);
+    --color-light-heading: var(--coral);
+    --color-light-text: var(--navy);
+    --color-light-accent: var(--coral);
+
+    /* pale */
+    --color-pale-bg: var(--coral-020);
+    --color-pale-heading: var(--navy);
+    --color-pale-text: var(--navy);
+    --color-pale-accent: var(--coral);
+
+    /* stark */
+    --color-stark-bg: var(--white);
+    --color-stark-heading: var(--coral);
+    --color-stark-text: var(--navy);
+    --color-stark-accent: var(--coral);
+
+    /* loud */
+    --color-loud-bg: var(--navy-120);
+    --color-loud-heading: var(--coral);
+    --color-loud-text: var(--white);
+    --color-loud-accent: var(--coral);
+
+}
+
+/* tertiary */
+.theme-tertiary {
+    
+    /* dark */
+    --color-dark-bg: var(--navy-140);
+    --color-dark-heading: var(--white);
+    --color-dark-text: var(--white);
+    --color-dark-accent: var(--coral);
+
+    /* light */
+    --color-light-bg: var(--navy-040);
+    --color-light-heading: var(--navy);
+    --color-light-text: var(--navy);
+    --color-light-accent: var(--white);
+
+    /* pale */
+    --color-pale-bg: var(--navy-010);
+    --color-pale-heading: var(--navy);
+    --color-pale-text: var(--navy);
+    --color-pale-accent: var(--coral);
+
+    /* stark */
+    --color-stark-bg: var(--white);
+    --color-stark-heading: var(--navy);
+    --color-stark-text: var(--navy);
+    --color-stark-accent: var(--coral);
+
+    /* loud */
+    --color-loud-bg: var(--coral);
+    --color-loud-heading: var(--white);
+    --color-loud-text: var(--white);
+    --color-loud-accent: var(--navy-160);
+}
+
+/* monotone */
+.theme-monotone {
+    
+    /* dark */
+    --color-dark-bg: var(--slate-140);
+    --color-dark-heading: var(--slate-010);
+    --color-dark-text: var(--slate-010);
+    --color-dark-accent: var(--coral);
+
+    /* light */
+    --color-light-bg: var(--slate-040);
+    --color-light-heading: var(--slate-160);
+    --color-light-text: var(--slate-160);
+    --color-light-accent: var(--coral);
+
+    /* pale */
+    --color-pale-bg: var(--slate-010);
+    --color-pale-heading: var(--slate-160);
+    --color-pale-text: var(--slate-160);
+    --color-pale-accent: var(--coral);
+
+    /* stark */
+    --color-stark-bg: var(--white);
+    --color-stark-heading: var(--slate-160);
+    --color-stark-text: var(--slate-160);
+    --color-stark-accent: var(--coral);
+    
+    /* loud */
+    --color-loud-bg: var(--coral);
+    --color-loud-heading: var(--white);
+    --color-loud-text: var(--white);
+    --color-loud-accent: var(--slate-140);
+}
+
+/* styles */
+
+/* dark */
+.style-dark {
+	--color-bg: var(--color-dark-bg);
+    --color-heading: var(--color-dark-heading);
+    --color-text: var(--color-dark-text);
+    --color-accent: var(--color-dark-accent);
+}
+
+/* light */
+.style-light {
+	--color-bg: var(--color-light-bg);
+    --color-heading: var(--color-light-heading);
+    --color-text: var(--color-light-text);
+    --color-accent: var(--color-light-accent);
+}
+
+/* pale */
+.style-pale {
+	--color-bg: var(--color-pale-bg);
+    --color-heading: var(--color-pale-heading);
+    --color-text: var(--color-pale-text);
+    --color-accent: var(--color-pale-accent);
+}
+
+/* default and stark */
+:root, .style-stark {
+	--color-bg: var(--color-stark-bg);
+    --color-heading: var(--color-stark-heading);
+    --color-text: var(--color-stark-text);
+    --color-accent: var(--color-stark-accent);
+}
+
+/* loud */
+.style-loud {
+	--color-bg: var(--color-loud-bg);
+    --color-heading: var(--color-loud-heading);
+    --color-text: var(--color-loud-text);
+    --color-accent: var(--color-loud-accent);
+}
+
+
+
+
+/* text colors */
+
+/* TO DO - REVIEW ABSTRACTIONS */
+
+/* accent color is defined by theme/style */
+.text-color-accent {
+	color: var(--color-accent);
+}
+/* primary color defined by theme/style, and is theme/style heading */
+.text-color-primary {
+    color: var(--color-heading);
+}
+
+
+/* standard text color styles */
+
+.text-color-magenta {
+    color: var(--magenta);
+}
+.text-color-white {
+    color: var(--white);
+}
+.text-color-black {
+    color: var(--black);
+}
+.text-color-navy-010 {
+    color: var(--navy-010);
+}
+.text-color-navy-020 {
+    color: var(--navy-020);
+}
+.text-color-navy-040 {
+    color: var(--navy-040);
+}
+.text-color-navy-060 {
+    color: var(--navy-060);
+}
+.text-color-navy-080 {
+    color: var(--navy-080);
+}
+.text-color-navy-100 {
+    color: var(--navy-100);
+}
+.text-color-navy-120 {
+    color: var(--navy-120);
+}
+.text-color-navy-140 {
+    color: var(--navy-140);
+}
+.text-color-navy-160 {
+    color: var(--navy-160);
+}
+.text-color-navy-180 {
+    color: var(--navy-180);
+}
+.text-color-sand-060 {
+    color: var(--sand-060);
+}
+.text-color-sand-100 {
+    color: var(--sand-100);
+}
+.text-color-sand-110 {
+    color: var(--sand-110);
+}
+.text-color-sand-120 {
+    color: var(--sand-120);
+}
+.text-color-sand-140 {
+    color: var(--sand-140);
+}
+.text-color-sand-160 {
+    color: var(--sand-160);
+}
+.text-color-sand-180 {
+    color: var(--sand-180);
+}
+.text-color-slate-010 {
+    color: var(--slate-010);
+}
+.text-color-slate-020 {
+    color: var(--slate-020);
+}
+.text-color-slate-040 {
+    color: var(--slate-040);
+}
+.text-color-slate-060 {
+    color: var(--slate-060);
+}
+.text-color-slate-080 {
+    color: var(--slate-080);
+}
+.text-color-slate-100 {
+    color: var(--slate-100);
+}
+.text-color-slate-120 {
+    color: var(--slate-120);
+}
+.text-color-slate-140 {
+    color: var(--slate-140);
+}
+.text-color-slate-160 {
+    color: var(--slate-160);
+}
+.text-color-coral-010 {
+    color: var(--coral-010);
+}
+.text-color-coral-020 {
+    color: var(--coral-020);
+}
+.text-color-coral-040 {
+    color: var(--coral-040);
+}
+.text-color-coral-060 {
+    color: var(--coral-060);
+}
+.text-color-coral-080 {
+    color: var(--coral-080);
+}
+.text-color-coral-100 {
+    color: var(--coral-100);
+}
+.text-color-coral-120 {
+    color: var(--coral-120);
+}
+.text-color-coral-140 {
+    color: var(--coral-140);
+}
+.text-color-coral-160 {
+    color: var(--coral-160);
+}
+.text-color-coral-180 {
+    color: var(--coral-180);
+}
+
+/* background colors */
+
+.bg-color-magenta {
+    background-color: var(--magenta);
+}
+.bg-color-white {
+    background-color: var(--white);
+}
+.bg-color-black {
+    background-color: var(--black);
+}
+.bg-color-navy-010 {
+    background-color: var(--navy-010);
+}
+.bg-color-navy-020 {
+    background-color: var(--navy-020);
+}
+.bg-color-navy-040 {
+    background-color: var(--navy-040);
+}
+.bg-color-navy-060 {
+    background-color: var(--navy-060);
+}
+.bg-color-navy-080 {
+    background-color: var(--navy-080);
+}
+.bg-color-navy-100 {
+    background-color: var(--navy-100);
+}
+.bg-color-navy-120 {
+    background-color: var(--navy-120);
+}
+.bg-color-navy-140 {
+    background-color: var(--navy-140);
+}
+.bg-color-navy-160 {
+    background-color: var(--navy-160);
+}
+.bg-color-navy-180 {
+    background-color: var(--navy-180);
+}
+.bg-color-sand-060 {
+    background-color: var(--sand-060);
+}
+.bg-color-sand-100 {
+    background-color: var(--sand-100);
+}
+.bg-color-sand-110 {
+    background-color: var(--sand-110);
+}
+.bg-color-sand-120 {
+    background-color: var(--sand-120);
+}
+.bg-color-sand-140 {
+    background-color: var(--sand-140);
+}
+.bg-color-sand-160 {
+    background-color: var(--sand-160);
+}
+.bg-color-sand-180 {
+    background-color: var(--sand-180);
+}
+.bg-color-slate-010 {
+    background-color: var(--slate-010);
+}
+.bg-color-slate-020 {
+    background-color: var(--slate-020);
+}
+.bg-color-slate-040 {
+    background-color: var(--slate-040);
+}
+.bg-color-slate-060 {
+    background-color: var(--slate-060);
+}
+.bg-color-slate-080 {
+    background-color: var(--slate-080);
+}
+.bg-color-slate-100 {
+    background-color: var(--slate-100);
+}
+.bg-color-slate-120 {
+    background-color: var(--slate-120);
+}
+.bg-color-slate-140 {
+    background-color: var(--slate-140);
+}
+.bg-color-slate-160 {
+    background-color: var(--slate-160);
+}
+.bg-color-coral-010 {
+    background-color: var(--coral-010);
+}
+.bg-color-coral-020 {
+    background-color: var(--coral-020);
+}
+.bg-color-coral-040 {
+    background-color: var(--coral-040);
+}
+.bg-color-coral-060 {
+    background-color: var(--coral-060);
+}
+.bg-color-coral-080 {
+    background-color: var(--coral-080);
+}
+.bg-color-coral-100 {
+    background-color: var(--coral-100);
+}
+.bg-color-coral-120 {
+    background-color: var(--coral-120);
+}
+.bg-color-coral-140 {
+    background-color: var(--coral-140);
+}
+.bg-color-coral-160 {
+    background-color: var(--coral-160);
+}
+.bg-color-coral-180 {
+    background-color: var(--coral-180);
+}
+
+
+/* -- TYPOGRAPHY.CSS -- */
+
+/* basic reset */
+body {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text); /* set text colors to those defined by theme and style */ /* TO DO CHECK THIS */
+    background-color: var(--color-bg);
+}
+
+/* define heading weights and line height */
+h1, h2, h3, h4, h5, h6, [class^=heading-] {    
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: var(--color-heading); /* set heading colors to those defined by theme and style */
+}
+
+/* heading and text sizes use a fluid type scale */
+    /* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1140,16,1.25,6,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+:root {
+    --step--3: clamp(0.51rem, calc(0.78rem + -0.37vw), 0.70rem);
+    --step--2: clamp(0.64rem, calc(0.85rem + -0.29vw), 0.79rem);
+    --step--1: clamp(0.80rem, calc(0.92rem + -0.17vw), 0.89rem);
+    --step-0: clamp(1.00rem, calc(1.00rem + 0.00vw), 1.00rem);
+    --step-1: clamp(1.13rem, calc(1.08rem + 0.24vw), 1.25rem);
+    --step-2: clamp(1.27rem, calc(1.15rem + 0.58vw), 1.56rem);
+    --step-3: clamp(1.42rem, calc(1.22rem + 1.03vw), 1.95rem);
+    --step-4: clamp(1.60rem, calc(1.27rem + 1.64vw), 2.44rem);
+    --step-5: clamp(1.80rem, calc(1.31rem + 2.44vw), 3.05rem);
+    --step-6: clamp(2.03rem, calc(1.33rem + 3.49vw), 3.82rem);
+}
+
+    /* set font sizes for each heading element and class, based on fluid scale. We also add a fallback value based on the max size of the clamp for that step */
+.heading-xxl {
+    font-size: var(--step-6, 3.82rem);  
+}
+h1, .heading-xl {
+    font-size: var(--step-5, 3.05rem);
+}
+h2, .heading-l {
+    font-size: var(--step-4, 2.44rem);
+}
+h3, .heading-m {
+    font-size: var(--step-3, 1.95rem);
+}
+h4, .heading-s {
+    font-size: var(--step-2, 1.56rem);
+}
+h5, .heading-xs {
+    font-size: var(--step-1, 1.25rem);
+}
+h6, .heading-xxs {
+    font-size: var(--step-0, 1.00rem);
+}
+
+/* set font sizes for each text-size class */
+.text-size-l {
+    font-size: var(--step-2, 1.56rem);
+    line-height: 1.2; /* also adjust line height since text is now large */
+}
+.text-size-m {
+    font-size: var(--step-1, 1.25rem); 
+}
+.text-size-reg {
+    font-size: var(--step-0, 1.00rem);
+}
+.text-size-s {
+    font-size: var(--step--1, 0.89rem);
+}
+.text-size-xs {
+    font-size: var(--step--2, 0.79rem);
+}
+.text-size-xxs {
+    font-size: var(--step--3, 0.70rem);
+}
+
+/* caps styling */
+[class^="caps-"] {
+    font-weight: 500;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.caps-l {
+        font-size: var(--step-2, 1.56rem);
+}
+.caps-m {
+        font-size: var(--step-0, 1.00rem);
+}
+.caps-s {
+        font-size: var(--step--1, 0.89rem);
+}
+
+/* links */
+
+/* links in headings inherit parent styling */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, [class^="heading-"] a {
+    color: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    text-decoration: inherit;
+}
+
+/* set underline color for links */
+a, .text-style-link {
+        color: var(--color-accent);
+        text-decoration-color: var(--color-accent);
+}
+
+/* add underlines to links inside headings on hover */
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, [class^="heading-"] a:hover, .hover-underline:hover {
+        text-decoration: underline;
+}
+
+/* lists */
+
+/* custom bullet point color*/
+li::marker {
+    color: var(--color-accent);
+    }
+
+/* hack support for nested list elements in RT */
+.sub-bullet {
+    margin-left: 16px;
+}
+.sub-bullet-2 {
+    margin-left: 32px;
+}
+@media (max-width: 767px) {
+    .sub-bullet {
+    margin-left: 12px;
+    }
+    .sub-bullet-2 {
+    margin-left: 24px;
+    }
+}
+
+/* quotes */
+blockquote, text-style-quote {
+    border-left-color: var(--color-accent);
+}
+
+
+
+
+/* make unstyled links inside hero elements or on dark backgrounds (ie those in rich text, not buttons or nav links) accent */
+/*.hero a:not([class]), 
+.style-dark a:not([class]), 
+.text-color-accent a:not([class]),
+.text-color-white a:not([class]),
+.text-color-white [class="text-style-link"] {
+        color:var(--color-accent);
+}/
+
+/* white links on hover go accent, except those in buttons */
+/*a.text-color-white:not(.button):not(.icon-button):hover, 
+.text-color-white a:not(.button):not(.icon-button):hover {
+        color: var(--color-accent);
+}*/
+
+/* if an ancestor of a heading or blockquote element has a text color set, use that instead of the default element color... */
+/*[class*="text-color-"] h1,
+[class*="text-color-"] h2,
+[class*="text-color-"] h3,
+[class*="text-color-"] h4,
+[class*="text-color-"] h5,
+[class*="text-color-"] h6,
+[class*="text-color-"] blockquote,
+[class*="text-color-"] [class*="heading-"],
+[class*="text-color-"] [class="text-style-quote"] {
+        color: unset;
+}*/
+
+/* ...but, make blockquotes accent on dark bgs */ 
+/*.text-color-white blockquote,
+.text-color-white [class="text-style-quote"] {
+        color: var(--color-accent);
+}*/
+    
+    /* colored text spans */
+    /*.colored-bold strong {
+        color: var(--color-accent);
+    }*/
+
+
+
+    
+
+
+
+/* -- LINKS.CSS -- */
+
+		/* hide empty buttons with no text content when NOT in Designer or Editor */
+    /* buttons are then still editable in Designer / Editor */
+    /* exclude buttons with a type attribute so we don't hide form buttons */
+    /* EDIT - it turns out that empty button elements are NOT editable in the Editor. Gah. So we're hiding these in the Editor too, and they can only be modified in the Designer */
+		/*html:not(.wf-design-mode):not(.w-editor) .button:not([type]):empty {*/
+    /* html:not(.wf-design-mode) .button:not([type]):empty {
+    		display: none;
+  	} */
+    
+    /* fake rich text buttons */
+    /* .rich-button {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+        flex-gap: 1rem;
+        grid-gap: 1rem;
+        border: none;
+        padding: 0px;
+    }
+    .rich-button > p > a {
+    		color: inherit !important;
+        padding: 0.78em 2.11em;
+    		justify-content: center;
+    		align-items: center;
+    		border-style: solid;
+    		border-width: 2px;
+    		border-color: var();
+	    	border-radius: 1em;
+        transition-property: transform, border-color, color, background-color;
+    		transition-duration: 200ms, 200ms, 200ms, 200ms;
+    		transition-timing-function: ease, ease, ease, ease;
+    		color: var();
+    		font-size: 1.125rem;
+    		line-height: 1;
+    		font-weight: 700;
+    		text-align: center;
+    		letter-spacing: -0.01em;
+    		text-decoration: none;
+    		cursor: pointer;
+        display: block;
+    }
+    .rich-button > p {
+        --flow-space: 0em !important;
+    }
+    .rich-button:before {
+    		content: "";
+        display: none;
+  	} */
+
+	
+
+/* -- ICONS.CSS -- */
+/* -- DEV.CSS -- */
+
+:root {
+  --dev-grey: #404040;
+  --dev-lightgrey: #d9d9d9;
+  --dev-blue: #0073e6;
+}
+
+/* code symbol styling */
+
+/* code button */
+html.wf-design-mode div.dev-code {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  background-color: var(--dev-grey);
+  padding: 8px;
+  z-index: 9999;
+  min-width: 100px;
+  color: var(--dev-lightgrey);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-size: 14px;
+}
+/* code button label */
+html.wf-design-mode div.dev-code:before {
+  content: "Code";
+  background-image: url('https://uploads-ssl.webflow.com/62435b1e7e77308254208011/6249a3b53d38112e5d08dc8c_wf-icon-code.svg');
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
+  background-size: 12px 12px;
+  padding-left: 18px;
+  pointer-events: none;
+  }
+/* child embeds */
+html.wf-design-mode div.dev-code .w-embed {
+  padding: 6px;
+  margin: 6px 0px;
+  display: none;
+  border: 2px solid var(--dev-blue);
+  border-radius: 4px;
+  text-transform: capitalize;
+  }
+/* child labels */
+html.wf-design-mode div.dev-code .w-embed::before {
+  content: attr(data-code-name);
+}
+/* show child embeds on parent hover */
+html.wf-design-mode div.dev-code:hover .w-embed {
+  display: block;
+  }
+/* hover behaviour on child embeds */
+html.wf-design-mode div.dev-code .w-embed:hover {
+  background-color: var(--dev-blue);
+  cursor: pointer;
+  }
+
+
+
+/* Add a baseline grid to a page or element */
+.dev-baseline-grid {
+    background-image:linear-gradient(to bottom,rgba(0,170,255,.3)
+    1px,transparent 1px);
+    background-position: left top;
+    background-repeat: repeat;
+    background-size: 100% 24px; /* Replace with your line height*/
+    pointer-events: none;
+    }
+
+/* column overlay */
+.dev-grid {
+		pointer-events: none;
+    }
+
+
+/* add common viewport overlays */
+
+/* hide viewports and parent wrapper when not in Designer */
+html:not(.wf-design-mode) [class^="dev-vp"], html:not(.wf-design-mode) .dev-viewports {
+    display: none !important;
+  }
+/* remove pointer events on viewports and parent wrapper */
+html.wf-design-mode [class^="dev-vp"], html:not(.wf-design-mode) .dev-viewports {
+    pointer-events: none;
+}
+/* add styling to all viewports */
+html.wf-design-mode [class^="dev-vp"] {
+    pointer-events: none;
+    z-index: 999;
+    margin: 0 auto;
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    outline: 2px solid var(--dev-blue) !important;	/* we need important to override the default .wf-empty style */
+  }
+/* set the default for viewports to be hidden. The :where selector has a zero specificity, which allows us to then override the display style with the Webflow UI controls */
+:where([class^="dev-vp"]) {
+  display: none;
+}
+/* show viewport labels below viewport */
+html.wf-design-mode [class^="dev-vp"]:before {
+  content: var(--vp-name, attr(class));
+  color: white;
+  font-size: 10px;
+  line-height: 1.2;
+  padding: 4px;
+  background-color: var(--dev-blue);
+  display: inline-block;
+  position: absolute;
+  bottom: calc(0px - (10px * 1.2) - 10px);
+  outline: 2px solid var(--dev-blue);
+}
+/* set viewport element sizes */
+@media only screen and (min-width: 1px) { 
+  .dev-vp--1440 {
+    --vp-name: "1440 x 1024";
+    width: 1440px;
+    height: 1024px;
+  }
+  .dev-vp--1366 {
+    --vp-name: "1366 x 768";
+    width: 1336px;
+    height: 768px;
+  }
+  .dev-vp--1280 {
+    --vp-name: "1280 x 720";
+    width: 1280px;
+    height: 720px;
+  }
+  .dev-vp--iphone-se {
+    --vp-name: "iPhone SE";
+    width: 320px;
+    height: 568px;
+  }
+  .dev-vp--iphone-13-mini {
+    --vp-name: "iPhone 13 Mini";
+    width: 375px;
+    height: 812px;
+  }
+  .dev-vp--iphone-13-pro-max {
+    --vp-name: "iPhone 13 Pro Max";
+    width: 428px;
+    height: 926px;
+  }
+  .dev-vp--iphone-13 {
+    --vp-name: "iPhone 13";
+    width: 390px;
+    height: 844px;
+  }
+  .dev-vp--android-small {
+    --vp-name: "Android 360 x 640";
+    width: 360px;
+    height: 640px;
+  }
+  .dev-vp--android-large {
+    --vp-name: "Android 360 x 800";
+    width: 360px;
+    height: 800px;
+  }
+  .dev-vp--ipad-mini-83 {
+    --vp-name: "iPad mini 8.3";
+    width: 744px;
+    height: 1133px;
+  }
+  .dev-vp--ipad-pro-11 {
+    --vp-name: "iPad Pro 11";
+    width: 834px;
+    height: 1194px;
+  }
+  .dev-vp--surface-pro-8 {
+    --vp-name: "Surface Pro 8";
+    width: 1440px;
+    height: 960px;
+  }
+
+}
+/* sadly this doesn't work - there is a proposal to allow the attr() function to work with non-string values such as px values, but zero support so far - would have allowed for viewports to be defined using HTML attributes only, rather than classes */
+/*html.wf-design-mode .dev-vp {
+  width: attr(vp-width px);
+  height: attr(vp-height px);
+}*/
+/*html.wf-design-mode .dev-vp:before {
+  content: attr(vp-name);
+}*/
+
+
+    
+/* show different elements in different environments */
+
+/* use in combination with .hidden, which applies display: none !important; */
+/* use on a wrapper element to clashes with other desired display values (eg flex) */
+        
+/* show on Staging domain */
+html[data-wf-domain*="webflow.io"] .dev-show-staging {
+    display: block !important;
+}
+
+/* hide on Staging domain */
+    html[data-wf-domain*="webflow.io"] .dev-hide-staging {
+    display: none !important;
+}
+
+/* show in Designer */
+html.wf-design-mode .dev-show-designer {
+    display: block !important;
+}
+
+/* hide in Designer */
+html.wf-design-mode .dev-hide-designer {
+    display: none !important;
+}
+
+/* show in Editor (includes viewing live site while logged into Editor) */
+html.w-editor .dev-show-editor-all {
+    display: block !important;
+}
+
+/* hide in Editor (includes viewing live site while logged into Editor) */
+html.w-editor .dev-hide-editor-all {
+    display: none !important;
+}
+
+/* show in Editor */
+html.w-editor .w-editor-edit-fade-in .dev-show-editor {
+    display: block !important;
+}
+
+/* hide in Editor */
+html.w-editor .w-editor-edit-fade-in .dev-hide-editor {
+    display: block !important;
+}
+
+/* 
+we could also take a different approach and use an attribute selector to style all classes starting with a certain string, for example: 
+html.wf-design-mode [class^="designer-"] {
+    display: block !important;
+}
+*/
+
+
+
+/* reduce default min height of empty embeds */
+html.wf-design-mode .w-embed:empty {
+  min-height: 24px;  
+}
+
+
+
+/* display style names on Style Guide page */
+
+/*
+
+.style__classes, .style__classes [class^="style__"] {
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: 1fr;
+}
+
+.style__classes > div, .style__classes [class^="style__"] > div {
+	xmargin-bottom: 3rem;
+  }
+
+.style__classes div:not([class^="style__"]) {
+	all: initial; // reset all properties so we can see all divs
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  outline: 1px solid var(--dev-lightgrey);
+  background-color: var(--dev-lightgrey);
+  min-height: 24px;
+  position: relative;
+}
+.style__classes div:not([class^="style__"]):before {
+  content: attr(class);
+  color: white;
+  font-size: 12px;
+  line-height: 1.2;
+  padding: 4px;
+  background-color: var(--dev-grey);
+  display: inline-block;
+  position: absolute;
+  top: calc( -1.2em - 10px);
+  outline: 1px solid var(--dev-grey);
+}
+
+
+/* highlight images without alt text in Editor */
+/* html.w-editor .w-editor-edit-fade-in img:not([alt]) {
+  outline: solid rgb(255 0 255 / 1) 4px;
+  outline-offset: -4px;
+} 
+
+*/
+
+/* style empty cols in Stylesheet */
+[class*="style"] [class*="col-"] {
+	min-height: 40px;
+  outline: 1px solid var(--pink);
+  position: relative;
+  }
+[class*="style"] [class*="col-"]::after {
+	content: attr(class);
+  color: var(--dev-grey);
+  font-size: 10px;
+  line-height: 1;
+  padding: 4px;
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  }
+/* -- EDITOR.CSS -- */
+
+    /* Add min-height to editable text elements so that Editor can still edit them even if empty */
+    h1, h2, h3, h4, h5, h6, p, quote, li {
+        min-height: 5px;
+      }
+
+/* -- UTILITIES.CSS -- */
+
+/* hides from user, but not from screen readers */
+.visually-hidden:not(:focus):not(:active) {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+}
+
+/* hide from all */
+[hidden], .hidden {
+    display: none !important;
+}
+
+/* applies flow spacing to .flow and rich elements */
+/* we exclude elements following .eyebrow text, since we want this .eyebrow text to sit closely */
+/* the class no-flow also allows us to exclude specific elements */
+.flow > *:not([class*="eyebrow"]) + *:not(.no-flow),
+.rich > *:not([class*="eyebrow"]) + *:not(.no-flow), 
+.flow li + li, /* add flow between descendent list items */
+.rich li + li,
+.flow-all *:not([class*="eyebrow"]):not(.no-flow) + * /* add recursively to all descendents */
+{
+margin-top: var(--flow-space, 1em); 
+}
+/* define default flow-space */
+.flow, .flow-all, .rich {
+    --flow-space: 1em; 
+}
+/* increase flow spacing above buttons to give greater separation from rest of content */
+.button, .button-row {
+    --flow-space: 2em;
+}
+/* remove space above a button following another button */
+.flow-all .button + .button {
+    margin-top: 0px;
+}
+.no-flow {
+    --flow-space: 0px !important; 
+}
+
+
+/* flow gap for horizontal layouts */
+.row.flow-gap {
+    gap: var(--flow-space, 1em); 
+}
+
+/* full width element */
+.full-bleed {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+/* no margin */
+/* use with care */
+.nomargin-top {
+    margin-top: 0px !important;
+}
+.nomargin-bottom {
+    margin-bottom: 0px !important;
+}
+.nomargin {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+/* no pointer events */
+.no-pointer-events {
+    pointer-events: none;
+}
+
+/* relative */
+.relative {
+    position: relative;
+}
+
+/* absolute */
+.absolute {
+    position: absolute;
+}
+
+
+/* -- COMPONENTS.CSS -- */
+
+    
+    
+    
+    /* add commas between taglist items */
+    /* .taglist__item:not(:last-child):after {
+        content: ",";
+        display: inline-block;
+        color: white;
+    } */
+      
+    /* colored tint */
+    /* .client-list__img {
+    		-webkit-filter: saturate(0%);
+    		filter: saturate(0%);
+    		filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.289 0.289 0.289 0 0.133 0.271 0.271 0.271 0 0.188 0.212 0.212 0.212 0 0.365 0 0 0 1 0'/></filter></svg>#grayscale");
+        } */
+    /* fix for Safari as poor implementation of SVG filters */
+    /* https://github.com/Fyrd/caniuse/issues/3803 */
+    /* https://www.bram.us/2021/06/23/css-at-supports-rules-to-target-only-firefox-safari-chromium/#safari */
+    	/* @supports (background: -webkit-named-image(i)) {
+        .client-list__img {
+            -webkit-filter: saturate(0%) !important;
+            filter: saturate(0%) !important;
+            }
+      } */
+    
+    
+	/* remove focus outline on sections in Safari */
+    .sect:focus, .section-id:focus {
+    		outline: none;
+    }
+    
+    
+    /* expand size of lighbox video player. WF lightbox controls occupy left/right 5% */
+    .w-lightbox-frame, .w-lightbox-embed {
+        width: 90vw;
+        height: 90vh;
+    }
+    
+	
+
