@@ -1,0 +1,7 @@
+/* -- FORMS.CSS -- */
+
+:root {
+    --form-control-color: var(--color-accent);
+}
+
+/* https://moderncss.dev/pure-css-custom-checkbox-style/ */

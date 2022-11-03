@@ -1,5 +1,72 @@
 /* -- COMPONENTS.CSS -- */
 
+/* page navbar */
+.page-navbar {
+    background-color: var(--color-light-bg);
+    color: var(--color-light-text);
+}
+
+/* panel */
+.panel:not[class^=style] {
+    background-color: var(--color-light-bg);
+    color: var(--color-light-text);
+}
+
+
+/* tags */
+.tag-members, .tag-open {
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    color: var(--white);
+    font-size: 0.6rem;
+    line-height: 100%;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: default;
+}
+  
+.tag-open {
+    background-color: var(--navy-080);
+}
+.tag-members {
+    background-color: var(--coral);
+}
+  
+.tag-members::after {
+    content: "Members";
+}
+.tag-open::after {
+    content: "Free to access";
+}
+.tag-members::before, .tag-open::before {
+    content: ' ';
+    background-size: 1em 1em;
+    height: 1em;
+    width: 1em;
+    display: inline-block;
+    margin-right: 1em;
+    position: relative;
+    top: 0.1em;
+}
+.tag-members::before {
+    background-image: url("https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/6232180a378e375eb73eb6b6_icon-lock.svg");
+}
+.tag-open::before {
+    background-image: url("https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/62321cdc8499f54243b06c4b_icon-unlock.svg");
+}
+
+
+
+
+
+
+
+
+
+
+
     
     
     

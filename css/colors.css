@@ -131,16 +131,16 @@
     --color-dark-accent: var(--coral);
 
     /* light */
-    --color-light-bg: var(--navy-040);
+    --color-light-bg: var(--navy-010);
     --color-light-heading: var(--navy);
     --color-light-text: var(--navy);
-    --color-light-accent: var(--white);
+    --color-light-accent: var(--coral);
 
     /* pale */
-    --color-pale-bg: var(--navy-010);
+    --color-pale-bg: var(--navy-040);
     --color-pale-heading: var(--navy);
     --color-pale-text: var(--navy);
-    --color-pale-accent: var(--coral);
+    --color-pale-accent: var(--white);
 
     /* stark */
     --color-stark-bg: var(--white);
@@ -165,13 +165,13 @@
     --color-dark-accent: var(--coral);
 
     /* light */
-    --color-light-bg: var(--slate-040);
+    --color-light-bg: var(--slate-010);
     --color-light-heading: var(--slate-160);
     --color-light-text: var(--slate-160);
     --color-light-accent: var(--coral);
 
     /* pale */
-    --color-pale-bg: var(--slate-010);
+    --color-pale-bg: var(--slate-040);
     --color-pale-heading: var(--slate-160);
     --color-pale-text: var(--slate-160);
     --color-pale-accent: var(--coral);
@@ -234,18 +234,34 @@
 
 
 
-/* text colors */
-
-/* TO DO - REVIEW ABSTRACTIONS */
+/* set defaults */
 
 /* accent color is defined by theme/style */
 .text-color-accent {
 	color: var(--color-accent);
 }
-/* primary color defined by theme/style, and is theme/style heading */
-.text-color-primary {
-    color: var(--color-heading);
+
+/* default stylings to all themed and styled elements */
+[class~="style-dark"], 
+[class~="style-light"], 
+[class~="style-stark"], 
+[class~="style-loud"],
+[class~="style-pale"],  
+[class~="theme-primary"], 
+[class~="theme-secondary"], 
+[class~="theme-tertiary"],
+[class~="theme-monochrome"] {
+    /* color will cascade to descendents */
+    color: var(--color-text); 
+    /* bg color does not cascade */ 
+    background-color: var(--color-bg); 
 }
+
+/* default heading color */
+h1, h2, h3, h4, h5, h6, [class^="heading-"] {    
+    color: var(--color-heading); 
+}
+
 
 
 /* standard text color styles */
@@ -258,6 +274,18 @@
 }
 .text-color-black {
     color: var(--black);
+}
+.text-color-navy {
+    color: var(--navy);
+}
+.text-color-sand {
+    color: var(--sand);
+}
+.text-color-slate {
+    color: var(--slate);
+}
+.text-color-coral {
+    color: var(--coral);
 }
 .text-color-navy-010 {
     color: var(--navy-010);
@@ -378,6 +406,18 @@
 }
 .bg-color-black {
     background-color: var(--black);
+}
+.bg-color-navy {
+    background-color: var(--navy);
+}
+.bg-color-sand {
+    background-color: var(--sand);
+}
+.bg-color-slate {
+    background-color: var(--slate);
+}
+.bg-color-coral {
+    background-color: var(--coral);
 }
 .bg-color-navy-010 {
     background-color: var(--navy-010);

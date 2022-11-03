@@ -11,11 +11,13 @@ function css() {
             "colors.css",
             "typography.css",
             "links.css",
+            "forms.css",
             "icons.css",
             "dev.css",
             "editor.css",
             "utilities.css",
-            "components.css"
+            "components.css",
+            "styleguide.css"
             ]))
             .pipe(concat('style.css'))
             .pipe(gulp.dest('dist/css'))
@@ -27,7 +29,8 @@ function watch() {
     browserSync.init({
         server: {
             baseDir: './'
-        }
+        },
+        open: false
     });
     /* when css files change, run css compiler */
     gulp.watch('css/*.css', css);

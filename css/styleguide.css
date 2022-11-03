@@ -1,0 +1,63 @@
+/* -- STYLEGUIDE.CSS -- */
+
+.styles-wrapper [class^="style-"] {
+    padding: 1rem;
+}
+
+.styles-text-colors .wf-empty, .styles-bg-colors .wf-empty {
+    outline: none !important;
+    box-shadow: none !important;
+    padding: none;
+    font-size: unset;
+    line-height: unset;
+    vertical-align: top;
+}
+
+.styles-text-colors > div, .styles-bg-colors > div {
+    display: relative;
+    padding: 0.5rem;
+}
+.styles-text-colors > div:after {
+    content: attr(class);
+}
+.styles-bg-colors > div:after {
+    content: attr(class);
+}
+
+/* display style names on Style Guide page */
+
+/*
+
+.style__classes, .style__classes [class^="style__"] {
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: 1fr;
+}
+
+.style__classes > div, .style__classes [class^="style__"] > div {
+	xmargin-bottom: 3rem;
+  }
+
+.style__classes div:not([class^="style__"]) {
+	all: initial; // reset all properties so we can see all divs
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  outline: 1px solid var(--dev-lightgrey);
+  background-color: var(--dev-lightgrey);
+  min-height: 24px;
+  position: relative;
+}
+.style__classes div:not([class^="style__"]):before {
+  content: attr(class);
+  color: white;
+  font-size: 12px;
+  line-height: 1.2;
+  padding: 4px;
+  background-color: var(--dev-grey);
+  display: inline-block;
+  position: absolute;
+  top: calc( -1.2em - 10px);
+  outline: 1px solid var(--dev-grey);
+}
+*/

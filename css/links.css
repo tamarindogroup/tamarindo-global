@@ -1,5 +1,29 @@
 /* -- LINKS.CSS -- */
 
+.button {
+  background-color: var(--color-heading);
+  border-color: var(--color-heading);
+  color: var(--color-bg);
+}
+
+.button--outline {
+  background-color: transparent;
+  border-color: var(--color-heading);
+  color: var(--color-heading);
+}
+
+.button--accent {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.button--accent-outline {
+  background-color: transparent;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
 		/* hide empty buttons with no text content when NOT in Designer or Editor */
     /* buttons are then still editable in Designer / Editor */
     /* exclude buttons with a type attribute so we don't hide form buttons */

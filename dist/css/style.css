@@ -184,16 +184,16 @@
     --color-dark-accent: var(--coral);
 
     /* light */
-    --color-light-bg: var(--navy-040);
+    --color-light-bg: var(--navy-010);
     --color-light-heading: var(--navy);
     --color-light-text: var(--navy);
-    --color-light-accent: var(--white);
+    --color-light-accent: var(--coral);
 
     /* pale */
-    --color-pale-bg: var(--navy-010);
+    --color-pale-bg: var(--navy-040);
     --color-pale-heading: var(--navy);
     --color-pale-text: var(--navy);
-    --color-pale-accent: var(--coral);
+    --color-pale-accent: var(--white);
 
     /* stark */
     --color-stark-bg: var(--white);
@@ -218,13 +218,13 @@
     --color-dark-accent: var(--coral);
 
     /* light */
-    --color-light-bg: var(--slate-040);
+    --color-light-bg: var(--slate-010);
     --color-light-heading: var(--slate-160);
     --color-light-text: var(--slate-160);
     --color-light-accent: var(--coral);
 
     /* pale */
-    --color-pale-bg: var(--slate-010);
+    --color-pale-bg: var(--slate-040);
     --color-pale-heading: var(--slate-160);
     --color-pale-text: var(--slate-160);
     --color-pale-accent: var(--coral);
@@ -287,18 +287,34 @@
 
 
 
-/* text colors */
-
-/* TO DO - REVIEW ABSTRACTIONS */
+/* set defaults */
 
 /* accent color is defined by theme/style */
 .text-color-accent {
 	color: var(--color-accent);
 }
-/* primary color defined by theme/style, and is theme/style heading */
-.text-color-primary {
-    color: var(--color-heading);
+
+/* default stylings to all themed and styled elements */
+[class~="style-dark"], 
+[class~="style-light"], 
+[class~="style-stark"], 
+[class~="style-loud"],
+[class~="style-pale"],  
+[class~="theme-primary"], 
+[class~="theme-secondary"], 
+[class~="theme-tertiary"],
+[class~="theme-monochrome"] {
+    /* color will cascade to descendents */
+    color: var(--color-text); 
+    /* bg color does not cascade */ 
+    background-color: var(--color-bg); 
 }
+
+/* default heading color */
+h1, h2, h3, h4, h5, h6, [class^="heading-"] {    
+    color: var(--color-heading); 
+}
+
 
 
 /* standard text color styles */
@@ -311,6 +327,18 @@
 }
 .text-color-black {
     color: var(--black);
+}
+.text-color-navy {
+    color: var(--navy);
+}
+.text-color-sand {
+    color: var(--sand);
+}
+.text-color-slate {
+    color: var(--slate);
+}
+.text-color-coral {
+    color: var(--coral);
 }
 .text-color-navy-010 {
     color: var(--navy-010);
@@ -432,6 +460,18 @@
 .bg-color-black {
     background-color: var(--black);
 }
+.bg-color-navy {
+    background-color: var(--navy);
+}
+.bg-color-sand {
+    background-color: var(--sand);
+}
+.bg-color-slate {
+    background-color: var(--slate);
+}
+.bg-color-coral {
+    background-color: var(--coral);
+}
 .bg-color-navy-010 {
     background-color: var(--navy-010);
 }
@@ -548,18 +588,15 @@
 body {
     font-size: 1rem;
     line-height: 1.5;
-    color: var(--color-text); /* set text colors to those defined by theme and style */ /* TO DO CHECK THIS */
-    background-color: var(--color-bg);
 }
 
 /* define heading weights and line height */
-h1, h2, h3, h4, h5, h6, [class^=heading-] {    
+h1, h2, h3, h4, h5, h6, [class^="heading-"] {    
     font-weight: 500;
     line-height: 1.2;
     letter-spacing: -0.03em;
     margin-top: 0px;
     margin-bottom: 0px;
-    color: var(--color-heading); /* set heading colors to those defined by theme and style */
 }
 
 /* heading and text sizes use a fluid type scale */
@@ -737,6 +774,30 @@ blockquote, text-style-quote {
 
 /* -- LINKS.CSS -- */
 
+.button {
+  background-color: var(--color-heading);
+  border-color: var(--color-heading);
+  color: var(--color-bg);
+}
+
+.button--outline {
+  background-color: transparent;
+  border-color: var(--color-heading);
+  color: var(--color-heading);
+}
+
+.button--accent {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.button--accent-outline {
+  background-color: transparent;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
 		/* hide empty buttons with no text content when NOT in Designer or Editor */
     /* buttons are then still editable in Designer / Editor */
     /* exclude buttons with a type attribute so we don't hide form buttons */
@@ -789,7 +850,16 @@ blockquote, text-style-quote {
 
 	
 
+/* -- FORMS.CSS -- */
+
+:root {
+    --form-control-color: var(--color-accent);
+}
+
+/* https://moderncss.dev/pure-css-custom-checkbox-style/ */
+
 /* -- ICONS.CSS -- */
+
 /* -- DEV.CSS -- */
 
 :root {
@@ -1038,42 +1108,7 @@ html.wf-design-mode .w-embed:empty {
 
 
 
-/* display style names on Style Guide page */
 
-/*
-
-.style__classes, .style__classes [class^="style__"] {
-  display: grid;
-  grid-gap: 3rem;
-  grid-template-columns: 1fr;
-}
-
-.style__classes > div, .style__classes [class^="style__"] > div {
-	xmargin-bottom: 3rem;
-  }
-
-.style__classes div:not([class^="style__"]) {
-	all: initial; // reset all properties so we can see all divs
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  outline: 1px solid var(--dev-lightgrey);
-  background-color: var(--dev-lightgrey);
-  min-height: 24px;
-  position: relative;
-}
-.style__classes div:not([class^="style__"]):before {
-  content: attr(class);
-  color: white;
-  font-size: 12px;
-  line-height: 1.2;
-  padding: 4px;
-  background-color: var(--dev-grey);
-  display: inline-block;
-  position: absolute;
-  top: calc( -1.2em - 10px);
-  outline: 1px solid var(--dev-grey);
-}
 
 
 /* highlight images without alt text in Editor */
@@ -1196,6 +1231,73 @@ margin-top: var(--flow-space, 1em);
 
 /* -- COMPONENTS.CSS -- */
 
+/* page navbar */
+.page-navbar {
+    background-color: var(--color-light-bg);
+    color: var(--color-light-text);
+}
+
+/* panel */
+.panel:not[class^=style] {
+    background-color: var(--color-light-bg);
+    color: var(--color-light-text);
+}
+
+
+/* tags */
+.tag-members, .tag-open {
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    color: var(--white);
+    font-size: 0.6rem;
+    line-height: 100%;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: default;
+}
+  
+.tag-open {
+    background-color: var(--navy-080);
+}
+.tag-members {
+    background-color: var(--coral);
+}
+  
+.tag-members::after {
+    content: "Members";
+}
+.tag-open::after {
+    content: "Free to access";
+}
+.tag-members::before, .tag-open::before {
+    content: ' ';
+    background-size: 1em 1em;
+    height: 1em;
+    width: 1em;
+    display: inline-block;
+    margin-right: 1em;
+    position: relative;
+    top: 0.1em;
+}
+.tag-members::before {
+    background-image: url("https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/6232180a378e375eb73eb6b6_icon-lock.svg");
+}
+.tag-open::before {
+    background-image: url("https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/62321cdc8499f54243b06c4b_icon-unlock.svg");
+}
+
+
+
+
+
+
+
+
+
+
+
     
     
     
@@ -1237,3 +1339,67 @@ margin-top: var(--flow-space, 1em);
     
 	
 
+
+/* -- STYLEGUIDE.CSS -- */
+
+.styles-wrapper [class^="style-"] {
+    padding: 1rem;
+}
+
+.styles-text-colors .wf-empty, .styles-bg-colors .wf-empty {
+    outline: none !important;
+    box-shadow: none !important;
+    padding: none;
+    font-size: unset;
+    line-height: unset;
+    vertical-align: top;
+}
+
+.styles-text-colors > div, .styles-bg-colors > div {
+    display: relative;
+    padding: 0.5rem;
+}
+.styles-text-colors > div:after {
+    content: attr(class);
+}
+.styles-bg-colors > div:after {
+    content: attr(class);
+}
+
+/* display style names on Style Guide page */
+
+/*
+
+.style__classes, .style__classes [class^="style__"] {
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: 1fr;
+}
+
+.style__classes > div, .style__classes [class^="style__"] > div {
+	xmargin-bottom: 3rem;
+  }
+
+.style__classes div:not([class^="style__"]) {
+	all: initial; // reset all properties so we can see all divs
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  outline: 1px solid var(--dev-lightgrey);
+  background-color: var(--dev-lightgrey);
+  min-height: 24px;
+  position: relative;
+}
+.style__classes div:not([class^="style__"]):before {
+  content: attr(class);
+  color: white;
+  font-size: 12px;
+  line-height: 1.2;
+  padding: 4px;
+  background-color: var(--dev-grey);
+  display: inline-block;
+  position: absolute;
+  top: calc( -1.2em - 10px);
+  outline: 1px solid var(--dev-grey);
+}
+*/
