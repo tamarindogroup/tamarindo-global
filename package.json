@@ -1,0 +1,22 @@
+{
+  "name": "tamarindo.global",
+  "version": "0.2.0",
+  "description": "Local development assets for the tamarindo.global website.",
+  "main": "index.js",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tamarindogroup/tamarindo-global.git"
+  },
+  "author": "Sam Pilgrim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tamarindogroup/tamarindo-global/issues"
+  },
+  "homepage": "https://github.com/tamarindogroup/tamarindo-global#readme"
+}
