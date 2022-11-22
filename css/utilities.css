@@ -42,6 +42,14 @@ margin-top: var(--flow-space, 1em);
 .no-flow {
     --flow-space: 0px !important; 
 }
+.flow-reset {
+    --flow-space: 1em; 
+}
+/* .flow > .flow-scaled.flow-x2 {
+    --flow-space-scaled: calc(var(--flow-space) * 2);
+    margin-top: var(--flow-space-scaled, 2em); 
+
+} */
 
 
 /* flow gap for horizontal layouts */
@@ -84,3 +92,10 @@ margin-top: var(--flow-space, 1em);
     position: absolute;
 }
 
+.inline {
+    display: inline;
+}
+
+.inline-block {
+    display: inline-block;
+}

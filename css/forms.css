@@ -1,7 +1,21 @@
 /* -- FORMS.CSS -- */
 
+/* colors */
+
 :root {
     --form-control-color: var(--color-accent);
 }
+
+.form-message {
+    color: var(--color-text);
+}
+.form-message[data-form-response="error"] {
+    color: var(--color-accent);
+}
+
+/* general form styling */
+
+
+
 
 /* https://moderncss.dev/pure-css-custom-checkbox-style/ */

@@ -9,8 +9,10 @@ function css() {
             .pipe(order([
             "reset.css",
             "colors.css",
+            "spacing.css",
             "typography.css",
             "links.css",
+            "layout.css",
             "forms.css",
             "icons.css",
             "dev.css",
@@ -27,9 +29,13 @@ function css() {
 
 function watch() {
     browserSync.init({
+        ui: {
+            port: 8080
+            },
         server: {
             baseDir: './'
         },
+        port: 3000,
         open: false
     });
     /* when css files change, run css compiler */

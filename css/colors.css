@@ -257,6 +257,11 @@
     background-color: var(--color-bg); 
 }
 
+/* styling without background color */
+.style-no-bg {
+    background-color: transparent;
+}
+
 /* default heading color */
 h1, h2, h3, h4, h5, h6, [class^="heading-"] {    
     color: var(--color-heading); 
@@ -528,3 +533,6 @@ h1, h2, h3, h4, h5, h6, [class^="heading-"] {
     background-color: var(--coral-180);
 }
 
+.bg-color {
+    background-color: var(--color-bg);
+}

@@ -1,0 +1,246 @@
+
+/* fluid spacing */
+/* @link https://utopia.fyi/space/calculator?c=320,16,1.125,1140,16,1.25,6,3,&s=0.75|0.5|0.25|0.125,1.5|2|3|4|6|8|12,s-l */
+
+:root {
+    --space-4xs: clamp(0.13rem, calc(0.13rem + 0.00vw), 0.13rem);
+    --space-3xs: clamp(0.25rem, calc(0.25rem + 0.00vw), 0.25rem);
+    --space-2xs: clamp(0.50rem, calc(0.50rem + 0.00vw), 0.50rem);
+    --space-xs: clamp(0.75rem, calc(0.75rem + 0.00vw), 0.75rem);
+    --space-s: clamp(1.00rem, calc(1.00rem + 0.00vw), 1.00rem);
+    --space-m: clamp(1.50rem, calc(1.50rem + 0.00vw), 1.50rem);
+    --space-l: clamp(2.00rem, calc(2.00rem + 0.00vw), 2.00rem);
+    --space-xl: clamp(3.00rem, calc(3.00rem + 0.00vw), 3.00rem);
+    --space-2xl: clamp(4.00rem, calc(4.00rem + 0.00vw), 4.00rem);
+    --space-3xl: clamp(6.00rem, calc(6.00rem + 0.00vw), 6.00rem);
+    --space-4xl: clamp(8.00rem, calc(8.00rem + 0.00vw), 8.00rem);
+    --space-5xl: clamp(12.00rem, calc(12.00rem + 0.00vw), 12.00rem);
+  
+    /* One-up pairs */
+    --space-4xs-3xs: clamp(0.13rem, calc(0.08rem + 0.24vw), 0.25rem);
+    --space-3xs-2xs: clamp(0.25rem, calc(0.15rem + 0.49vw), 0.50rem);
+    --space-2xs-xs: clamp(0.50rem, calc(0.40rem + 0.49vw), 0.75rem);
+    --space-xs-s: clamp(0.75rem, calc(0.65rem + 0.49vw), 1.00rem);
+    --space-s-m: clamp(1.00rem, calc(0.80rem + 0.98vw), 1.50rem);
+    --space-m-l: clamp(1.50rem, calc(1.30rem + 0.98vw), 2.00rem);
+    --space-l-xl: clamp(2.00rem, calc(1.61rem + 1.95vw), 3.00rem);
+    --space-xl-2xl: clamp(3.00rem, calc(2.61rem + 1.95vw), 4.00rem);
+    --space-2xl-3xl: clamp(4.00rem, calc(3.22rem + 3.90vw), 6.00rem);
+    --space-3xl-4xl: clamp(6.00rem, calc(5.22rem + 3.90vw), 8.00rem);
+    --space-4xl-5xl: clamp(8.00rem, calc(6.44rem + 7.80vw), 12.00rem);
+  
+    /* Custom pairs */
+    --space-s-l: clamp(1.00rem, calc(0.61rem + 1.95vw), 2.00rem);
+  }
+
+/* margin - single value */
+.margin-4xs {
+    margin: var(--space-4xs);
+}
+.margin-3xs {
+    margin: var(--space-3xs);
+}
+.margin-2xs {
+    margin: var(--space-2xs);
+}
+.margin-xs {
+    margin: var(--space-xs);
+}
+.margin-s {
+    margin: var(--space-s);
+}
+.margin-m {
+    margin: var(--space-m);
+}
+.margin-l {
+    margin: var(--space-l);
+}
+.margin-xl {
+    margin: var(--space-xl);
+}
+.margin-2xl {
+    margin: var(--space-2xl);
+}
+.margin-3xl {
+    margin: var(--space-3xl);
+}
+.margin-4xl {
+    margin: var(--space-4xl);
+}
+.margin-5xl {
+    margin: var(--space-5xl);
+}
+
+/* padding - single value */
+.padding-4xs {
+    padding: var(--space-4xs);
+}
+.padding-3xs {
+    padding: var(--space-3xs);
+}
+.padding-2xs {
+    padding: var(--space-2xs);
+}
+.padding-xs {
+    padding: var(--space-xs);
+}
+.padding-s {
+    padding: var(--space-s);
+}
+.padding-m {
+    padding: var(--space-m);
+}
+.padding-l {
+    padding: var(--space-l);
+}
+.padding-xl {
+    padding: var(--space-xl);
+}
+.padding-2xl {
+    padding: var(--space-2xl);
+}
+.padding-3xl {
+    padding: var(--space-3xl);
+}
+.padding-4xl {
+    padding: var(--space-4xl);
+}
+.padding-5xl {
+    padding: var(--space-5xl);
+}
+
+/* margin - fluid */
+.margin-4xs-3xs {
+    margin: var(--space-4xs-3xs);
+}
+.margin-3xs-2xs {
+    margin: var(--space-3xs-2xs);
+}
+.margin-2xs-xs {
+    margin: var(--space-2xs-xs);
+}
+.margin-xs-s {
+    margin: var(--space-xs-s);
+}
+.margin-s-m {
+    margin: var(--space-s-m);
+}
+.margin-m-l {
+    margin: var(--space-m-l);
+}
+.margin-l-xl {
+    margin: var(--space-l-xl);
+}
+.margin-xl-2xl {
+    margin: var(--space-xl-2xl);
+}
+.margin-2xl-3xl {
+    margin: var(--space-2xl-3xl);
+}
+.margin-3xl-4xl {
+    margin: var(--space-3xl-4xl);
+}
+.margin-4xl-5xl {
+    margin: var(--space-4xl-5xl);
+}
+
+/* padding - fluid */
+.padding-4xs-3xs {
+    padding: var(--space-4xs-3xs);
+}
+.padding-3xs-2xs {
+    padding: var(--space-3xs-2xs);
+}
+.padding-2xs-xs {
+    padding: var(--space-2xs-xs);
+}
+.padding-xs-s {
+    padding: var(--space-xs-s);
+}
+.padding-s-m {
+    padding: var(--space-s-m);
+}
+.padding-m-l {
+    padding: var(--space-m-l);
+}
+.padding-l-xl {
+    padding: var(--space-l-xl);
+}
+.padding-xl-2xl {
+    padding: var(--space-xl-2xl);
+}
+.padding-2xl-3xl {
+    padding: var(--space-2xl-3xl);
+}
+.padding-3xl-4xl {
+    padding: var(--space-3xl-4xl);
+}
+.padding-4xl-5xl {
+    padding: var(--space-4xl-5xl);
+}
+
+/* padding directions */
+.padding-horizontal {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+.padding-vertical {
+    padding-right: 0rem;
+    padding-left: 0rem;
+}
+.padding-top {
+    padding-right: 0rem;
+    padding-bottom: 0rem;
+    padding-left: 0rem;
+}
+.padding-right {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    padding-left: 0rem;
+}
+.padding-bottom {
+    padding-top: 0rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+}
+.padding-left {
+    padding-top: 0rem;
+    padding-right: 0rem;
+    padding-bottom: 0rem;
+}
+.padding-none {
+    padding: 0px;
+}
+
+/* margin directions */
+.margin-horizontal {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+.margin-vertical {
+    margin-right: 0rem;
+    margin-left: 0rem;
+}
+.margin-top {
+    margin-right: 0rem;
+    margin-bottom: 0rem;
+    margin-left: 0rem;
+}
+.margin-right {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    margin-left: 0rem;
+}
+.margin-bottom {
+    margin-top: 0rem;
+    margin-right: 0rem;
+    margin-left: 0rem;
+}
+.margin-left {
+    margin-top: 0rem;
+    margin-right: 0rem;
+    margin-bottom: 0rem;
+}
+.margin-none {
+    margin: 0px;
+}

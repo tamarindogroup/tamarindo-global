@@ -49,4 +49,23 @@
     }
   
 
-  
+/* Webflow resets */
+.w-nav-brand, .w-nav-link, .w-dropdown-btn, .w-dropdown-toggle, .w-dropdown-link, .w-dropdown-list { /* remove WF default text colours and inherit instead */
+    color: inherit;
+    background-color: transparent;
+}
+.w-nav-link, .w-dropdown, .w-dropdown-btn, .w-dropdown-toggle, .w-dropdown-link {
+    margin: 0px; /* WF applies auto margin */
+    padding: 0px;
+}
+.wf-empty {
+    outline: initial !important;
+    outline-offset: initial !important;
+    -webkit-box-shadow: initial;
+    box-shadow: initial;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    font-size: inherit;
+    line-height: initial;
+    vertical-align: initial;
+}

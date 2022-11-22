@@ -74,22 +74,7 @@ h6, .heading-xxs {
     font-size: var(--step--3, 0.70rem);
 }
 
-/* caps styling */
-[class^="caps-"] {
-    font-weight: 500;
-    line-height: 1;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-.caps-l {
-        font-size: var(--step-2, 1.56rem);
-}
-.caps-m {
-        font-size: var(--step-0, 1.00rem);
-}
-.caps-s {
-        font-size: var(--step--1, 0.89rem);
-}
+
 
 /* links */
 
@@ -107,10 +92,40 @@ a, .text-style-link {
         text-decoration-color: var(--color-accent);
 }
 
+
+
 /* add underlines to links inside headings on hover */
 h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, [class^="heading-"] a:hover, .hover-underline:hover {
         text-decoration: underline;
 }
+
+
+/* caps styling */
+:root {
+    --caps-weight: 500;
+    --caps-line-height: 1;
+    --caps-text-transform: uppercase;
+    --caps-letter-spacing: 0.05em;
+}
+[class*="caps-"] {
+    font-weight: var(--caps-weight);
+    line-height: var(--caps-line-height);
+    text-transform: var(--caps-text-transform);
+    letter-spacing: var(--caps-letter-spacing);
+}
+.caps-l {
+    font-size: var(--step-2, 1.56rem);
+}
+.caps-m {
+    font-size: var(--step-0, 1.00rem);
+}
+.caps-s {
+    font-size: var(--step--1, 0.89rem);
+}
+.caps-bold {
+    font-weight: 700;
+}
+
 
 /* lists */
 
@@ -138,6 +153,12 @@ li::marker {
 /* quotes */
 blockquote, text-style-quote {
     border-left-color: var(--color-accent);
+}
+
+
+/* overrides */
+.text-no-underline {
+    text-decoration: none;
 }
 
 

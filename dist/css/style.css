@@ -49,7 +49,26 @@
     }
   
 
-  
+/* Webflow resets */
+.w-nav-brand, .w-nav-link, .w-dropdown-btn, .w-dropdown-toggle, .w-dropdown-link, .w-dropdown-list { /* remove WF default text colours and inherit instead */
+    color: inherit;
+    background-color: transparent;
+}
+.w-nav-link, .w-dropdown, .w-dropdown-btn, .w-dropdown-toggle, .w-dropdown-link {
+    margin: 0px; /* WF applies auto margin */
+    padding: 0px;
+}
+.wf-empty {
+    outline: initial !important;
+    outline-offset: initial !important;
+    -webkit-box-shadow: initial;
+    box-shadow: initial;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    font-size: inherit;
+    line-height: initial;
+    vertical-align: initial;
+}
 
 /* -- COLORS.CSS -- */
 
@@ -308,6 +327,11 @@
     color: var(--color-text); 
     /* bg color does not cascade */ 
     background-color: var(--color-bg); 
+}
+
+/* styling without background color */
+.style-no-bg {
+    background-color: transparent;
 }
 
 /* default heading color */
@@ -581,7 +605,255 @@ h1, h2, h3, h4, h5, h6, [class^="heading-"] {
     background-color: var(--coral-180);
 }
 
+.bg-color {
+    background-color: var(--color-bg);
+}
 
+/* fluid spacing */
+/* @link https://utopia.fyi/space/calculator?c=320,16,1.125,1140,16,1.25,6,3,&s=0.75|0.5|0.25|0.125,1.5|2|3|4|6|8|12,s-l */
+
+:root {
+    --space-4xs: clamp(0.13rem, calc(0.13rem + 0.00vw), 0.13rem);
+    --space-3xs: clamp(0.25rem, calc(0.25rem + 0.00vw), 0.25rem);
+    --space-2xs: clamp(0.50rem, calc(0.50rem + 0.00vw), 0.50rem);
+    --space-xs: clamp(0.75rem, calc(0.75rem + 0.00vw), 0.75rem);
+    --space-s: clamp(1.00rem, calc(1.00rem + 0.00vw), 1.00rem);
+    --space-m: clamp(1.50rem, calc(1.50rem + 0.00vw), 1.50rem);
+    --space-l: clamp(2.00rem, calc(2.00rem + 0.00vw), 2.00rem);
+    --space-xl: clamp(3.00rem, calc(3.00rem + 0.00vw), 3.00rem);
+    --space-2xl: clamp(4.00rem, calc(4.00rem + 0.00vw), 4.00rem);
+    --space-3xl: clamp(6.00rem, calc(6.00rem + 0.00vw), 6.00rem);
+    --space-4xl: clamp(8.00rem, calc(8.00rem + 0.00vw), 8.00rem);
+    --space-5xl: clamp(12.00rem, calc(12.00rem + 0.00vw), 12.00rem);
+  
+    /* One-up pairs */
+    --space-4xs-3xs: clamp(0.13rem, calc(0.08rem + 0.24vw), 0.25rem);
+    --space-3xs-2xs: clamp(0.25rem, calc(0.15rem + 0.49vw), 0.50rem);
+    --space-2xs-xs: clamp(0.50rem, calc(0.40rem + 0.49vw), 0.75rem);
+    --space-xs-s: clamp(0.75rem, calc(0.65rem + 0.49vw), 1.00rem);
+    --space-s-m: clamp(1.00rem, calc(0.80rem + 0.98vw), 1.50rem);
+    --space-m-l: clamp(1.50rem, calc(1.30rem + 0.98vw), 2.00rem);
+    --space-l-xl: clamp(2.00rem, calc(1.61rem + 1.95vw), 3.00rem);
+    --space-xl-2xl: clamp(3.00rem, calc(2.61rem + 1.95vw), 4.00rem);
+    --space-2xl-3xl: clamp(4.00rem, calc(3.22rem + 3.90vw), 6.00rem);
+    --space-3xl-4xl: clamp(6.00rem, calc(5.22rem + 3.90vw), 8.00rem);
+    --space-4xl-5xl: clamp(8.00rem, calc(6.44rem + 7.80vw), 12.00rem);
+  
+    /* Custom pairs */
+    --space-s-l: clamp(1.00rem, calc(0.61rem + 1.95vw), 2.00rem);
+  }
+
+/* margin - single value */
+.margin-4xs {
+    margin: var(--space-4xs);
+}
+.margin-3xs {
+    margin: var(--space-3xs);
+}
+.margin-2xs {
+    margin: var(--space-2xs);
+}
+.margin-xs {
+    margin: var(--space-xs);
+}
+.margin-s {
+    margin: var(--space-s);
+}
+.margin-m {
+    margin: var(--space-m);
+}
+.margin-l {
+    margin: var(--space-l);
+}
+.margin-xl {
+    margin: var(--space-xl);
+}
+.margin-2xl {
+    margin: var(--space-2xl);
+}
+.margin-3xl {
+    margin: var(--space-3xl);
+}
+.margin-4xl {
+    margin: var(--space-4xl);
+}
+.margin-5xl {
+    margin: var(--space-5xl);
+}
+
+/* padding - single value */
+.padding-4xs {
+    padding: var(--space-4xs);
+}
+.padding-3xs {
+    padding: var(--space-3xs);
+}
+.padding-2xs {
+    padding: var(--space-2xs);
+}
+.padding-xs {
+    padding: var(--space-xs);
+}
+.padding-s {
+    padding: var(--space-s);
+}
+.padding-m {
+    padding: var(--space-m);
+}
+.padding-l {
+    padding: var(--space-l);
+}
+.padding-xl {
+    padding: var(--space-xl);
+}
+.padding-2xl {
+    padding: var(--space-2xl);
+}
+.padding-3xl {
+    padding: var(--space-3xl);
+}
+.padding-4xl {
+    padding: var(--space-4xl);
+}
+.padding-5xl {
+    padding: var(--space-5xl);
+}
+
+/* margin - fluid */
+.margin-4xs-3xs {
+    margin: var(--space-4xs-3xs);
+}
+.margin-3xs-2xs {
+    margin: var(--space-3xs-2xs);
+}
+.margin-2xs-xs {
+    margin: var(--space-2xs-xs);
+}
+.margin-xs-s {
+    margin: var(--space-xs-s);
+}
+.margin-s-m {
+    margin: var(--space-s-m);
+}
+.margin-m-l {
+    margin: var(--space-m-l);
+}
+.margin-l-xl {
+    margin: var(--space-l-xl);
+}
+.margin-xl-2xl {
+    margin: var(--space-xl-2xl);
+}
+.margin-2xl-3xl {
+    margin: var(--space-2xl-3xl);
+}
+.margin-3xl-4xl {
+    margin: var(--space-3xl-4xl);
+}
+.margin-4xl-5xl {
+    margin: var(--space-4xl-5xl);
+}
+
+/* padding - fluid */
+.padding-4xs-3xs {
+    padding: var(--space-4xs-3xs);
+}
+.padding-3xs-2xs {
+    padding: var(--space-3xs-2xs);
+}
+.padding-2xs-xs {
+    padding: var(--space-2xs-xs);
+}
+.padding-xs-s {
+    padding: var(--space-xs-s);
+}
+.padding-s-m {
+    padding: var(--space-s-m);
+}
+.padding-m-l {
+    padding: var(--space-m-l);
+}
+.padding-l-xl {
+    padding: var(--space-l-xl);
+}
+.padding-xl-2xl {
+    padding: var(--space-xl-2xl);
+}
+.padding-2xl-3xl {
+    padding: var(--space-2xl-3xl);
+}
+.padding-3xl-4xl {
+    padding: var(--space-3xl-4xl);
+}
+.padding-4xl-5xl {
+    padding: var(--space-4xl-5xl);
+}
+
+/* padding directions */
+.padding-horizontal {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+.padding-vertical {
+    padding-right: 0rem;
+    padding-left: 0rem;
+}
+.padding-top {
+    padding-right: 0rem;
+    padding-bottom: 0rem;
+    padding-left: 0rem;
+}
+.padding-right {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    padding-left: 0rem;
+}
+.padding-bottom {
+    padding-top: 0rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+}
+.padding-left {
+    padding-top: 0rem;
+    padding-right: 0rem;
+    padding-bottom: 0rem;
+}
+.padding-none {
+    padding: 0px;
+}
+
+/* margin directions */
+.margin-horizontal {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+.margin-vertical {
+    margin-right: 0rem;
+    margin-left: 0rem;
+}
+.margin-top {
+    margin-right: 0rem;
+    margin-bottom: 0rem;
+    margin-left: 0rem;
+}
+.margin-right {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    margin-left: 0rem;
+}
+.margin-bottom {
+    margin-top: 0rem;
+    margin-right: 0rem;
+    margin-left: 0rem;
+}
+.margin-left {
+    margin-top: 0rem;
+    margin-right: 0rem;
+    margin-bottom: 0rem;
+}
+.margin-none {
+    margin: 0px;
+}
 /* -- TYPOGRAPHY.CSS -- */
 
 /* basic reset */
@@ -658,22 +930,7 @@ h6, .heading-xxs {
     font-size: var(--step--3, 0.70rem);
 }
 
-/* caps styling */
-[class^="caps-"] {
-    font-weight: 500;
-    line-height: 1;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-.caps-l {
-        font-size: var(--step-2, 1.56rem);
-}
-.caps-m {
-        font-size: var(--step-0, 1.00rem);
-}
-.caps-s {
-        font-size: var(--step--1, 0.89rem);
-}
+
 
 /* links */
 
@@ -691,10 +948,40 @@ a, .text-style-link {
         text-decoration-color: var(--color-accent);
 }
 
+
+
 /* add underlines to links inside headings on hover */
 h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, [class^="heading-"] a:hover, .hover-underline:hover {
         text-decoration: underline;
 }
+
+
+/* caps styling */
+:root {
+    --caps-weight: 500;
+    --caps-line-height: 1;
+    --caps-text-transform: uppercase;
+    --caps-letter-spacing: 0.05em;
+}
+[class*="caps-"] {
+    font-weight: var(--caps-weight);
+    line-height: var(--caps-line-height);
+    text-transform: var(--caps-text-transform);
+    letter-spacing: var(--caps-letter-spacing);
+}
+.caps-l {
+    font-size: var(--step-2, 1.56rem);
+}
+.caps-m {
+    font-size: var(--step-0, 1.00rem);
+}
+.caps-s {
+    font-size: var(--step--1, 0.89rem);
+}
+.caps-bold {
+    font-weight: 700;
+}
+
 
 /* lists */
 
@@ -722,6 +1009,12 @@ li::marker {
 /* quotes */
 blockquote, text-style-quote {
     border-left-color: var(--color-accent);
+}
+
+
+/* overrides */
+.text-no-underline {
+    text-decoration: none;
 }
 
 
@@ -850,11 +1143,38 @@ blockquote, text-style-quote {
 
 	
 
+.l-grid-3up {
+    /* styles set in WF */
+}
+
+.l-gap-l {
+    gap: var(--space-l);
+}
+.l-gap-row-xl {
+    row-gap: var(--space-xl);
+}
+
+
+
 /* -- FORMS.CSS -- */
+
+/* colors */
 
 :root {
     --form-control-color: var(--color-accent);
 }
+
+.form-message {
+    color: var(--color-text);
+}
+.form-message[data-form-response="error"] {
+    color: var(--color-accent);
+}
+
+/* general form styling */
+
+
+
 
 /* https://moderncss.dev/pure-css-custom-checkbox-style/ */
 
@@ -1135,6 +1455,12 @@ html.wf-design-mode .w-embed:empty {
   position: absolute;
   top: 0px;
   }
+
+
+/* dev banner */
+/* .dev-banner {
+  background-color: var(--magenta);
+} */
 /* -- EDITOR.CSS -- */
 
     /* Add min-height to editable text elements so that Editor can still edit them even if empty */
@@ -1186,6 +1512,14 @@ margin-top: var(--flow-space, 1em);
 .no-flow {
     --flow-space: 0px !important; 
 }
+.flow-reset {
+    --flow-space: 1em; 
+}
+/* .flow > .flow-scaled.flow-x2 {
+    --flow-space-scaled: calc(var(--flow-space) * 2);
+    margin-top: var(--flow-space-scaled, 2em); 
+
+} */
 
 
 /* flow gap for horizontal layouts */
@@ -1228,14 +1562,23 @@ margin-top: var(--flow-space, 1em);
     position: absolute;
 }
 
+.inline {
+    display: inline;
+}
+
+.inline-block {
+    display: inline-block;
+}
 
 /* -- COMPONENTS.CSS -- */
+
 
 /* page navbar */
 .page-navbar {
     background-color: var(--color-light-bg);
     color: var(--color-light-text);
 }
+
 
 /* panel */
 .panel:not[class^=style] {
@@ -1245,54 +1588,182 @@ margin-top: var(--flow-space, 1em);
 
 
 /* tags */
-.tag-members, .tag-open {
-    display: inline-block;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    color: var(--white);
-    font-size: 0.6rem;
-    line-height: 100%;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+[class^="tag-"] {
+    display: inline-flex;
+    padding: 0.5em;
+    font-size: 0.75rem;
     cursor: default;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
 }
-  
-.tag-open {
-    background-color: var(--navy-080);
+[class^="tag-"]:before {
+    content: ' ';
+    height: 1em;
+    width: 1em;
+    flex: 0 0 1em; 
+    margin-right: 0.75em;
+    position: relative;
+    top: 0.1em;
+    -webkit-mask: var(--icon-url) no-repeat 50% 50%;
+    mask: var(--icon-url) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: currentColor;
 }
 .tag-members {
+    --icon-url: url("https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/6232180a378e375eb73eb6b6_icon-lock.svg");
     background-color: var(--coral);
+    color: white;
 }
-  
+.tag-open {
+    --icon-url: url("https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/62321cdc8499f54243b06c4b_icon-unlock.svg");
+    background-color: var(--navy-080);
+    color: white;
+}
+.tag-archive {
+    --icon-url: url("https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/63698225601219760c21b84e_archive.svg");
+    background-color: var(--coral);
+    color: white;
+}
 .tag-members::after {
     content: "Members";
 }
 .tag-open::after {
     content: "Free to access";
 }
-.tag-members::before, .tag-open::before {
-    content: ' ';
-    background-size: 1em 1em;
-    height: 1em;
-    width: 1em;
-    display: inline-block;
-    margin-right: 1em;
-    position: relative;
-    top: 0.1em;
+.tag-archive::after {
+    content: "This content is from our archive. Some formatting or links may be broken."
 }
-.tag-members::before {
-    background-image: url("https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/6232180a378e375eb73eb6b6_icon-lock.svg");
-}
-.tag-open::before {
-    background-image: url("https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/62321cdc8499f54243b06c4b_icon-unlock.svg");
+.tag-large {
+    font-size: 1rem;
+    text-transform: unset;
+    letter-spacing: 0px;
 }
 
 
+/* hero */
+
+.hero {
+    background-color: var(--color-bg);
+    min-height: calc( 300px + 15vw );
+}
+.hero__body, .hero__meta {
+    --flow-space: 2rem;
+}
+
+
+/* nav */
+.nav, .nav-menu {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+.nav {
+    xoverflow-y: visible;
+    xoverflow-x: hidden; /* hide nav overflow when slides left/right */
+}
+.dropdown__list {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}
+.nav-link, .button--nav {
+    font-weight: var(--caps-weight);
+    line-height: var(--caps-line-height);
+    text-transform: var(--caps-text-transform);
+    letter-spacing: var(--caps-letter-spacing);
+    font-size: var(--step--1, 0.89rem);
+    color: inherit;
+    text-decoration: inherit;
+}
+.nav-link:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+}
+.nav-button {
+    color: inherit;
+}
+.button--nav {
+    color: var(--color-text);
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+@media (max-width: 991px) {
+    .dropdown__list {
+        background-color: var(--slate-020);
+        color: var(--color-text);
+    }
+    .dropdown__toggle {
+        /* padding: 0rem 2rem; */
+    }
+}
+
+
+/* items */
+.item {
+    --metadata-display: block;
+    --desc-display: block;
+}
+.item__metadata {
+    display: var(--metadata-display, block);
+}
+.item__desc {
+    display: var(--desc-display, block);
+}
+
+.item__img-wrapper {
+    background-color: var(--color-dark-bg);
+}
+.item[data-item-format="subdued"] {
+    --metadata-display: none;
+    --desc-display: none;
+}
 
 
 
+/* featured grid */
+.feat-grid__list {
+    gap: var(--space-2xs);
+    text-decoration: none;
+}
+.feat-grid__item-wrapper:first-child {
+    grid-row: 1 / 4;
+}
+/* single item variation */
+.feat-grid__list[data-feat-grid="1"] {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+/* make single item taller */
+.feat-grid__list[data-feat-grid="1"] .feat-grid__item {
+    min-height: 420px;
+}
+@media only screen and (max-width: 991px) {
+    .feat-grid__item-wrapper:first-child {
+        grid-row: 1 / 1;
+    }
+  }
+/* only show excerpt for first item */
+.feat-grid__item-wrapper:not(:first-child) .item__desc {
+    display: none;
+}
+.feat-grid__item-wrapper:hover .item__img-wrapper {
+    transform: scale(1.05);
+}
+.feat-grid__item-wrapper:hover a {
+    text-decoration: underline;
+}
 
+
+/* pagination */
+.pagination .pagination__link {
+    font-size: var(--step-0);
+}
+.pagination .pagination__link:not(.w--current) {
+    color: var(--color-text);
+    text-decoration: none;
+}
+.pagination .pagination__link:hover {
+    text-decoration: underline;
+}
 
 
 
