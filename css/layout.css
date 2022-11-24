@@ -1,6 +1,9 @@
 .l-grid-3up {
     /* styles set in WF */
 }
+.l-flex-col {
+    /* styles set in WF */
+}
 
 .l-gap-l {
     gap: var(--space-l);

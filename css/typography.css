@@ -74,6 +74,11 @@ h6, .heading-xxs {
     font-size: var(--step--3, 0.70rem);
 }
 
+/* limit on text width */
+p, .text-limit-width {
+    max-width: 70ch;
+}
+
 
 
 /* links */
