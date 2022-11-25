@@ -6,23 +6,26 @@
   color: var(--color-bg);
 }
 
-.button--outline {
+.button.button--outline {
   background-color: transparent;
   border-color: var(--color-heading);
   color: var(--color-heading);
 }
 
-.button--accent {
+.button.button--accent,
+.button.button--nav {
   background-color: var(--color-accent);
   border-color: var(--color-accent);
   color: var(--color-bg);
 }
 
-.button--accent-outline {
+.button.button--accent-outline {
   background-color: transparent;
   border-color: var(--color-accent);
   color: var(--color-accent);
 }
+
+
 
 		/* hide empty buttons with no text content when NOT in Designer or Editor */
     /* buttons are then still editable in Designer / Editor */

@@ -308,6 +308,10 @@
 
 /* set defaults */
 
+.text-color-text {
+    color: var(--color-text);
+}
+
 /* accent color is defined by theme/style */
 .text-color-accent {
 	color: var(--color-accent);
@@ -335,7 +339,7 @@
 }
 
 /* default heading color */
-h1, h2, h3, h4, h5, h6, [class^="heading-"] {    
+h1, h2, h3, h4, h5, h6, [class^="heading-"], .text-color-heading {    
     color: var(--color-heading); 
 }
 
@@ -947,7 +951,14 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, [class^="heading-"] a {
     text-decoration: inherit;
 }
 
+/* TO DO - SORT LINK COLOURS */
+
 /* set underline color for links */
+/* non-button links that don't have a color set on a parent or on themselves. :where() reduces specificity issues */  /* custom style */
+
+/* :not([class*="text-color-"]) a:where(:not([class*="text-color-"])):not(.button), 
+.text-style-link */
+
 a, .text-style-link {
         color: var(--color-accent);
         text-decoration-color: var(--color-accent);
@@ -1078,23 +1089,26 @@ blockquote, text-style-quote {
   color: var(--color-bg);
 }
 
-.button--outline {
+.button.button--outline {
   background-color: transparent;
   border-color: var(--color-heading);
   color: var(--color-heading);
 }
 
-.button--accent {
+.button.button--accent,
+.button.button--nav {
   background-color: var(--color-accent);
   border-color: var(--color-accent);
   color: var(--color-bg);
 }
 
-.button--accent-outline {
+.button.button--accent-outline {
   background-color: transparent;
   border-color: var(--color-accent);
   color: var(--color-accent);
 }
+
+
 
 		/* hide empty buttons with no text content when NOT in Designer or Editor */
     /* buttons are then still editable in Designer / Editor */
@@ -1151,6 +1165,11 @@ blockquote, text-style-quote {
 .l-grid-3up {
     /* styles set in WF */
 }
+
+.l-grid-4up {
+    /* styles set in WF */
+}
+
 .l-flex-col {
     /* styles set in WF */
 }
@@ -1158,8 +1177,14 @@ blockquote, text-style-quote {
 .l-gap-l {
     gap: var(--space-l);
 }
+.l-gap-s {
+    gap: var(--space-s);
+}
 .l-gap-row-xl {
     row-gap: var(--space-xl);
+}
+.l-gap-row-m {
+    row-gap: var(--space-m);
 }
 
 
@@ -1585,6 +1610,12 @@ margin-top: var(--flow-space, 1em);
     padding-bottom: 56.25%;
     height: 0px !important; 
 }
+
+.ratio-1-1 {
+    padding-bottom: 100%;
+    height: 0px !important; 
+}
+
 .ratio-9-16 img {
     position: absolute;
     inset: 0px;
@@ -1599,6 +1630,10 @@ margin-top: var(--flow-space, 1em);
 
 
 /* panel */
+/* potentially the same as boxout? Or card */
+.panel {
+    padding: var(--space-m-l);
+}
 .panel:not[class^=style] {
     background-color: var(--color-light-bg);
     color: var(--color-light-text);
@@ -1667,7 +1702,7 @@ margin-top: var(--flow-space, 1em);
     background-color: var(--color-bg);
     min-height: calc( 300px + 15vw );
 }
-.hero__body, .hero__meta {
+.hero__body, .hero__metadata {
     --flow-space: 2rem;
 }
 
@@ -1715,6 +1750,271 @@ margin-top: var(--flow-space, 1em);
         /* padding: 0rem 2rem; */
     }
 }
+
+
+/* items */
+.item {
+    --metadata-display: block;
+    --desc-display: block;
+    overflow: hidden;
+    position: relative;
+}
+.item__metadata {
+    display: var(--metadata-display, block);
+    position: absolute;
+    --flow-space: 0px; /* pin to top of item */
+    top: 0px;
+    right: 0px;
+    margin-top: 0px;
+}
+.item__desc {
+    display: var(--desc-display, block);
+}
+
+.item__img-wrapper {
+    background-color: var(--color-dark-bg);
+    background-image: url('https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/637f91b22c51e6034d57d154_item-placeholder-800.jpeg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    width: 100%;
+    height: 250px;
+    transition: transform 0.25s;
+}
+.item[data-item-format="subdued"] {
+    --metadata-display: none;
+    --desc-display: none;
+}
+.item__top-img {
+    position: absolute;
+    height: 85%;
+    max-height: 240px;
+}
+
+
+/* featured grid */
+.feat-grid {
+    gap: var(--space-2xs);
+    text-decoration: none;
+}
+.feat-grid__item-wrapper:first-child {
+    grid-row: 1 / 4; /* first item is taller */
+    min-height: 420px;
+}
+/* if only one feat item, make it full width */
+.feat-grid > :only-child {
+    grid-column: 1 / -1;
+}
+/* single item variation */
+.feat-grid[data-feat-grid="1"] { /* TO DO - REVIEW THIS APPROACH */
+    /* grid-template-columns: 1fr; */
+    /* grid-template-rows: 1fr; */
+}
+/* make single item taller */
+.feat-grid[data-feat-grid="1"] .feat-grid__item { /* TO DO - REVIEW THIS APPROACH */
+    /* min-height: 420px; */
+}
+/* only show excerpt for first item */
+.feat-grid__item-wrapper:not(:first-child) .item__desc {
+    display: none;
+}
+.feat-grid__item-wrapper:hover .item__img-wrapper, .item.item--feat:hover .item__img-wrapper {
+    transform: scale(1.05);
+}
+.feat-grid__item-wrapper:hover a {
+    text-decoration: underline;
+}
+/* adjust style of item when inside featured grid*/
+.feat-grid .item, .item.item--feat {
+    height: 100%;
+    min-height: 180px;
+}
+.feat-grid .item__img-wrapper, .item.item--feat .item__img-wrapper {
+    position: absolute;
+    inset: 0px;
+    height: 100%;
+}
+.feat-grid .item__content, .item.item--feat .item__content {
+    position: relative;
+    padding: var(--space-m-l);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* pin text to bottom of item */
+    margin-top: 0px !important; /* override flow utility */
+}
+/* if item has a fixed ratio and is featured, we need to make content absolute to correctly cover item */
+.item.item--feat[class*="ratio-"] .item__content {
+    position: absolute;
+    inset: 0px;
+}
+.feat-grid .item__img-wrapper:after, .item.item--feat .item__img-wrapper:after {
+    position: absolute;
+    inset: 0px;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(30deg, rgb(9, 44, 60) 7%, rgba(9, 44, 60, 0.59) 41%, rgba(255, 255, 255, 0)), linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+}
+.feat-grid .item__metadata {
+    display: none;
+}
+/* for feat items, make link cover whole item */
+.feat-grid .item a::after, .item.item--feat a::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: "";
+    inset: 0px;
+}
+@media only screen and (max-width: 991px) {
+    .feat-grid__item-wrapper:first-child {
+        grid-row: 1 / 1;
+    }
+    .feat-grid .item {
+        min-height: 320px;
+    }
+  }
+@media only screen and (max-width: 767px) {
+  }
+
+
+/* team page */
+.team   
+
+
+/* pagination */
+.pagination .pagination__link {
+    font-size: var(--step-0);
+}
+.pagination .pagination__link:not(.w--current) {
+    color: var(--color-text);
+    text-decoration: none;
+}
+.pagination .pagination__link:hover {
+    text-decoration: underline;
+}
+
+
+/* testimonial */
+.testimonial::after {
+    content:'"';
+    font-size: 10rem;
+    font-style: italic;
+    position: absolute;
+    top: -0.1em;
+    left: 0.1em;
+}
+
+
+
+
+
+    
+    
+    
+    /* add commas between taglist items */
+    /* .taglist__item:not(:last-child):after {
+        content: ",";
+        display: inline-block;
+        color: white;
+    } */
+      
+    /* colored tint */
+    /* .client-list__img {
+    		-webkit-filter: saturate(0%);
+    		filter: saturate(0%);
+    		filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.289 0.289 0.289 0 0.133 0.271 0.271 0.271 0 0.188 0.212 0.212 0.212 0 0.365 0 0 0 1 0'/></filter></svg>#grayscale");
+        } */
+    /* fix for Safari as poor implementation of SVG filters */
+    /* https://github.com/Fyrd/caniuse/issues/3803 */
+    /* https://www.bram.us/2021/06/23/css-at-supports-rules-to-target-only-firefox-safari-chromium/#safari */
+    	/* @supports (background: -webkit-named-image(i)) {
+        .client-list__img {
+            -webkit-filter: saturate(0%) !important;
+            filter: saturate(0%) !important;
+            }
+      } */
+    
+    
+	/* remove focus outline on sections in Safari */
+    .sect:focus, .section-id:focus {
+    		outline: none;
+    }
+    
+    
+    /* expand size of lighbox video player. WF lightbox controls occupy left/right 5% */
+    .w-lightbox-frame, .w-lightbox-embed {
+        width: 90vw;
+        height: 90vh;
+    }
+    
+	
+
+
+/* -- STYLEGUIDE.CSS -- */
+
+.styles-wrapper [class^="style-"] {
+    padding: 1rem;
+}
+
+.styles-text-colors .wf-empty, .styles-bg-colors .wf-empty {
+    outline: none !important;
+    box-shadow: none !important;
+    padding: none;
+    font-size: unset;
+    line-height: unset;
+    vertical-align: top;
+}
+
+.styles-text-colors > div, .styles-bg-colors > div {
+    display: relative;
+    padding: 0.5rem;
+}
+.styles-text-colors > div:after {
+    content: attr(class);
+}
+.styles-bg-colors > div:after {
+    content: attr(class);
+}
+
+/* display style names on Style Guide page */
+
+/*
+
+.style__classes, .style__classes [class^="style__"] {
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: 1fr;
+}
+
+.style__classes > div, .style__classes [class^="style__"] > div {
+	xmargin-bottom: 3rem;
+  }
+
+.style__classes div:not([class^="style__"]) {
+	all: initial; // reset all properties so we can see all divs
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  outline: 1px solid var(--dev-lightgrey);
+  background-color: var(--dev-lightgrey);
+  min-height: 24px;
+  position: relative;
+}
+.style__classes div:not([class^="style__"]):before {
+  content: attr(class);
+  color: white;
+  font-size: 12px;
+  line-height: 1.2;
+  padding: 4px;
+  background-color: var(--dev-grey);
+  display: inline-block;
+  position: absolute;
+  top: calc( -1.2em - 10px);
+  outline: 1px solid var(--dev-grey);
+}
+*/
 
 
 /* items */
@@ -1837,126 +2137,3 @@ margin-top: var(--flow-space, 1em);
   }
 @media only screen and (max-width: 767px) {
   }
-
-
-/* pagination */
-.pagination .pagination__link {
-    font-size: var(--step-0);
-}
-.pagination .pagination__link:not(.w--current) {
-    color: var(--color-text);
-    text-decoration: none;
-}
-.pagination .pagination__link:hover {
-    text-decoration: underline;
-}
-
-
-
-
-
-    
-    
-    
-    /* add commas between taglist items */
-    /* .taglist__item:not(:last-child):after {
-        content: ",";
-        display: inline-block;
-        color: white;
-    } */
-      
-    /* colored tint */
-    /* .client-list__img {
-    		-webkit-filter: saturate(0%);
-    		filter: saturate(0%);
-    		filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.289 0.289 0.289 0 0.133 0.271 0.271 0.271 0 0.188 0.212 0.212 0.212 0 0.365 0 0 0 1 0'/></filter></svg>#grayscale");
-        } */
-    /* fix for Safari as poor implementation of SVG filters */
-    /* https://github.com/Fyrd/caniuse/issues/3803 */
-    /* https://www.bram.us/2021/06/23/css-at-supports-rules-to-target-only-firefox-safari-chromium/#safari */
-    	/* @supports (background: -webkit-named-image(i)) {
-        .client-list__img {
-            -webkit-filter: saturate(0%) !important;
-            filter: saturate(0%) !important;
-            }
-      } */
-    
-    
-	/* remove focus outline on sections in Safari */
-    .sect:focus, .section-id:focus {
-    		outline: none;
-    }
-    
-    
-    /* expand size of lighbox video player. WF lightbox controls occupy left/right 5% */
-    .w-lightbox-frame, .w-lightbox-embed {
-        width: 90vw;
-        height: 90vh;
-    }
-    
-	
-
-
-/* -- STYLEGUIDE.CSS -- */
-
-.styles-wrapper [class^="style-"] {
-    padding: 1rem;
-}
-
-.styles-text-colors .wf-empty, .styles-bg-colors .wf-empty {
-    outline: none !important;
-    box-shadow: none !important;
-    padding: none;
-    font-size: unset;
-    line-height: unset;
-    vertical-align: top;
-}
-
-.styles-text-colors > div, .styles-bg-colors > div {
-    display: relative;
-    padding: 0.5rem;
-}
-.styles-text-colors > div:after {
-    content: attr(class);
-}
-.styles-bg-colors > div:after {
-    content: attr(class);
-}
-
-/* display style names on Style Guide page */
-
-/*
-
-.style__classes, .style__classes [class^="style__"] {
-  display: grid;
-  grid-gap: 3rem;
-  grid-template-columns: 1fr;
-}
-
-.style__classes > div, .style__classes [class^="style__"] > div {
-	xmargin-bottom: 3rem;
-  }
-
-.style__classes div:not([class^="style__"]) {
-	all: initial; // reset all properties so we can see all divs
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  outline: 1px solid var(--dev-lightgrey);
-  background-color: var(--dev-lightgrey);
-  min-height: 24px;
-  position: relative;
-}
-.style__classes div:not([class^="style__"]):before {
-  content: attr(class);
-  color: white;
-  font-size: 12px;
-  line-height: 1.2;
-  padding: 4px;
-  background-color: var(--dev-grey);
-  display: inline-block;
-  position: absolute;
-  top: calc( -1.2em - 10px);
-  outline: 1px solid var(--dev-grey);
-}
-*/

@@ -5,6 +5,12 @@
     padding-bottom: 56.25%;
     height: 0px !important; 
 }
+
+.ratio-1-1 {
+    padding-bottom: 100%;
+    height: 0px !important; 
+}
+
 .ratio-9-16 img {
     position: absolute;
     inset: 0px;
@@ -19,6 +25,10 @@
 
 
 /* panel */
+/* potentially the same as boxout? Or card */
+.panel {
+    padding: var(--space-m-l);
+}
 .panel:not[class^=style] {
     background-color: var(--color-light-bg);
     color: var(--color-light-text);
@@ -87,7 +97,7 @@
     background-color: var(--color-bg);
     min-height: calc( 300px + 15vw );
 }
-.hero__body, .hero__meta {
+.hero__body, .hero__metadata {
     --flow-space: 2rem;
 }
 
@@ -203,23 +213,23 @@
 .feat-grid__item-wrapper:not(:first-child) .item__desc {
     display: none;
 }
-.feat-grid__item-wrapper:hover .item__img-wrapper {
+.feat-grid__item-wrapper:hover .item__img-wrapper, .item.item--feat:hover .item__img-wrapper {
     transform: scale(1.05);
 }
 .feat-grid__item-wrapper:hover a {
     text-decoration: underline;
 }
 /* adjust style of item when inside featured grid*/
-.feat-grid .item {
+.feat-grid .item, .item.item--feat {
     height: 100%;
     min-height: 180px;
 }
-.feat-grid .item__img-wrapper {
+.feat-grid .item__img-wrapper, .item.item--feat .item__img-wrapper {
     position: absolute;
     inset: 0px;
     height: 100%;
 }
-.feat-grid .item__content {
+.feat-grid .item__content, .item.item--feat .item__content {
     position: relative;
     padding: var(--space-m-l);
     height: 100%;
@@ -228,7 +238,12 @@
     justify-content: flex-end; /* pin text to bottom of item */
     margin-top: 0px !important; /* override flow utility */
 }
-.feat-grid .item__img-wrapper:after {
+/* if item has a fixed ratio and is featured, we need to make content absolute to correctly cover item */
+.item.item--feat[class*="ratio-"] .item__content {
+    position: absolute;
+    inset: 0px;
+}
+.feat-grid .item__img-wrapper:after, .item.item--feat .item__img-wrapper:after {
     position: absolute;
     inset: 0px;
     content: "";
@@ -240,7 +255,7 @@
     display: none;
 }
 /* for feat items, make link cover whole item */
-.feat-grid .item a::after {
+.feat-grid .item a::after, .item.item--feat a::after {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -259,6 +274,10 @@
   }
 
 
+/* team page */
+.team   
+
+
 /* pagination */
 .pagination .pagination__link {
     font-size: var(--step-0);
@@ -269,6 +288,17 @@
 }
 .pagination .pagination__link:hover {
     text-decoration: underline;
+}
+
+
+/* testimonial */
+.testimonial::after {
+    content:'"';
+    font-size: 10rem;
+    font-style: italic;
+    position: absolute;
+    top: -0.1em;
+    left: 0.1em;
 }
 
 

@@ -91,7 +91,14 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, [class^="heading-"] a {
     text-decoration: inherit;
 }
 
+/* TO DO - SORT LINK COLOURS */
+
 /* set underline color for links */
+/* non-button links that don't have a color set on a parent or on themselves. :where() reduces specificity issues */  /* custom style */
+
+/* :not([class*="text-color-"]) a:where(:not([class*="text-color-"])):not(.button), 
+.text-style-link */
+
 a, .text-style-link {
         color: var(--color-accent);
         text-decoration-color: var(--color-accent);

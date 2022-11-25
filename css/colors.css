@@ -236,6 +236,10 @@
 
 /* set defaults */
 
+.text-color-text {
+    color: var(--color-text);
+}
+
 /* accent color is defined by theme/style */
 .text-color-accent {
 	color: var(--color-accent);
@@ -263,7 +267,7 @@
 }
 
 /* default heading color */
-h1, h2, h3, h4, h5, h6, [class^="heading-"] {    
+h1, h2, h3, h4, h5, h6, [class^="heading-"], .text-color-heading {    
     color: var(--color-heading); 
 }
 

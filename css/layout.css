@@ -1,6 +1,11 @@
 .l-grid-3up {
     /* styles set in WF */
 }
+
+.l-grid-4up {
+    /* styles set in WF */
+}
+
 .l-flex-col {
     /* styles set in WF */
 }
@@ -8,8 +13,14 @@
 .l-gap-l {
     gap: var(--space-l);
 }
+.l-gap-s {
+    gap: var(--space-s);
+}
 .l-gap-row-xl {
     row-gap: var(--space-xl);
+}
+.l-gap-row-m {
+    row-gap: var(--space-m);
 }
 
 
