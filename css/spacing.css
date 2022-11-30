@@ -244,3 +244,14 @@
 .margin-none {
     margin: 0px;
 }
+
+
+/* custom padding components */
+
+.sect--padded {
+    padding: var(--space-xl-2xl) 0px var(--space-xl-2xl) 0px;
+}
+
+.page-body--padded {
+    padding: var(--space-xl-2xl) 0px var(--space-xl-2xl) 0px;
+}

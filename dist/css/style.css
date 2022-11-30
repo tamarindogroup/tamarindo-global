@@ -25,8 +25,10 @@
   ul,
   ol {
       margin: 0;
-      font-size: 1rem; /* set consistent "flow" spacing for all elements - see the utilities section for more details */
-  }
+      /* font-size: 1rem;  */
+      /* set consistent "flow" spacing for all elements - see the utilities section for more details */
+      /* edit - no longer setting font size here as it prevents resizing type by inheritance */
+    }
   html, body {
       height: 100%;
   }
@@ -858,6 +860,17 @@ h1, h2, h3, h4, h5, h6, [class^="heading-"], .text-color-heading {
 .margin-none {
     margin: 0px;
 }
+
+
+/* custom padding components */
+
+.sect--padded {
+    padding: var(--space-xl-2xl) 0px var(--space-xl-2xl) 0px;
+}
+
+.page-body--padded {
+    padding: var(--space-xl-2xl) 0px var(--space-xl-2xl) 0px;
+}
 /* -- TYPOGRAPHY.CSS -- */
 
 /* basic reset */
@@ -867,7 +880,8 @@ body {
 }
 
 /* define heading weights and line height */
-h1, h2, h3, h4, h5, h6, [class^="heading-"] {    
+h1, h2, h3, h4, h5, h6, [class^="heading-"] {
+    font-family: filson-pro, Poppins, Arial, sans-serif;
     font-weight: 500;
     line-height: 1.2;
     letter-spacing: -0.03em;
@@ -962,6 +976,10 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, [class^="heading-"] a {
 a, .text-style-link {
         color: var(--color-accent);
         text-decoration-color: var(--color-accent);
+}
+
+:is(a, .text-style-link):hover {
+    text-decoration: none;
 }
 
 
@@ -1177,6 +1195,9 @@ blockquote, text-style-quote {
 .l-gap-l {
     gap: var(--space-l);
 }
+.l-gap-m {
+    gap: var(--space-m);
+}
 .l-gap-s {
     gap: var(--space-s);
 }
@@ -1213,6 +1234,21 @@ blockquote, text-style-quote {
 
 /* -- ICONS.CSS -- */
 
+/* embed wrapper element for SVGs */
+.icon-wrapper {
+} 
+/* svg size defined by inherited font size only */
+.icon-wrapper > svg {
+    height: 1em;
+    width: 1em;
+}
+.social-icon {
+    font-size: 2rem;
+    color: var(--color-text);
+}
+.social-icon:hover {
+    color: var(--color-accent);
+}
 /* -- DEV.CSS -- */
 
 :root {
@@ -1473,7 +1509,8 @@ html.wf-design-mode .w-embed:empty {
 */
 
 /* style empty cols in Stylesheet */
-[class*="style"] [class*="col-"] {
+/* this disabled as it conflicts with normal elements */
+/* [class*="style"] [class*="col-"] {
 	min-height: 40px;
   outline: 1px solid var(--pink);
   position: relative;
@@ -1487,7 +1524,7 @@ html.wf-design-mode .w-embed:empty {
   display: inline-block;
   position: absolute;
   top: 0px;
-  }
+  } */
 
 
 /* dev banner */
@@ -1605,6 +1642,12 @@ margin-top: var(--flow-space, 1em);
 
 /* -- COMPONENTS.CSS -- */
 
+/* brand logo */
+svg.logo {
+    height: 32px;
+    width: auto;
+}
+
 /* ratio */
 .ratio-9-16 {
     padding-bottom: 56.25%;
@@ -1624,8 +1667,11 @@ margin-top: var(--flow-space, 1em);
 
 /* page navbar */
 .page-navbar {
-    background-color: var(--color-light-bg);
-    color: var(--color-light-text);
+    /* background-color: var(--color-pale-bg);
+    color: var(--color-pale-text); */
+}
+.page-navbar__nav {
+    font-size: var(--step--1);
 }
 
 
@@ -1721,17 +1767,20 @@ margin-top: var(--flow-space, 1em);
     color: var(--color-bg);
 }
 .nav-link, .button--nav {
-    font-weight: var(--caps-weight);
+    /* font-weight: var(--caps-weight);
     line-height: var(--caps-line-height);
     text-transform: var(--caps-text-transform);
-    letter-spacing: var(--caps-letter-spacing);
+    letter-spacing: var(--caps-letter-spacing); */
     font-size: var(--step--1, 0.89rem);
     color: inherit;
     text-decoration: inherit;
 }
-.nav-link:hover {
+a.nav-link:hover {
     text-decoration: underline;
     text-decoration-color: var(--color-accent);
+}
+.nav-link.w--current {
+    color: var(--color-accent);
 }
 .nav-toggle {
     color: inherit;
@@ -1829,6 +1878,10 @@ margin-top: var(--flow-space, 1em);
     height: 100%;
     min-height: 180px;
 }
+/* if feat item but not inside grid, make taller */
+:not(.feat-grid) .item--feat {
+    min-height: 420px;
+}
 .feat-grid .item__img-wrapper, .item.item--feat .item__img-wrapper {
     position: absolute;
     inset: 0px;
@@ -1880,7 +1933,7 @@ margin-top: var(--flow-space, 1em);
 
 
 /* team page */
-.team   
+.team   {}
 
 
 /* pagination */
@@ -1907,7 +1960,21 @@ margin-top: var(--flow-space, 1em);
 }
 
 
+/* tabs */
+.events-tabs__link.w--current {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
 
+
+/* footer */
+.footer__bottom {
+    border-top-color: var(--color-text);
+}
+.footer a {
+    /* color: var(--color-text); */
+    /* text-decoration-color: var(--color-text); */
+}
 
 
     

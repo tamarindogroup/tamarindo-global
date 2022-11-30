@@ -1,1 +1,17 @@
 /* -- ICONS.CSS -- */
+
+/* embed wrapper element for SVGs */
+.icon-wrapper {
+} 
+/* svg size defined by inherited font size only */
+.icon-wrapper > svg {
+    height: 1em;
+    width: 1em;
+}
+.social-icon {
+    font-size: 2rem;
+    color: var(--color-text);
+}
+.social-icon:hover {
+    color: var(--color-accent);
+}

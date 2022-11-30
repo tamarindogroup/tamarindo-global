@@ -1,5 +1,11 @@
 /* -- COMPONENTS.CSS -- */
 
+/* brand logo */
+svg.logo {
+    height: 32px;
+    width: auto;
+}
+
 /* ratio */
 .ratio-9-16 {
     padding-bottom: 56.25%;
@@ -19,8 +25,11 @@
 
 /* page navbar */
 .page-navbar {
-    background-color: var(--color-light-bg);
-    color: var(--color-light-text);
+    /* background-color: var(--color-pale-bg);
+    color: var(--color-pale-text); */
+}
+.page-navbar__nav {
+    font-size: var(--step--1);
 }
 
 
@@ -116,17 +125,20 @@
     color: var(--color-bg);
 }
 .nav-link, .button--nav {
-    font-weight: var(--caps-weight);
+    /* font-weight: var(--caps-weight);
     line-height: var(--caps-line-height);
     text-transform: var(--caps-text-transform);
-    letter-spacing: var(--caps-letter-spacing);
+    letter-spacing: var(--caps-letter-spacing); */
     font-size: var(--step--1, 0.89rem);
     color: inherit;
     text-decoration: inherit;
 }
-.nav-link:hover {
+a.nav-link:hover {
     text-decoration: underline;
     text-decoration-color: var(--color-accent);
+}
+.nav-link.w--current {
+    color: var(--color-accent);
 }
 .nav-toggle {
     color: inherit;
@@ -224,6 +236,10 @@
     height: 100%;
     min-height: 180px;
 }
+/* if feat item but not inside grid, make taller */
+:not(.feat-grid) .item--feat {
+    min-height: 420px;
+}
 .feat-grid .item__img-wrapper, .item.item--feat .item__img-wrapper {
     position: absolute;
     inset: 0px;
@@ -275,7 +291,7 @@
 
 
 /* team page */
-.team   
+.team   {}
 
 
 /* pagination */
@@ -302,7 +318,21 @@
 }
 
 
+/* tabs */
+.events-tabs__link.w--current {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
 
+
+/* footer */
+.footer__bottom {
+    border-top-color: var(--color-text);
+}
+.footer a {
+    /* color: var(--color-text); */
+    /* text-decoration-color: var(--color-text); */
+}
 
 
     

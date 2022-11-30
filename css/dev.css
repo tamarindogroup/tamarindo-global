@@ -258,7 +258,8 @@ html.wf-design-mode .w-embed:empty {
 */
 
 /* style empty cols in Stylesheet */
-[class*="style"] [class*="col-"] {
+/* this disabled as it conflicts with normal elements */
+/* [class*="style"] [class*="col-"] {
 	min-height: 40px;
   outline: 1px solid var(--pink);
   position: relative;
@@ -272,7 +273,7 @@ html.wf-design-mode .w-embed:empty {
   display: inline-block;
   position: absolute;
   top: 0px;
-  }
+  } */
 
 
 /* dev banner */

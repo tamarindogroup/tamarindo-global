@@ -13,6 +13,9 @@
 .l-gap-l {
     gap: var(--space-l);
 }
+.l-gap-m {
+    gap: var(--space-m);
+}
 .l-gap-s {
     gap: var(--space-s);
 }
