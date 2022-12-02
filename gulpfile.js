@@ -19,7 +19,8 @@ function css() {
             "editor.css",
             "utilities.css",
             "components.css",
-            "styleguide.css"
+            "styleguide.css",
+            "overrides.css"
             ]))
             .pipe(concat('style.css'))
             .pipe(gulp.dest('dist/css'))

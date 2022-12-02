@@ -51,7 +51,7 @@
 
 /* themes */
 
-/* default and primary */
+/* primary - also default */
 :root, .theme-primary { 
 
     /* dark */
@@ -215,7 +215,7 @@
     --color-accent: var(--color-pale-accent);
 }
 
-/* default and stark */
+/* stark - also default */
 :root, .style-stark {
 	--color-bg: var(--color-stark-bg);
     --color-heading: var(--color-stark-heading);
@@ -234,16 +234,16 @@
 
 
 
-/* set defaults */
+/* set default colors on elements */
 
-.text-color-text {
+/* .text-color-text {
     color: var(--color-text);
-}
+} */
 
 /* accent color is defined by theme/style */
-.text-color-accent {
+/* .text-color-accent {
 	color: var(--color-accent);
-}
+} */
 
 /* default stylings to all themed and styled elements */
 [class~="style-dark"], 
@@ -262,9 +262,9 @@
 }
 
 /* styling without background color */
-.style-no-bg {
+/* .style-no-bg {
     background-color: transparent;
-}
+} */
 
 /* default heading color */
 h1, h2, h3, h4, h5, h6, [class^="heading-"], .text-color-heading {    
@@ -275,7 +275,7 @@ h1, h2, h3, h4, h5, h6, [class^="heading-"], .text-color-heading {
 
 /* standard text color styles */
 
-.text-color-magenta {
+/* .text-color-magenta {
     color: var(--magenta);
 }
 .text-color-white {
@@ -403,11 +403,11 @@ h1, h2, h3, h4, h5, h6, [class^="heading-"], .text-color-heading {
 }
 .text-color-coral-180 {
     color: var(--coral-180);
-}
+} */
 
 /* background colors */
 
-.bg-color-magenta {
+/* .bg-color-magenta {
     background-color: var(--magenta);
 }
 .bg-color-white {
@@ -535,11 +535,12 @@ h1, h2, h3, h4, h5, h6, [class^="heading-"], .text-color-heading {
 }
 .bg-color-coral-180 {
     background-color: var(--coral-180);
-}
+} */
 
-.bg-color {
+/* set bg color to bg color defined by style/theme if not already in use */
+/* .bg-color-bg {
     background-color: var(--color-bg);
-}
+} */
 
 
 
