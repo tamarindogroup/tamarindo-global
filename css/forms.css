@@ -19,3 +19,410 @@
 
 
 /* https://moderncss.dev/pure-css-custom-checkbox-style/ */
+
+
+
+
+
+
+
+/* previous styling, pretty opinionated, focused on HS styling */
+
+/*******************/
+/* Brand colours */
+:root {
+    --awaw-darkblue: #0B4A65;
+    --awaw-blue: #04798F;
+    --awaw-gold: #E1B636;
+    --awaw-yellow: #ffd91c;
+    --awaw-midgrey: #444444;
+    --awaw-grey: #999999;
+    --awaw-green: #85B200;
+    --awaw-orange: #FF8800;
+    --awaw-fadedorange: #F5E8BE;
+    --awaw-lightgrey: #EDEDED;
+  
+    --tamarindo-darkblue: #242B61;
+    --tamarindo-midblue: #4FA3DB;
+    --tamarindo-darkgrey: #092C3C;
+    --tamarindo-midgrey: #8F9193;
+    --tamarindo-lightgrey: #C8CAD4;
+    --tamarindo-verylightgrey: #EFF1F6;
+    --tamarindo-white: #FFFFFF;
+    --tamarindo-red: #EA6556;
+    --tamarindodesign-darkblue: #1a1a3f;
+  }
+  /*******************/
+  
+  
+  
+  /*******************/
+  /* Form colours*/
+
+  /* forms */
+
+    :root {
+        /* --form-color-text: var(--color-text);
+        --form-color-bg: var(--color-bg);
+        --form-color-alert: var(--color-accent);
+        --form-color-input-bg:var(--color-bg);
+        --form-color-input-border: var(--color-text);
+        --form-color-input-text: var(--color-text);
+        --form-color-link: var(--color-accent);
+        --form-color-button-bg: var(--color-accent);
+        --form-color-button-text: var(--color-bg); */
+    }
+  
+  /* default form styling if no class applied */
+  /* :root {
+      --form-color-text: var(--awaw-midgrey);
+      --form-color-bg: white; 
+      --form-color-alert: var(--tamarindo-red);
+      --form-color-input-bg: white;
+      --form-color-input-border: var(--tamarindo-midgrey);
+      --form-color-input-text: black;
+      --form-color-link: var(--tamarindo-red);
+      --form-color-button-bg: var(--tamarindo-midblue);
+      --form-color-button-text: white;
+    } */
+  
+  /* default form styling if only dark class applied*/
+  /* .form--dark form, .embed-form.form--dark {
+      --form-color-text: white;
+      --form-color-bg: var(--tamarindo-darkblue); 
+      --form-color-alert: var(--tamarindo-red);
+      --form-color-input-bg: white;
+      --form-color-input-border: white;
+      --form-color-input-text: black;
+      --form-color-link: var(--tamarindo-red);
+      --form-color-button-bg: var(--tamarindo-midblue);
+      --form-color-button-text: white;
+      } */
+  
+  /* default form styling for tamarindo and for default */  
+  /* .form--tamarindo form, form, .embed-form {
+    --form-color-text: var(--awaw-midgrey);
+    --form-color-bg: white; 
+    --form-color-alert: var(--tamarindo-red);
+    --form-color-input-bg: white;
+    --form-color-input-border: var(--tamarindo-midgrey);
+    --form-color-input-text: black;
+    --form-color-link: var(--tamarindo-red);
+    --form-color-button-bg: var(--tamarindo-midblue);
+    --form-color-button-text: white;
+  } */
+  
+  /* default form styling for networks */  
+  /* .form--awaw form, .form--networks form, .embed-form.form--awaw, .embed-form.form--networks {
+    --form-color-text: var(--awaw-midgrey);
+    --form-color-bg: white; 
+    --form-color-alert: var(--awaw-blue);
+    --form-color-input-bg: white;
+    --form-color-input-border: var(--tamarindo-midgrey);
+    --form-color-input-text: black;
+    --form-color-link: var(--awaw-blue);
+    --form-color-button-bg: var(--awaw-blue);
+    --form-color-button-text: white;
+  } */
+  
+  /* dark form styling for networks */  
+  /* .form--awaw.form--dark form, 
+  .form--networks.form--dark form, 
+  .embed-form.form--dark.form--networks, 
+  .embed-form.form--dark.form--awaw {
+     --form-color-text: white;
+    --form-color-bg: var(--awaw-darkblue); 
+    --form-color-alert: var(--awaw-yellow);
+    --form-color-input-bg: white;
+    --form-color-input-border: white;
+    --form-color-input-text: black;
+    --form-color-link: var(--awaw-yellow);
+    --form-color-button-bg: var(--awaw-yellow);
+    --form-color-button-text: var(--awaw-darkblue);
+  } */
+  
+  /* dark form styling for tamarindo */  
+  /* .form--tamarindo.form--dark form, .embed-form.form--dark.form--tamarindo {
+    --form-color-text: white;
+    --form-color-bg: var(--tamarindo-darkblue);
+    --form-color-alert: var(--tamarindo-red);
+    --form-color-input-bg: white;
+    --form-color-input-border: white;
+    --form-color-input-text: black;
+    --form-color-link: var(--tamarindo-red);
+    --form-color-button-bg: var(--tamarindo-midblue);
+    --form-color-button-text: white;
+  } */
+  /*******************/
+  
+  
+  
+  
+  /* Form fields */
+  
+  form .hs-form-field {
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    /* color: var(--color-text); */
+  }
+  
+  /* Labels */
+  
+  form label {
+    font-weight: 500;
+    display: block;
+    font-size: var(--step-0);
+    line-height: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Help text - legends */
+  
+  form legend {
+    font-size: var(--step--1);
+    margin-bottom: 0.5rem;
+  }
+  
+  form .hs-field-desc {
+    color: var(--color-accent);
+  }
+  
+  /* Inputs */
+  
+  form input[type="text"],
+  form input[type="password"], 
+  form input[type="datetime"], 
+  form input[type="datetime-local"], 
+  form input[type="date"], 
+  form input[type="month"], 
+  form input[type="time"], 
+  form input[type="week"], 
+  form input[type="number"], 
+  form input[type="email"], 
+  form input[type="url"], 
+  form input[type="search"], 
+  form input[type="tel"], 
+  form input[type="color"],
+  form input[type="file"],
+  form textarea,
+  form select 
+    {
+    color: var(--color-stark-text);
+    background-color: var(--color-stark-bg);
+    border: 2px solid;
+    border-radius: 3px;
+    border-color: var(--color-text);
+    display: inline-block;
+    font-size: var(--step-0);
+    padding: 0.7rem;
+    width: 100%;
+  
+  }
+  
+  /* Inputs in focus (selectors for all inputs when clicked)  */
+  
+  form input[type="text"]:focus,
+  form input[type="password"]:focus, 
+  form input[type="datetime"]:focus, 
+  form input[type="datetime-local"]:focus, 
+  form input[type="date"]:focus, 
+  form input[type="month"]:focus, 
+  form input[type="time"]:focus, 
+  form input[type="week"]:focus, 
+  form input[type="number"]:focus, 
+  form input[type="email"]:focus, 
+  form input[type="url"]:focus, 
+  form input[type="search"]:focus, 
+  form input[type="tel"]:focus, 
+  form input[type="color"]:focus,
+  form input[type="file"]:focus,
+  form textarea:focus,
+  form select:focus {
+  
+  }
+  
+  form fieldset {
+    max-width: 100% !important;
+  }
+  
+  /* Inputs - checkbox/radio */
+  
+  form .inputs-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  form .inputs-list > li {
+    display: block;
+    margin: 0.7rem 0;
+  }
+  
+  form .inputs-list input,
+  form .inputs-list span {
+    vertical-align: middle;
+  }
+  
+  form input[type=checkbox],
+  form input[type=radio] {
+    cursor: pointer;
+    margin-right: 0.35rem;
+  }
+  
+  /* Inputs - datepicker */
+  
+  .hs-dateinput {
+    position: relative;
+  }
+  
+  .hs-dateinput:before {
+    content:'\01F4C5';
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .fn-date-picker .pika-table thead th {
+    color: var(--color-bg);
+  }
+  
+  .fn-date-picker td.is-selected .pika-button {
+    border-radius: 0;
+    box-shadow: none;
+  }
+  
+  .fn-date-picker td .pika-button:hover,
+  .fn-date-picker td .pika-button:focus {
+    border-radius: 0 !important;
+    color: var(--color-bg);
+  }
+  
+  /* Inputs - file picker */
+  
+  form input[type=file] {
+    background-color: transparent;
+    border: initial;
+    padding: initial;
+  }
+  
+  /* Headings and text */
+  
+  form .hs-richtext,
+  form .hs-richtext p {
+    font-size: var(--step--1);
+    margin: 0 0 1.4rem;
+    color: var(--color-text);
+  }
+  
+  form .hs-richtext a {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+  
+  form .hs-richtext img {
+    max-width: 100% !important;
+  }
+  
+  /* GDPR */
+  
+  .legal-consent-container .hs-form-booleancheckbox-display > span,
+  .legal-consent-container .hs-form-booleancheckbox-display > span p {
+    /* margin-left: 1rem !important; */ /* removed as causing duplicate margin when span inside p */
+    font-size: var(--step--1);
+    font-weight: 400;
+    line-height: 1;
+  }
+  
+  /* Validation */
+  
+  form .hs-form-required {
+    color: var(--color-accent);
+    font-size: var(--step--1);
+    font-weight: 400;
+  }
+  
+  form .hs-input.invalid.error {
+    border-color: var(--color-accent);
+    font-size: var(--step--1);
+    font-weight: 400;
+  }
+  
+  form .hs-error-msg {
+    color: var(--color-accent);
+    margin-top: 0.35rem;
+    font-size: var(--step--1);
+    font-weight: 400;
+  }
+  
+  form .hs-error-msgs label {
+      color: var(--color-accent);
+      font-size: var(--step--1);
+      font-weight: 400;
+  }
+  
+  
+  
+  
+  /* Submit button */
+  
+  /* inclusion of :not() is a temporary patch so member report access button on AWAW is styled same as rest of AWAW site */
+  
+  form input[type=submit]:not(.x-btn),
+  form input[type=button]:not(.x-btn),
+  form .hs-button:not(.x-btn) {
+    display: inline-block;
+    align-items: center;
+    margin: 10px;
+    border: none;
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-bg);
+    padding: 14px 30px 16px;
+    -webkit-transition: all 200ms ease;
+    transition: all 200ms ease;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    white-space: normal;
+    word-wrap: break-word;
+    }
+  
+    /* Success message */
+  
+    /* NB no longer inside form element so use hbspt-form to target more accurately */
+    .hbspt-form div.submitted-message p {
+      color: var(--color-text);
+    }
+  
+    .hbspt-form div.submitted-message a {
+      color: var(--color-accent);
+      text-decoration: underline;
+    }
+  
+  /* Captcha */
+  
+  .grecaptcha-badge {
+    margin: 10px;
+  }
+  
+  
+  /* fix styling on iOS */
+  
+  form textarea,
+  form input.text,
+  form input[type="text"],
+  form input[type="button"],
+  form input[type="submit"],
+  form input[type="email"],
+  form input[type="tel"],
+  form select {
+      -webkit-appearance: none;
+  } 
+  /*we should also have input[type="checkbox"] but this causes the checkbox 
+  to be near invisible on the grey non-member form on FW.com on ios*/
+  
+  
+  
+  
