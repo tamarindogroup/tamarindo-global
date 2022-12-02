@@ -1,0 +1,175 @@
+<!-- this code is taken from the AWAW site but was not implemented AFAIK. It essentially loads HS forms (and YT video) dynamically on the page. There are 2(?) HS forms covered here - the one to enable tracking of non-members on 'submit form to view video' videos, and one hidden one that overlays the video for members to track clicks and thus (a) mean we don't need a form for members for 'submit to view' videos, and (b) means we can generate tickets to track member video watches -->
+
+<style>
+
+  /* make hidden form cover entire thumbnail */
+  .form-cover form, .form-cover .hs_submit, .form-cover .actions, .form-cover input[type="submit"] {
+      width: 100%;
+      height: 100%;
+      margin: 0px !important;
+      border-radius: 0px !important;
+    }
+  .form-cover {
+    opacity: 0;
+  }
+  /* responsive iframe */
+  .video-iframe-wrapper {
+    padding-top: 56.25%;
+    overflow: hidden;
+    position: relative;
+  }
+  .video-iframe-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0px;
+  }
+
+</style>
+
+<!-- load HubSpot form script -->
+
+<!--[if lte IE 8]>
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+<![endif]-->
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+
+
+
+<script type="text/javascript">
+
+  $('document').ready(function(){
+
+
+      /* get item info */
+      function getItemData() {
+        var itemData = {};
+        itemData.videoID = "{{wf {&quot;path&quot;:&quot;youtube-video-id&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}";
+        itemData.name = "{{wf {&quot;path&quot;:&quot;name&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}";
+        itemData.type = "{{wf {&quot;path&quot;:&quot;content-type:name&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}";
+        return itemData;
+      }
+
+      
+      /* load one-click form for logged in members */
+      function loadMemberBtnForm() {
+
+        /* hide form */
+        var targetSelector = "#video-member-noconsent-form";
+        if (document.querySelector(targetSelector)) {document.querySelector(targetSelector).style.display="none";}
+        else {return;} /* if no form wrapper, end */
+
+        /* wait for MS so we can get user data */
+        MemberStack.onReady.then(function(member) {
+
+          /* create form */
+          hbspt.forms.create({
+            target: targetSelector, /* element to create inside */
+            region: "na1",
+            portalId: "3372701",
+            formId: "0ae7175e-6d98-4da8-8759-07193b5dc13b", /* default form ID */
+            onFormReady: function($form){ /* After form is loaded, update hidden ticket fields so we can track on HS */
+              $form.find('input[name="TICKET.subject"]').val("Video Member Access").change(); /* form submission type */
+              $form.find('input[name="TICKET.content"]').val(itemData.name).change(); /* item name */
+              $form.find('input[name="email"]').val(member["email"]).change(); /* load email from MS */
+
+              /* show form */
+              document.querySelector(targetSelector).style.display="block";
+
+            },
+            onFormSubmit: function($form) {
+            },
+            onFormSubmitted: function($form) {
+              /* hide form block again */
+              document.querySelector(targetSelector).style.display="block";
+              document.querySelector(targetSelector).style.pointerEvents="none";
+
+              /* hide thumbnail */
+              thumbnail = document.querySelector("#thumbnail").style.display="none";
+
+              /* create iframe and add to wrapper */
+              var iframe = document.createElement( "iframe" );
+                iframe.setAttribute( "frameborder", "0" );
+                iframe.setAttribute( "allowfullscreen", "" );
+                iframe.setAttribute( "src", "https://www.youtube.com/embed/"+ itemData.videoID +"?rel=0&showinfo=0&autoplay=1" );
+              var wrapper = document.querySelector("#video-iframe-wrapper");
+                wrapper.innerHTML = "";
+                wrapper.appendChild( iframe );
+                wrapper.style.display="block";
+
+            }
+          });
+
+        });
+
+      }
+
+
+      
+
+
+      
+
+      /* load access form for non members */
+      function loadNonMemberAccessForm() {
+
+        hbspt.forms.create({
+          target: "#report-non-member-form-wrapper", 
+          region: "na1",
+          portalId: "3372701",
+          formId: (function() { 
+            var hsFormID = "{{wf {&quot;path&quot;:&quot;form-id-non-member&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}";
+            if(hsFormID.length > 0) {
+              return hsFormID;
+              }
+            else {
+              return "2c6fd965-24fb-4990-ba84-90e9fe97047d"; 
+              }
+            }()),
+          submitButtonClass: "x-btn",
+          onFormReady: function($form){ 
+              $form.find('[name="TICKET.subject"]').val("Report Non-Member Access").change(); 
+              $form.find('[name="TICKET.content"]').val("{{wf {&quot;path&quot;:&quot;name&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}").change(); 
+           },
+          onFormSubmit: function($form) {
+          },
+          onFormSubmitted: function($form) {
+            /* after submission, show the button and click it to active PDF viewer */
+            showReportBtn.click();
+            showReportBtn.classList.remove("hidden");
+          }
+        });
+      }
+
+
+    /* check if we are on staging or live */
+    if (!window.location.hostname.match(/webflow\.io/)) {
+      var TG_ENV = {
+        "domain": "live"
+      }
+    }
+    else {
+      var TG_ENV = {
+        "domain": "staging"
+      }
+    }
+
+    if (TG_ENV.domain == "staging") {
+      
+      var itemData = getItemData();
+
+      /* if new page layout selected */
+      if ("{{wf {&quot;path&quot;:&quot;show-new-page-layout&quot;,&quot;type&quot;:&quot;Bool&quot;\} }}" == "true") {
+
+
+
+        loadMemberBtnForm();
+        // loadNonMemberAccessForm();
+      }
+
+    }
+  
+    
+  });
+  
+  </script>

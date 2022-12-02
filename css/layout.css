@@ -19,6 +19,12 @@
 .l-gap-s {
     gap: var(--space-s);
 }
+.l-gap-xs {
+    gap: var(--space-xs);
+}
+.l-gap-ch {
+    gap: 0.55ch;
+}
 .l-gap-row-xl {
     row-gap: var(--space-xl);
 }
