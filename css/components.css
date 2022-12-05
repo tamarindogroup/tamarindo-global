@@ -379,6 +379,21 @@ lite-youtube {
 }
 
 
+/* tabs */
+.button.w-tab-link {
+    background-color: var(--color-pale-bg);
+    color: var(--color-pale-text);
+    border-color: var(--color-pale-bg);
+}
+.button.w-tab-link.w--current {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    border-color: var(--color-text);
+}
+
+
+
+
 /* [class^="tag-"]:before {
     content: ' ';
     height: 1em;

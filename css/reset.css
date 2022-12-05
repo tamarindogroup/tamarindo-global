@@ -71,3 +71,6 @@
     line-height: initial;
     vertical-align: initial;
 }
+.w-tab-link.w--current {
+    background-color: transparent;
+}

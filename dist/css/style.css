@@ -71,6 +71,9 @@
     line-height: initial;
     vertical-align: initial;
 }
+.w-tab-link.w--current {
+    background-color: transparent;
+}
 
 /* -- COLORS.CSS -- */
 
@@ -2445,6 +2448,21 @@ lite-youtube {
 .arrow-link:hover::after {
     transform: translate(1em, 0em);
 }
+
+
+/* tabs */
+.button.w-tab-link {
+    background-color: var(--color-pale-bg);
+    color: var(--color-pale-text);
+    border-color: var(--color-pale-bg);
+}
+.button.w-tab-link.w--current {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    border-color: var(--color-text);
+}
+
+
 
 
 /* [class^="tag-"]:before {
