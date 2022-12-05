@@ -4,6 +4,7 @@
   background-color: var(--color-heading);
   border-color: var(--color-heading);
   color: var(--color-bg);
+  transition: transform 0.25s;
 }
 
 .button.button--outline {
@@ -25,7 +26,9 @@
   color: var(--color-accent);
 }
 
-
+.button:hover {
+  /* transform: translateY(-5px); */
+}
 
 		/* hide empty buttons with no text content when NOT in Designer or Editor */
     /* buttons are then still editable in Designer / Editor */

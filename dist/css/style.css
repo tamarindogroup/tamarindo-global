@@ -1025,10 +1025,15 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, [class^=
 
 /* lists */
 
+/* square bullets */
+ul {
+    list-style-type: square;
+}
+
 /* custom bullet point color*/
 li::marker {
     color: var(--color-accent);
-    }
+}
 
 /* hack support for nested list elements in RT */
 .sub-bullet {
@@ -1111,6 +1116,7 @@ blockquote, text-style-quote {
   background-color: var(--color-heading);
   border-color: var(--color-heading);
   color: var(--color-bg);
+  transition: transform 0.25s;
 }
 
 .button.button--outline {
@@ -1132,7 +1138,9 @@ blockquote, text-style-quote {
   color: var(--color-accent);
 }
 
-
+.button:hover {
+  /* transform: translateY(-5px); */
+}
 
 		/* hide empty buttons with no text content when NOT in Designer or Editor */
     /* buttons are then still editable in Designer / Editor */
@@ -2401,7 +2409,73 @@ lite-youtube {
 }
 
 
+/* banner */
+.banner {
+    padding: var(--space-xs);
+    font-size: var(--step--1);
+}
+.banner.banner--icon {
+
+}
+
+
+
+/* arrow links */
+.arrow-link {
+    /* float: right; */
+}
+.arrow-link::after {
+    transition: transform 0.25s;
+}
+.arrow-link::after {
+    content: "";
+    --icon-url: url("https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/638bc45cefc5216d06f6fe2e_arrow.svg");
+    -webkit-mask: var(--icon-url) no-repeat 50% 50%;
+    mask: var(--icon-url) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    height: 1em;
+    width: 1em;
+    background-color: currentColor;
+    display: inline-block;
+    position: relative;
+    top: 0.1em;
+    margin-left: 0.5em;
+}
+.arrow-link:hover::after {
+    transform: translate(1em, 0em);
+}
+
+
+/* [class^="tag-"]:before {
+    content: ' ';
+    height: 1em;
+    width: 1em;
+    flex: 0 0 1em; 
+    margin-right: 0.75em;
+    position: relative;
+    top: 0.1em;
+    -webkit-mask: var(--icon-url) no-repeat 50% 50%;
+    mask: var(--icon-url) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: currentColor;
+    pointer-events: none;
+}
+.tag-members {
+    --icon-url: url("https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/6232180a378e375eb73eb6b6_icon-lock.svg");
+    background-color: var(--coral);
+    color: white;
+} */
     
+
+
+
+
+
+
+
+
     
     
     /* add commas between taglist items */
@@ -2507,127 +2581,6 @@ lite-youtube {
 }
 */
 
-
-/* items */
-.item {
-    --metadata-display: block;
-    --desc-display: block;
-    overflow: hidden;
-    position: relative;
-}
-.item__metadata {
-    display: var(--metadata-display, block);
-    position: absolute;
-    --flow-space: 0px; /* pin to top of item */
-    top: 0px;
-    right: 0px;
-    margin-top: 0px;
-}
-.item__desc {
-    display: var(--desc-display, block);
-}
-
-.item__img-wrapper {
-    background-color: var(--color-dark-bg);
-    background-image: url('https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/637f91b22c51e6034d57d154_item-placeholder-800.jpeg');
-    background-size: cover;
-    background-position: center center;
-    position: relative;
-    width: 100%;
-    height: 250px;
-    transition: transform 0.25s;
-}
-.item[data-item-format="subdued"] {
-    --metadata-display: none;
-    --desc-display: none;
-}
-.item__top-img {
-    position: absolute;
-    height: 85%;
-    max-height: 240px;
-}
-
-
-/* featured grid */
-.feat-grid {
-    gap: var(--space-2xs);
-    text-decoration: none;
-}
-.feat-grid__item-wrapper:first-child {
-    grid-row: 1 / 4; /* first item is taller */
-    min-height: 420px;
-}
-/* if only one feat item, make it full width */
-.feat-grid > :only-child {
-    grid-column: 1 / -1;
-}
-/* single item variation */
-.feat-grid[data-feat-grid="1"] { /* TO DO - REVIEW THIS APPROACH */
-    /* grid-template-columns: 1fr; */
-    /* grid-template-rows: 1fr; */
-}
-/* make single item taller */
-.feat-grid[data-feat-grid="1"] .feat-grid__item { /* TO DO - REVIEW THIS APPROACH */
-    /* min-height: 420px; */
-}
-/* only show excerpt for first item */
-.feat-grid__item-wrapper:not(:first-child) .item__desc {
-    display: none;
-}
-.feat-grid__item-wrapper:hover .item__img-wrapper {
-    transform: scale(1.05);
-}
-.feat-grid__item-wrapper:hover a {
-    text-decoration: underline;
-}
-/* adjust style of item when inside featured grid*/
-.feat-grid .item {
-    height: 100%;
-    min-height: 180px;
-}
-.feat-grid .item__img-wrapper {
-    position: absolute;
-    inset: 0px;
-    height: 100%;
-}
-.feat-grid .item__content {
-    position: relative;
-    padding: var(--space-m-l);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* pin text to bottom of item */
-    margin-top: 0px !important; /* override flow utility */
-}
-.feat-grid .item__img-wrapper:after {
-    position: absolute;
-    inset: 0px;
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(30deg, rgb(9, 44, 60) 7%, rgba(9, 44, 60, 0.59) 41%, rgba(255, 255, 255, 0)), linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-}
-.feat-grid .item__metadata {
-    display: none;
-}
-/* for feat items, make link cover whole item */
-.feat-grid .item a::after {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    content: "";
-    inset: 0px;
-}
-@media only screen and (max-width: 991px) {
-    .feat-grid__item-wrapper:first-child {
-        grid-row: 1 / 1;
-    }
-    .feat-grid .item {
-        min-height: 320px;
-    }
-  }
-@media only screen and (max-width: 767px) {
-  }
 /* Colors */
 
 /* text */
@@ -2940,3 +2893,125 @@ lite-youtube {
 
 
 
+
+
+/* items */
+.item {
+    --metadata-display: block;
+    --desc-display: block;
+    overflow: hidden;
+    position: relative;
+}
+.item__metadata {
+    display: var(--metadata-display, block);
+    position: absolute;
+    --flow-space: 0px; /* pin to top of item */
+    top: 0px;
+    right: 0px;
+    margin-top: 0px;
+}
+.item__desc {
+    display: var(--desc-display, block);
+}
+
+.item__img-wrapper {
+    background-color: var(--color-dark-bg);
+    background-image: url('https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/637f91b22c51e6034d57d154_item-placeholder-800.jpeg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    width: 100%;
+    height: 250px;
+    transition: transform 0.25s;
+}
+.item[data-item-format="subdued"] {
+    --metadata-display: none;
+    --desc-display: none;
+}
+.item__top-img {
+    position: absolute;
+    height: 85%;
+    max-height: 240px;
+}
+
+
+/* featured grid */
+.feat-grid {
+    gap: var(--space-2xs);
+    text-decoration: none;
+}
+.feat-grid__item-wrapper:first-child {
+    grid-row: 1 / 4; /* first item is taller */
+    min-height: 420px;
+}
+/* if only one feat item, make it full width */
+.feat-grid > :only-child {
+    grid-column: 1 / -1;
+}
+/* single item variation */
+.feat-grid[data-feat-grid="1"] { /* TO DO - REVIEW THIS APPROACH */
+    /* grid-template-columns: 1fr; */
+    /* grid-template-rows: 1fr; */
+}
+/* make single item taller */
+.feat-grid[data-feat-grid="1"] .feat-grid__item { /* TO DO - REVIEW THIS APPROACH */
+    /* min-height: 420px; */
+}
+/* only show excerpt for first item */
+.feat-grid__item-wrapper:not(:first-child) .item__desc {
+    display: none;
+}
+.feat-grid__item-wrapper:hover .item__img-wrapper {
+    transform: scale(1.05);
+}
+.feat-grid__item-wrapper:hover a {
+    text-decoration: underline;
+}
+/* adjust style of item when inside featured grid*/
+.feat-grid .item {
+    height: 100%;
+    min-height: 180px;
+}
+.feat-grid .item__img-wrapper {
+    position: absolute;
+    inset: 0px;
+    height: 100%;
+}
+.feat-grid .item__content {
+    position: relative;
+    padding: var(--space-m-l);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* pin text to bottom of item */
+    margin-top: 0px !important; /* override flow utility */
+}
+.feat-grid .item__img-wrapper:after {
+    position: absolute;
+    inset: 0px;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(30deg, rgb(9, 44, 60) 7%, rgba(9, 44, 60, 0.59) 41%, rgba(255, 255, 255, 0)), linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+}
+.feat-grid .item__metadata {
+    display: none;
+}
+/* for feat items, make link cover whole item */
+.feat-grid .item a::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: "";
+    inset: 0px;
+}
+@media only screen and (max-width: 991px) {
+    .feat-grid__item-wrapper:first-child {
+        grid-row: 1 / 1;
+    }
+    .feat-grid .item {
+        min-height: 320px;
+    }
+  }
+@media only screen and (max-width: 767px) {
+  }

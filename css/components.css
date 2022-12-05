@@ -341,7 +341,73 @@ lite-youtube {
 }
 
 
+/* banner */
+.banner {
+    padding: var(--space-xs);
+    font-size: var(--step--1);
+}
+.banner.banner--icon {
+
+}
+
+
+
+/* arrow links */
+.arrow-link {
+    /* float: right; */
+}
+.arrow-link::after {
+    transition: transform 0.25s;
+}
+.arrow-link::after {
+    content: "";
+    --icon-url: url("https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/638bc45cefc5216d06f6fe2e_arrow.svg");
+    -webkit-mask: var(--icon-url) no-repeat 50% 50%;
+    mask: var(--icon-url) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    height: 1em;
+    width: 1em;
+    background-color: currentColor;
+    display: inline-block;
+    position: relative;
+    top: 0.1em;
+    margin-left: 0.5em;
+}
+.arrow-link:hover::after {
+    transform: translate(1em, 0em);
+}
+
+
+/* [class^="tag-"]:before {
+    content: ' ';
+    height: 1em;
+    width: 1em;
+    flex: 0 0 1em; 
+    margin-right: 0.75em;
+    position: relative;
+    top: 0.1em;
+    -webkit-mask: var(--icon-url) no-repeat 50% 50%;
+    mask: var(--icon-url) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: currentColor;
+    pointer-events: none;
+}
+.tag-members {
+    --icon-url: url("https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/6232180a378e375eb73eb6b6_icon-lock.svg");
+    background-color: var(--coral);
+    color: white;
+} */
     
+
+
+
+
+
+
+
+
     
     
     /* add commas between taglist items */
