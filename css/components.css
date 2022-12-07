@@ -6,7 +6,7 @@ svg.logo {
     width: auto;
 }
 
-/* ratio */
+/* ratio */ /* TODO - I think these should be pos rel too! */
 .ratio-9-16 {
     padding-bottom: 56.25%;
     height: 0px !important; 
@@ -109,6 +109,33 @@ svg.logo {
 .hero__body, .hero__metadata {
     --flow-space: 2rem;
 }
+.big-hero__heading {
+    font-size: var(--step-6, 3.82rem);
+    line-height: 1.05;  
+}
+.hero__bg {
+    background-color: var(--color-dark-bg);
+}
+.hero__side-img-wrapper {
+    height: calc( 100% - 2rem);
+}
+
+
+/* 
+<div data-poster-url="https://assets.website-files.com/6361890e4c4a656c784edebb/638fc7e877dc5c70977b856c_pexels-rachel-claire-7666608-poster-00001.jpg" data-video-urls="https://assets.website-files.com/6361890e4c4a656c784edebb/638fc7e877dc5c70977b856c_pexels-rachel-claire-7666608-transcode.mp4,https://assets.website-files.com/6361890e4c4a656c784edebb/638fc7e877dc5c70977b856c_pexels-rachel-claire-7666608-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="w-background-video w-background-video-atom"><video id="ade1c5b6-2bd3-241a-2d40-0bacb50908f5-video" autoplay="" loop="" style="background-image:url(&quot;https://assets.website-files.com/6361890e4c4a656c784edebb/638fc7e877dc5c70977b856c_pexels-rachel-claire-7666608-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="https://assets.website-files.com/6361890e4c4a656c784edebb/638fc7e877dc5c70977b856c_pexels-rachel-claire-7666608-transcode.mp4" data-wf-ignore="true"><source src="https://assets.website-files.com/6361890e4c4a656c784edebb/638fc7e877dc5c70977b856c_pexels-rachel-claire-7666608-transcode.webm" data-wf-ignore="true"></video><noscript><style>
+  [data-wf-bgvideo-fallback-img] {
+    display: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-wf-bgvideo-fallback-img] {
+      position: absolute;
+      z-index: -100;
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }</style><img data-wf-bgvideo-fallback-img="true" src="https://assets.website-files.com/6361890e4c4a656c784edebb/638fc7e877dc5c70977b856c_pexels-rachel-claire-7666608-poster-00001.jpg" alt=""/></noscript><div aria-live="polite"><button aria-controls="ade1c5b6-2bd3-241a-2d40-0bacb50908f5-video" type="button" data-w-bg-video-control="true" class="w-backgroundvideo-backgroundvideoplaypausebutton w-background-video--control"><span><img src="https://assets.website-files.com/6022af993a6b2191db3ed10c/628299f8aa233b83918e24fd_Pause.svg" alt="Pause video"></span><span hidden=""><img src="https://assets.website-files.com/6022af993a6b2191db3ed10c/628298b20ae0236682d4b87f_Play-24.svg" alt="Play video"></span></button></div></div> */
 
 
 /* nav */
@@ -396,6 +423,33 @@ lite-youtube {
 
 
 
+/* grid list */
+/* support either applied to rich text or directly on a list */
+@media (min-width: 767px) {
+    .w-richtext.grid-list :where(ul, ol),
+    .grid-list:where(ul, ol) {
+        /* display: grid; */
+        /* grid-template-columns: repeat(2, 1fr); */
+        /* row-gap: 1rem; */
+        column-gap: 2rem;
+        padding-left: 1rem;
+        columns: 2 auto;
+    }
+}
+.grid-list li {
+    /* --flow-space: 0px; */
+    /* margin-top: 0px; */
+    margin-left: 0px;
+}
+
+
+/* section heading */
+.section-heading {
+    margin-bottom: var(--space-m-l);
+    max-width: 25ch;
+}
+
+
 
 /* [class^="tag-"]:before {
     content: ' ';
@@ -418,9 +472,6 @@ lite-youtube {
     color: white;
 } */
     
-
-
-
 
 
 
