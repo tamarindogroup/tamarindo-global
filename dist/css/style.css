@@ -2427,7 +2427,12 @@ a.nav-link:hover {
 
 
 /* team page */
-.team   {}
+.team {}
+
+/* bit of a hack to remove the min-height on a feat item */
+.item--feat.ratio-1-1 {
+    min-height: 180px;
+}
 
 
 /* pagination */
@@ -2514,7 +2519,7 @@ lite-youtube {
     margin-left: 0.5em;
 }
 .arrow-link:hover::after {
-    transform: translate(1em, 0em);
+    transform: translate(0.5em, 0em);
 }
 
 
