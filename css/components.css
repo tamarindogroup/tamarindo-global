@@ -370,6 +370,16 @@ a.nav-link:hover {
 }
 
 
+/* page-navbar */
+/* TODO - hacky fix to remove link underlines in footer */
+.page-navbar a {
+    text-decoration: none !important;
+}
+.page-navbar a:hover {
+    text-decoration: underline !important; 
+}
+
+
 /* video */
 lite-youtube {
     max-width: 100%;
