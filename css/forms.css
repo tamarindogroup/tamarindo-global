@@ -405,6 +405,7 @@
   
   .grecaptcha-badge {
     margin: 10px;
+    display: none;
   }
   
   

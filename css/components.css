@@ -73,11 +73,13 @@ svg.logo {
     --icon-url: url("https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/6232180a378e375eb73eb6b6_icon-lock.svg");
     background-color: var(--coral);
     color: white;
+    display: none!important;
 }
 .tag-open {
     --icon-url: url("https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/62321cdc8499f54243b06c4b_icon-unlock.svg");
     background-color: var(--navy-080);
     color: white;
+    display: none!important;
 }
 .tag-archive {
     --icon-url: url("https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/63698225601219760c21b84e_archive.svg");

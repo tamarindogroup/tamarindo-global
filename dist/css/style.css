@@ -1154,32 +1154,47 @@ blockquote, text-style-quote {
 
 .button {
   background-color: var(--color-heading);
-  border-color: var(--color-heading);
+  /* border-color: var(--color-heading); */
   color: var(--color-bg);
   transition: transform 0.25s;
+  position: relative;
+  border: 0px !important;
 }
 
 .button.button--outline {
   background-color: transparent;
-  border-color: var(--color-heading);
+  /* border-color: var(--color-heading); */
   color: var(--color-heading);
+  box-shadow: inset 0 0 0 2px var(--color-heading);
 }
 
 .button.button--accent,
 .button.button--nav {
   background-color: var(--color-accent);
-  border-color: var(--color-accent);
+  /* border-color: var(--color-accent); */
   color: var(--color-bg);
 }
 
 .button.button--accent-outline {
   background-color: transparent;
-  border-color: var(--color-accent);
+  /* border-color: var(--color-accent); */
   color: var(--color-accent);
+  box-shadow: inset 0 0 0 2px var(--color-accent);
 }
 
-.button:hover {
-  /* transform: translateY(-5px); */
+.button:hover::after  {
+  opacity: 1;
+}
+.button::after {
+  background-color: rgba(0, 0, 0, 0.2);
+  content: "";
+  inset: 0px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.15s ease;
 }
 
 		/* hide empty buttons with no text content when NOT in Designer or Editor */
@@ -1677,6 +1692,7 @@ blockquote, text-style-quote {
   
   .grecaptcha-badge {
     margin: 10px;
+    display: none;
   }
   
   
@@ -2182,11 +2198,13 @@ svg.logo {
     --icon-url: url("https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/6232180a378e375eb73eb6b6_icon-lock.svg");
     background-color: var(--coral);
     color: white;
+    display: none!important;
 }
 .tag-open {
     --icon-url: url("https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/62321cdc8499f54243b06c4b_icon-unlock.svg");
     background-color: var(--navy-080);
     color: white;
+    display: none!important;
 }
 .tag-archive {
     --icon-url: url("https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/63698225601219760c21b84e_archive.svg");
