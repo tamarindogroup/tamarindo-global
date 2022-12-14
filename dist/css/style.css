@@ -2286,7 +2286,7 @@ a.nav-link:hover {
 }
 @media (max-width: 991px) {
     .dropdown__list {
-        background-color: var(--slate-020);
+        background-color: var(--navy-080);
         color: var(--color-text);
     }
     .dropdown__toggle {
@@ -2316,9 +2316,10 @@ a.nav-link:hover {
 
 .item__img-wrapper {
     background-color: var(--color-dark-bg);
-    background-image: url('https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/637f91b22c51e6034d57d154_item-placeholder-800.jpeg');
-    background-size: cover;
+    background-image: url('https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/63990672394bcd70cb568461_item-placeholder-v2.jpeg');
+    background-size: auto 75%;
     background-position: center center;
+    background-repeat: no-repeat;
     position: relative;
     width: 100%;
     height: 250px;
@@ -2573,6 +2574,24 @@ lite-youtube {
     max-width: 25ch;
 }
 
+/* button row */
+/* prevent overflow of long inline-block buttons on small screens when inside flex parent */
+.button-row > .button {
+    max-width: 100%;
+}
+
+
+/* slider */
+.slider {
+    height: auto;
+    min-height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.w-slide[aria-hidden="true"] {
+    xheight: 0px;
+}
 
 
 /* [class^="tag-"]:before {
@@ -3018,125 +3037,3 @@ lite-youtube {
 
 
 
-
-
-/* items */
-.item {
-    --metadata-display: block;
-    --desc-display: block;
-    overflow: hidden;
-    position: relative;
-}
-.item__metadata {
-    display: var(--metadata-display, block);
-    position: absolute;
-    --flow-space: 0px; /* pin to top of item */
-    top: 0px;
-    right: 0px;
-    margin-top: 0px;
-}
-.item__desc {
-    display: var(--desc-display, block);
-}
-
-.item__img-wrapper {
-    background-color: var(--color-dark-bg);
-    background-image: url('https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/637f91b22c51e6034d57d154_item-placeholder-800.jpeg');
-    background-size: cover;
-    background-position: center center;
-    position: relative;
-    width: 100%;
-    height: 250px;
-    transition: transform 0.25s;
-}
-.item[data-item-format="subdued"] {
-    --metadata-display: none;
-    --desc-display: none;
-}
-.item__top-img {
-    position: absolute;
-    height: 85%;
-    max-height: 240px;
-}
-
-
-/* featured grid */
-.feat-grid {
-    gap: var(--space-2xs);
-    text-decoration: none;
-}
-.feat-grid__item-wrapper:first-child {
-    grid-row: 1 / 4; /* first item is taller */
-    min-height: 420px;
-}
-/* if only one feat item, make it full width */
-.feat-grid > :only-child {
-    grid-column: 1 / -1;
-}
-/* single item variation */
-.feat-grid[data-feat-grid="1"] { /* TO DO - REVIEW THIS APPROACH */
-    /* grid-template-columns: 1fr; */
-    /* grid-template-rows: 1fr; */
-}
-/* make single item taller */
-.feat-grid[data-feat-grid="1"] .feat-grid__item { /* TO DO - REVIEW THIS APPROACH */
-    /* min-height: 420px; */
-}
-/* only show excerpt for first item */
-.feat-grid__item-wrapper:not(:first-child) .item__desc {
-    display: none;
-}
-.feat-grid__item-wrapper:hover .item__img-wrapper {
-    transform: scale(1.05);
-}
-.feat-grid__item-wrapper:hover a {
-    text-decoration: underline;
-}
-/* adjust style of item when inside featured grid*/
-.feat-grid .item {
-    height: 100%;
-    min-height: 180px;
-}
-.feat-grid .item__img-wrapper {
-    position: absolute;
-    inset: 0px;
-    height: 100%;
-}
-.feat-grid .item__content {
-    position: relative;
-    padding: var(--space-m-l);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* pin text to bottom of item */
-    margin-top: 0px !important; /* override flow utility */
-}
-.feat-grid .item__img-wrapper:after {
-    position: absolute;
-    inset: 0px;
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(30deg, rgb(9, 44, 60) 7%, rgba(9, 44, 60, 0.59) 41%, rgba(255, 255, 255, 0)), linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-}
-.feat-grid .item__metadata {
-    display: none;
-}
-/* for feat items, make link cover whole item */
-.feat-grid .item a::after {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    content: "";
-    inset: 0px;
-}
-@media only screen and (max-width: 991px) {
-    .feat-grid__item-wrapper:first-child {
-        grid-row: 1 / 1;
-    }
-    .feat-grid .item {
-        min-height: 320px;
-    }
-  }
-@media only screen and (max-width: 767px) {
-  }
