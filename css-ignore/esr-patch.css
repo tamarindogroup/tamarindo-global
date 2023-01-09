@@ -1,0 +1,897 @@
+/* -- RESET.CSS -- */
+/* based on Andy Bell and Josh Comeau's resets
+  https://piccalil.li/blog/a-modern-css-reset/
+  https://www.joshwcomeau.com/css/custom-css-reset/
+  */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd, img, li, ul, ol {
+    margin: 0;
+    /* font-size: 1rem;  */
+    /* set consistent "flow" spacing for all elements - see the utilities section for more details */
+    /* edit - no longer setting font size here as it prevents resizing type by inheritance */
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    /* overflow-wrap: break-word; */
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* -- COLORS.CSS -- */
+/* Colors */
+:root {
+    --magenta: #FF00FF;
+    --white: #FFFFFF;
+    --black: #000000;
+    --navy-010: #E6E9EB;
+    --navy-020: #CCD3D7;
+    --navy-040: #99A8AF;
+    --navy-060: #667D87;
+    --navy-080: #33525F;
+    --navy-100: #002637;
+    --navy-120: #001E2C;
+    --navy-140: #001721;
+    --navy-160: #000F16;
+    --navy-180: #00080B;
+    --sand-060: #FFF8EC;
+    --sand-100: #FFF4E0;
+    --sand-110: #E6DCCA;
+    --sand-120: #CCC3B3;
+    --sand-140: #999286;
+    --sand-160: #66625A;
+    --sand-180: #33312D;
+    --slate-010: #EFF0F0;
+    --slate-020: #D5D7D8;
+    --slate-040: #B9BEC1;
+    --slate-060: #808D93;
+    --slate-080: #65747B;
+    --slate-100: #4C5B61;
+    --slate-120: #364045;
+    --slate-140: #1F2528;
+    --slate-160: #090B0B;
+    --coral-010: #FDEEEF;
+    --coral-020: #FBDCDE;
+    --coral-040: #F6B9BD;
+    --coral-060: #F2969C;
+    --coral-080: #ED737B;
+    --coral-100: #E9505A;
+    --coral-120: #BA4048;
+    --coral-140: #8C3036;
+    --coral-160: #5D2024;
+    --coral-180: #2F1012;
+    /* basic aliases for key colors */
+    --navy: var(--navy-100);
+    --sand: var(--sand-100);
+    --coral: var(--coral-100);
+    --slate: var(--slate-100);
+}
+
+/* themes */
+/* primary - also default */
+:root, .theme-primary {
+    /* dark */
+    --color-dark-bg: var(--navy);
+    --color-dark-heading: var(--sand);
+    --color-dark-text: var(--white);
+    --color-dark-accent: var(--coral);
+    /* light */
+    --color-light-bg: var(--sand);
+    --color-light-heading: var(--navy);
+    --color-light-text: var(--navy);
+    --color-light-accent: var(--coral);
+    /* pale */
+    --color-pale-bg: var(--navy-010);
+    --color-pale-heading: var(--navy);
+    --color-pale-text: var(--navy);
+    --color-pale-accent: var(--coral);
+    /* stark */
+    --color-stark-bg: var(--white);
+    --color-stark-heading: var(--navy);
+    --color-stark-text: var(--navy);
+    --color-stark-accent: var(--coral);
+    /* loud */
+    --color-loud-bg: var(--coral);
+    --color-loud-heading: var(--sand);
+    --color-loud-text: var(--white);
+    --color-loud-accent: var(--navy);
+}
+
+/* secondary */
+.theme-secondary {
+    /* dark */
+    --color-dark-bg: var(--coral);
+    --color-dark-heading: var(--sand);
+    --color-dark-text: var(--white);
+    --color-dark-accent: var(--navy-120);
+    /* light */
+    --color-light-bg: var(--sand);
+    --color-light-heading: var(--coral);
+    --color-light-text: var(--navy);
+    --color-light-accent: var(--coral);
+    /* pale */
+    --color-pale-bg: var(--coral-020);
+    --color-pale-heading: var(--navy);
+    --color-pale-text: var(--navy);
+    --color-pale-accent: var(--coral);
+    /* stark */
+    --color-stark-bg: var(--white);
+    --color-stark-heading: var(--coral);
+    --color-stark-text: var(--navy);
+    --color-stark-accent: var(--coral);
+    /* loud */
+    --color-loud-bg: var(--navy-120);
+    --color-loud-heading: var(--coral);
+    --color-loud-text: var(--white);
+    --color-loud-accent: var(--coral);
+}
+
+/* tertiary */
+.theme-tertiary {
+    /* dark */
+    --color-dark-bg: var(--navy-140);
+    --color-dark-heading: var(--white);
+    --color-dark-text: var(--white);
+    --color-dark-accent: var(--coral);
+    /* light */
+    --color-light-bg: var(--navy-010);
+    --color-light-heading: var(--navy);
+    --color-light-text: var(--navy);
+    --color-light-accent: var(--coral);
+    /* pale */
+    --color-pale-bg: var(--navy-040);
+    --color-pale-heading: var(--navy);
+    --color-pale-text: var(--navy);
+    --color-pale-accent: var(--white);
+    /* stark */
+    --color-stark-bg: var(--white);
+    --color-stark-heading: var(--navy);
+    --color-stark-text: var(--navy);
+    --color-stark-accent: var(--coral);
+    /* loud */
+    --color-loud-bg: var(--coral);
+    --color-loud-heading: var(--white);
+    --color-loud-text: var(--white);
+    --color-loud-accent: var(--navy-160);
+}
+
+/* monotone */
+.theme-monotone {
+    /* dark */
+    --color-dark-bg: var(--slate-140);
+    --color-dark-heading: var(--slate-010);
+    --color-dark-text: var(--slate-010);
+    --color-dark-accent: var(--coral);
+    /* light */
+    --color-light-bg: var(--slate-010);
+    --color-light-heading: var(--slate-160);
+    --color-light-text: var(--slate-160);
+    --color-light-accent: var(--coral);
+    /* pale */
+    --color-pale-bg: var(--slate-040);
+    --color-pale-heading: var(--slate-160);
+    --color-pale-text: var(--slate-160);
+    --color-pale-accent: var(--coral);
+    /* stark */
+    --color-stark-bg: var(--white);
+    --color-stark-heading: var(--slate-160);
+    --color-stark-text: var(--slate-160);
+    --color-stark-accent: var(--coral);
+    /* loud */
+    --color-loud-bg: var(--coral);
+    --color-loud-heading: var(--white);
+    --color-loud-text: var(--white);
+    --color-loud-accent: var(--slate-140);
+}
+
+/* styles */
+/* dark */
+.style-dark {
+    --color-bg: var(--color-dark-bg);
+    --color-heading: var(--color-dark-heading);
+    --color-text: var(--color-dark-text);
+    --color-accent: var(--color-dark-accent);
+}
+
+/* light */
+.style-light {
+    --color-bg: var(--color-light-bg);
+    --color-heading: var(--color-light-heading);
+    --color-text: var(--color-light-text);
+    --color-accent: var(--color-light-accent);
+}
+
+/* pale */
+.style-pale {
+    --color-bg: var(--color-pale-bg);
+    --color-heading: var(--color-pale-heading);
+    --color-text: var(--color-pale-text);
+    --color-accent: var(--color-pale-accent);
+}
+
+/* stark - also default */
+:root, .style-stark {
+    --color-bg: var(--color-stark-bg);
+    --color-heading: var(--color-stark-heading);
+    --color-text: var(--color-stark-text);
+    --color-accent: var(--color-stark-accent);
+}
+
+/* loud */
+.style-loud {
+    --color-bg: var(--color-loud-bg);
+    --color-heading: var(--color-loud-heading);
+    --color-text: var(--color-loud-text);
+    --color-accent: var(--color-loud-accent);
+}
+
+/* set default colors on elements */
+/* .text-color-text {
+    color: var(--color-text);
+} */
+/* accent color is defined by theme/style */
+/* .text-color-accent {
+    color: var(--color-accent);
+} */
+/* default stylings to all themed and styled elements */
+[class~="style-dark"], [class~="style-light"], [class~="style-stark"], [class~="style-loud"], [class~="style-pale"], [class~="theme-primary"], [class~="theme-secondary"], [class~="theme-tertiary"], [class~="theme-monochrome"] {
+    /* color will cascade to descendents */
+    color: var(--color-text);
+    /* bg color does not cascade */
+    background-color: var(--color-bg);
+}
+
+/* styling without background color */
+/* .style-no-bg {
+    background-color: transparent;
+} */
+/* default heading color */
+h1, h2, h3, h4, h5, h6, [class^="heading-"], .text-color-heading {
+    color: var(--color-heading);
+}
+
+/* standard text color styles */
+/* .text-color-magenta {
+    color: var(--magenta);
+}
+.text-color-white {
+    color: var(--white);
+}
+.text-color-black {
+    color: var(--black);
+}
+.text-color-navy {
+    color: var(--navy);
+}
+.text-color-sand {
+    color: var(--sand);
+}
+.text-color-slate {
+    color: var(--slate);
+}
+.text-color-coral {
+    color: var(--coral);
+}
+.text-color-navy-010 {
+    color: var(--navy-010);
+}
+.text-color-navy-020 {
+    color: var(--navy-020);
+}
+.text-color-navy-040 {
+    color: var(--navy-040);
+}
+.text-color-navy-060 {
+    color: var(--navy-060);
+}
+.text-color-navy-080 {
+    color: var(--navy-080);
+}
+.text-color-navy-100 {
+    color: var(--navy-100);
+}
+.text-color-navy-120 {
+    color: var(--navy-120);
+}
+.text-color-navy-140 {
+    color: var(--navy-140);
+}
+.text-color-navy-160 {
+    color: var(--navy-160);
+}
+.text-color-navy-180 {
+    color: var(--navy-180);
+}
+.text-color-sand-060 {
+    color: var(--sand-060);
+}
+.text-color-sand-100 {
+    color: var(--sand-100);
+}
+.text-color-sand-110 {
+    color: var(--sand-110);
+}
+.text-color-sand-120 {
+    color: var(--sand-120);
+}
+.text-color-sand-140 {
+    color: var(--sand-140);
+}
+.text-color-sand-160 {
+    color: var(--sand-160);
+}
+.text-color-sand-180 {
+    color: var(--sand-180);
+}
+.text-color-slate-010 {
+    color: var(--slate-010);
+}
+.text-color-slate-020 {
+    color: var(--slate-020);
+}
+.text-color-slate-040 {
+    color: var(--slate-040);
+}
+.text-color-slate-060 {
+    color: var(--slate-060);
+}
+.text-color-slate-080 {
+    color: var(--slate-080);
+}
+.text-color-slate-100 {
+    color: var(--slate-100);
+}
+.text-color-slate-120 {
+    color: var(--slate-120);
+}
+.text-color-slate-140 {
+    color: var(--slate-140);
+}
+.text-color-slate-160 {
+    color: var(--slate-160);
+}
+.text-color-coral-010 {
+    color: var(--coral-010);
+}
+.text-color-coral-020 {
+    color: var(--coral-020);
+}
+.text-color-coral-040 {
+    color: var(--coral-040);
+}
+.text-color-coral-060 {
+    color: var(--coral-060);
+}
+.text-color-coral-080 {
+    color: var(--coral-080);
+}
+.text-color-coral-100 {
+    color: var(--coral-100);
+}
+.text-color-coral-120 {
+    color: var(--coral-120);
+}
+.text-color-coral-140 {
+    color: var(--coral-140);
+}
+.text-color-coral-160 {
+    color: var(--coral-160);
+}
+.text-color-coral-180 {
+    color: var(--coral-180);
+} */
+/* background colors */
+/* .bg-color-magenta {
+    background-color: var(--magenta);
+}
+.bg-color-white {
+    background-color: var(--white);
+}
+.bg-color-black {
+    background-color: var(--black);
+}
+.bg-color-navy {
+    background-color: var(--navy);
+}
+.bg-color-sand {
+    background-color: var(--sand);
+}
+.bg-color-slate {
+    background-color: var(--slate);
+}
+.bg-color-coral {
+    background-color: var(--coral);
+}
+.bg-color-navy-010 {
+    background-color: var(--navy-010);
+}
+.bg-color-navy-020 {
+    background-color: var(--navy-020);
+}
+.bg-color-navy-040 {
+    background-color: var(--navy-040);
+}
+.bg-color-navy-060 {
+    background-color: var(--navy-060);
+}
+.bg-color-navy-080 {
+    background-color: var(--navy-080);
+}
+.bg-color-navy-100 {
+    background-color: var(--navy-100);
+}
+.bg-color-navy-120 {
+    background-color: var(--navy-120);
+}
+.bg-color-navy-140 {
+    background-color: var(--navy-140);
+}
+.bg-color-navy-160 {
+    background-color: var(--navy-160);
+}
+.bg-color-navy-180 {
+    background-color: var(--navy-180);
+}
+.bg-color-sand-060 {
+    background-color: var(--sand-060);
+}
+.bg-color-sand-100 {
+    background-color: var(--sand-100);
+}
+.bg-color-sand-110 {
+    background-color: var(--sand-110);
+}
+.bg-color-sand-120 {
+    background-color: var(--sand-120);
+}
+.bg-color-sand-140 {
+    background-color: var(--sand-140);
+}
+.bg-color-sand-160 {
+    background-color: var(--sand-160);
+}
+.bg-color-sand-180 {
+    background-color: var(--sand-180);
+}
+.bg-color-slate-010 {
+    background-color: var(--slate-010);
+}
+.bg-color-slate-020 {
+    background-color: var(--slate-020);
+}
+.bg-color-slate-040 {
+    background-color: var(--slate-040);
+}
+.bg-color-slate-060 {
+    background-color: var(--slate-060);
+}
+.bg-color-slate-080 {
+    background-color: var(--slate-080);
+}
+.bg-color-slate-100 {
+    background-color: var(--slate-100);
+}
+.bg-color-slate-120 {
+    background-color: var(--slate-120);
+}
+.bg-color-slate-140 {
+    background-color: var(--slate-140);
+}
+.bg-color-slate-160 {
+    background-color: var(--slate-160);
+}
+.bg-color-coral-010 {
+    background-color: var(--coral-010);
+}
+.bg-color-coral-020 {
+    background-color: var(--coral-020);
+}
+.bg-color-coral-040 {
+    background-color: var(--coral-040);
+}
+.bg-color-coral-060 {
+    background-color: var(--coral-060);
+}
+.bg-color-coral-080 {
+    background-color: var(--coral-080);
+}
+.bg-color-coral-100 {
+    background-color: var(--coral-100);
+}
+.bg-color-coral-120 {
+    background-color: var(--coral-120);
+}
+.bg-color-coral-140 {
+    background-color: var(--coral-140);
+}
+.bg-color-coral-160 {
+    background-color: var(--coral-160);
+}
+.bg-color-coral-180 {
+    background-color: var(--coral-180);
+} */
+/* set bg color to bg color defined by style/theme if not already in use */
+/* .bg-color-bg {
+    background-color: var(--color-bg);
+} */
+/* -- TYPOGRAPHY.CSS -- */
+/* font import */
+/* @import url("https://use.typekit.net/awd3jyt.css"); */
+@import url("https://p.typekit.net/p.css?s=1&k=awd3jyt&ht=tk&f=24569.24570.24571.24572&a=15293701&app=typekit&e=css"); @font-face {
+    font-family: "filson-pro";
+    src: url("https://use.typekit.net/af/56a426/0000000000000000000157c7/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i5&v=3") format("woff2"),url("https://use.typekit.net/af/56a426/0000000000000000000157c7/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i5&v=3") format("woff"),url("https://use.typekit.net/af/56a426/0000000000000000000157c7/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i5&v=3") format("opentype");
+    font-display: auto;
+    font-style: italic;
+    font-weight: 500;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: "filson-pro";
+    src: url("https://use.typekit.net/af/fcca1c/0000000000000000000157c8/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("woff2"),url("https://use.typekit.net/af/fcca1c/0000000000000000000157c8/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("woff"),url("https://use.typekit.net/af/fcca1c/0000000000000000000157c8/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3") format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 500;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: "filson-pro";
+    src: url("https://use.typekit.net/af/19c742/0000000000000000000157c9/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/19c742/0000000000000000000157c9/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/19c742/0000000000000000000157c9/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: "filson-pro";
+    src: url("https://use.typekit.net/af/27caf4/0000000000000000000157ca/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"),url("https://use.typekit.net/af/27caf4/0000000000000000000157ca/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"),url("https://use.typekit.net/af/27caf4/0000000000000000000157ca/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
+    font-display: auto;
+    font-style: italic;
+    font-weight: 400;
+    font-stretch: normal;
+}
+
+.tk-filson-pro {
+    font-family: "filson-pro",sans-serif;
+}
+
+/* basic reset */
+body {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* define heading weights and line height */
+h1, h2, h3, h4, h5, h6, [class^="heading-"] {
+    font-family: filson-pro, Poppins, Arial, sans-serif;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* heading and text sizes use a fluid type scale */
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1140,16,1.25,6,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+:root {
+    --step--3: clamp(0.51rem, calc(0.78rem + -0.37vw), 0.70rem);
+    --step--2: clamp(0.64rem, calc(0.85rem + -0.29vw), 0.79rem);
+    --step--1: clamp(0.80rem, calc(0.92rem + -0.17vw), 0.89rem);
+    --step-0: clamp(1.00rem, calc(1.00rem + 0.00vw), 1.00rem);
+    --step-1: clamp(1.13rem, calc(1.08rem + 0.24vw), 1.25rem);
+    --step-2: clamp(1.27rem, calc(1.15rem + 0.58vw), 1.56rem);
+    --step-3: clamp(1.42rem, calc(1.22rem + 1.03vw), 1.95rem);
+    --step-4: clamp(1.60rem, calc(1.27rem + 1.64vw), 2.44rem);
+    --step-5: clamp(1.80rem, calc(1.31rem + 2.44vw), 3.05rem);
+    --step-6: clamp(2.03rem, calc(1.33rem + 3.49vw), 3.82rem);
+}
+
+/* set font sizes for each heading element and class, based on fluid scale. We also add a fallback value based on the max size of the clamp for that step */
+.heading-xxl {
+    font-size: var(--step-6, 3.82rem);
+}
+
+h1, .heading-xl {
+    font-size: var(--step-5, 3.05rem);
+}
+
+h2, .heading-l {
+    font-size: var(--step-4, 2.44rem);
+}
+
+h3, .heading-m {
+    font-size: var(--step-3, 1.95rem);
+}
+
+h4, .heading-s {
+    font-size: var(--step-2, 1.56rem);
+}
+
+h5, .heading-xs {
+    font-size: var(--step-1, 1.25rem);
+}
+
+h6, .heading-xxs {
+    font-size: var(--step-0, 1.00rem);
+}
+
+/* set font sizes for each text-size class */
+.text-size-l {
+    font-size: var(--step-2, 1.56rem);
+    line-height: 1.2;
+    /* also adjust line height since text is now large */
+}
+
+.text-size-m {
+    font-size: var(--step-1, 1.25rem);
+}
+
+.text-size-reg {
+    font-size: var(--step-0, 1.00rem);
+}
+
+.text-size-s {
+    font-size: var(--step--1, 0.89rem);
+}
+
+.text-size-xs {
+    font-size: var(--step--2, 0.79rem);
+}
+
+.text-size-xxs {
+    font-size: var(--step--3, 0.70rem);
+}
+
+/* limit on text width */
+p, .text-limit-width {
+    /* max-width: 70ch; */
+}
+
+/* links */
+/* links in headings inherit parent styling */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, [class^="heading-"] a {
+    color: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    text-decoration: inherit;
+}
+
+/* TO DO - SORT LINK COLOURS */
+/* set underline color for links */
+/* non-button links that don't have a color set on a parent or on themselves. :where() reduces specificity issues */
+/* custom style */
+/* :not([class*="text-color-"]) a:where(:not([class*="text-color-"])):not(.button), 
+.text-style-link */
+a, .text-style-link {
+    color: var(--color-accent);
+    text-decoration-color: var(--color-accent);
+}
+
+:is(a, .text-style-link):hover {
+    text-decoration: none;
+}
+
+/* add underlines to links inside headings on hover */
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, [class^="heading-"] a:hover, .hover-underline:hover {
+    text-decoration: underline;
+}
+
+/* caps styling */
+:root {
+    --caps-weight: 500;
+    --caps-line-height: 1;
+    --caps-text-transform: uppercase;
+    --caps-letter-spacing: 0.05em;
+}
+
+[class*="caps-"] {
+    font-weight: var(--caps-weight);
+    line-height: var(--caps-line-height);
+    text-transform: var(--caps-text-transform);
+    letter-spacing: var(--caps-letter-spacing);
+}
+
+.caps-l {
+    font-size: var(--step-2, 1.56rem);
+}
+
+.caps-m {
+    font-size: var(--step-0, 1.00rem);
+}
+
+.caps-s {
+    font-size: var(--step--1, 0.89rem);
+}
+
+.caps-bold {
+    font-weight: 700;
+}
+
+/* lists */
+/* square bullets */
+ul {
+    list-style-type: square;
+}
+
+/* custom bullet point color*/
+li::marker {
+    color: var(--color-accent);
+}
+
+/* hack support for nested list elements in RT */
+.sub-bullet {
+    margin-left: 16px;
+}
+
+.sub-bullet-2 {
+    margin-left: 32px;
+}
+
+@media (max-width: 767px) {
+    .sub-bullet {
+        margin-left: 12px;
+    }
+
+    .sub-bullet-2 {
+        margin-left: 24px;
+    }
+}
+
+/* quotes */
+blockquote, text-style-quote {
+    border-left-color: var(--color-accent);
+}
+
+/* overrides */
+.text-no-underline {
+    text-decoration: none;
+}
+
+/* make unstyled links inside hero elements or on dark backgrounds (ie those in rich text, not buttons or nav links) accent */
+/*.hero a:not([class]), 
+.style-dark a:not([class]), 
+.text-color-accent a:not([class]),
+.text-color-white a:not([class]),
+.text-color-white [class="text-style-link"] {
+        color:var(--color-accent);
+}/
+
+/* white links on hover go accent, except those in buttons */
+/*a.text-color-white:not(.button):not(.icon-button):hover, 
+.text-color-white a:not(.button):not(.icon-button):hover {
+        color: var(--color-accent);
+}*/
+/* if an ancestor of a heading or blockquote element has a text color set, use that instead of the default element color... */
+/*[class*="text-color-"] h1,
+[class*="text-color-"] h2,
+[class*="text-color-"] h3,
+[class*="text-color-"] h4,
+[class*="text-color-"] h5,
+[class*="text-color-"] h6,
+[class*="text-color-"] blockquote,
+[class*="text-color-"] [class*="heading-"],
+[class*="text-color-"] [class="text-style-quote"] {
+        color: unset;
+}*/
+/* ...but, make blockquotes accent on dark bgs */
+/*.text-color-white blockquote,
+.text-color-white [class="text-style-quote"] {
+        color: var(--color-accent);
+}*/
+/* colored text spans */
+/*.colored-bold strong {
+        color: var(--color-accent);
+    }*/
+ul.menu {
+    list-style-type: none;
+}
+
+p {
+    max-width: none;
+}
+
+.button span {
+    background-color: var(--color-accent) !important;
+    font-size: 1rem;
+    text-transform: none;
+}
+
+.main-nav {
+    text-transform: none;
+    background-color: var(--navy);
+    font-weight: 400 !important;
+}
+
+.entry-meta .entry-meta-author, .entry-meta a {
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+.mh-image-placeholder {
+    display: none;
+}
+
+.esr-top-header {
+/*     display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between; */
+    
+}
+
+.tg-div {
+/*     background-image: url("http://energystoragereport.info/wp/wp-content/uploads/2020/02/ESR-TG-Banner-1.png");
+    width: 32vw;
+    height: 8vw;
+    background-repeat: no-repeat;
+    background-size: contain;
+    max-height: 100px;
+    max-width: 400px;
+    min-width: 200px;
+    min-height: 50px;
+    margin: 10px; */
+    display: none;
+}
+
+.main-nav {
+/*     background-color: rgb(42, 42, 42); */
+}
+
+.widget-title span, .button span, .pagination .current, input[type="submit"], .comment-section-title span {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}
+
+.entry-content a {
+    color: var(--color-text);
+}
+
+.main-nav li:hover {
+    background-color: var(--color-text);
+}
+
+h1, h2, h3, h4, h5, h6, .mh-footer, .widget-list li, .cat-item, .page_item, .menu-item, .button, .submit, .commentlist .vcard, .pagination {
+/*     font-family: franklin-gothic-urw, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.1; */
+}
+
+body, p {
+/*     font-family: gill-sans-nova, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgb(42, 42, 42); */
+}
+
+.wrapper-inner .copyright {
+    display: none;
+}
+
+.wrapper-inner .copyright-new {
+    color: white;
+}
