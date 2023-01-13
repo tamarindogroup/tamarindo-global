@@ -1,0 +1,108 @@
+/* disable Webflow publishing on older browsers if no support for :has as it prevents us from controlling publishing access */
+
+@supports not (selector(:has(*))) {
+
+  /* disable click events and grey out publish button */
+  .w-editor-publish-controls button.w-editor-publish {
+      pointer-events: none !important;
+      background-color: #e0e0e0 !important;
+      color: #999 !important;
+      border: 1px solid #999 !important;
+  }
+  /* replace cursor on parent of publish button */
+  .w-editor-publish-controls {
+    cursor: not-allowed !important;
+  }
+  /* add hover message to publish button */
+  .w-editor-publish-controls::after {
+      content: "Full site publishing is currently disabled. Please use the Collection tool to publish individual items.";
+      position: absolute;
+      right: 20px;
+      bottom: 60px;
+      max-width: 240px;
+      display: block;
+      background-color: var(--coral, red);
+      color: white;
+      padding: 16px;
+      line-height: 1.2;
+      border-radius: 8px;
+      pointer-events: none !important;
+      transition: opacity 0.25s ease;
+      opacity: 0;
+      box-shadow: 0px 12px 12px -4px rgba(0,0,0,0.10);
+  }
+  .w-editor-publish-controls:hover::after {
+      opacity: 1;
+  }
+  /* add message to top of all pages */
+  body .w-editor-edit-fade-in::before {
+      content: "Full site publishing is temporarily disabled while development changes are in progress. Individual collection items can still be published. Contact design@tamarindo.global for more information.";
+      position: static;
+      position: sticky;
+      top: 0px;
+      z-index:9999;
+      display: block;
+      background-color: var(--coral, red);
+      font-family: sans-serif;
+      color: white;
+      padding: 16px 16px 20px 16px;
+      line-height: 1.2;
+      box-shadow: 0px 12px 12px -4px rgba(0,0,0,0.10);
+  }
+
+}
+
+
+/* disable if publishing element not added to global element */
+
+
+/* disable click events and grey out publish button */
+  html:not(:has(.dev-publishing-on)) .w-editor-publish-controls button.w-editor-publish {
+      pointer-events: none !important;
+      background-color: #e0e0e0 !important;
+      color: #999 !important;
+      border: 1px solid #999 !important;
+  }
+  /* replace cursor on parent of publish button */
+  html:not(:has(.dev-publishing-on)) .w-editor-publish-controls {
+    cursor: not-allowed !important;
+  }
+  /* add hover message to publish button */
+  html:not(:has(.dev-publishing-on)) .w-editor-publish-controls::after {
+      content: "Full site publishing is currently disabled. Please use the Collection tool to publish individual items.";
+      position: absolute;
+      right: 20px;
+      bottom: 60px;
+      max-width: 240px;
+      display: block;
+      background-color: var(--coral, red);
+      color: white;
+      padding: 16px;
+      line-height: 1.2;
+      border-radius: 8px;
+      pointer-events: none !important;
+      transition: opacity 0.25s ease;
+      opacity: 0;
+      box-shadow: 0px 12px 12px -4px rgba(0,0,0,0.10);
+  }
+  html:not(:has(.dev-publishing-on)) .w-editor-publish-controls:hover::after {
+      opacity: 1;
+  }
+  /* add message to top of all pages */
+  html:not(:has(.dev-publishing-on)) body .w-editor-edit-fade-in::before {
+      content: "Full site publishing is temporarily disabled while development changes are in progress. Individual collection items can still be published. Contact design@tamarindo.global for more information.";
+      position: static;
+      position: sticky;
+      top: 0px;
+      z-index:9999;
+      display: block;
+      background-color: var(--coral, red);
+      font-family: sans-serif;
+      color: white;
+      padding: 16px 16px 20px 16px;
+      line-height: 1.2;
+      box-shadow: 0px 12px 12px -4px rgba(0,0,0,0.10);
+  }
+
+
+    
