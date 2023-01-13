@@ -2210,6 +2210,7 @@ svg.logo {
     --icon-url: url("https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/63698225601219760c21b84e_archive.svg");
     background-color: var(--coral);
     color: white;
+    margin-bottom: 2rem;
 }
 .tag-members::after {
     content: "Members";
