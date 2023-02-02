@@ -215,6 +215,12 @@ blockquote, text-style-quote {
 }
 
 
+/* bold text in headings doesn't affect heading weight */
+:is(h1,h2,h3,h4,h5,h6,[class^="heading-"]) :is(strong, em) {
+    font-weight: 500;
+}
+
+
 /* overrides */
 .text-no-underline {
     text-decoration: none;

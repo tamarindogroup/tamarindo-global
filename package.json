@@ -9,7 +9,8 @@
     "gulp-concat": "^2.6.1",
     "gulp-order": "^1.2.0",
     "gulp-watch": "^5.0.1",
-    "lite-server": "^2.6.1"
+    "lite-server": "^2.6.1",
+    "prettier": "2.8.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
