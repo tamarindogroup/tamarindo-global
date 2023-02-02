@@ -1097,6 +1097,12 @@ blockquote, text-style-quote {
 }
 
 
+/* bold text in headings doesn't affect heading weight */
+:is(h1,h2,h3,h4,h5,h6,[class^="heading-"]) :is(strong, em) {
+    font-weight: 500;
+}
+
+
 /* overrides */
 .text-no-underline {
     text-decoration: none;
@@ -2271,10 +2277,11 @@ svg.logo {
     background-color: var(--color-bg);
     color: var(--color-text);
 }
-.nav {
-    xoverflow-y: visible;
-    xoverflow-x: hidden; /* hide nav overflow when slides left/right */
-}
+/* hide nav overflow when slides left/right */
+/*.nav {
+    overflow-y: visible;
+    overflow-x: hidden; 
+}*/
 .dropdown__list {
     background-color: var(--color-text);
     color: var(--color-bg);
@@ -2310,6 +2317,10 @@ a.nav-link:hover {
     }
     .dropdown__toggle {
         /* padding: 0rem 2rem; */
+    }
+    /* on small screens, for links inside dropdowns, add left spacing */
+    .dropdown .nav-link {
+        margin-left: 2rem; /* TO DO - improve this so spacing not on link itself */
     }
 }
 
@@ -2446,8 +2457,7 @@ a.nav-link:hover {
   }
 
 
-/* team page */
-.team {}
+
 
 /* bit of a hack to remove the min-height on a feat item */
 .item--feat.ratio-1-1 {
@@ -2507,6 +2517,9 @@ a.nav-link:hover {
 .page-navbar a:hover {
     text-decoration: underline !important; 
 }
+.page-navbar__btn {
+	color: currentColor;
+  }
 
 
 /* video */
@@ -2519,6 +2532,10 @@ lite-youtube {
 .banner {
     padding: var(--space-xs);
     font-size: var(--step--1);
+}
+/* if dev banner empty, hide. We are using ID selector and !important; to beat specificity of dev-show... rules */
+#dev-banner.banner:empty {
+    display: none !important;
 }
 .banner.banner--icon {
 
@@ -2679,7 +2696,15 @@ lite-youtube {
     
 	
 
+/* Tabs */
 
+.tabbed .sect {
+    min-height: 100vh;
+}
+
+.tabbed .sect {
+    padding-top: var(--space-3xl)
+}
 /* -- STYLEGUIDE.CSS -- */
 
 .styles-wrapper [class^="style-"] {
