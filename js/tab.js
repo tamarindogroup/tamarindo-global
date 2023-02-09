@@ -5,12 +5,15 @@ Modified slightly to target any .sect descendents of .tabbed component
 */
 
 document.addEventListener('DOMContentLoaded', function (event) {
-    // Check if we're using new tabbed layout first
-    if (!true) {
+    // Check if we're using new tabbed layout first - this var is set on page in WF
+    if (!useNewLayout) {
+        console.log('Old layout');
         return;
     }
 
     (function () {
+        console.log('New layout');
+
         // Get relevant elements and collections
         const tabbed = document.querySelector('.tabbed');
         const tablist = tabbed.querySelector('ul');
