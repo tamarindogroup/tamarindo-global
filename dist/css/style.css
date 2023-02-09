@@ -2705,6 +2705,40 @@ lite-youtube {
 .tabbed .sect {
     padding-top: var(--space-3xl)
 }
+
+/* animate tabs fading in */
+.sect[role="tabpanel"]:not([hidden]) .wrapper {
+    animation: tabAnimateIn 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+@keyframes tabAnimateIn {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+
+/* 
+.sect[role="tabpanel"][data-tam-tabactive="false"] .wrapper {
+    animation: tabAnimate reverse 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.sect[role="tabpanel"][data-tam-tabactive="true"] .wrapper {
+    animation: tabAnimate 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@keyframes tabAnimate {
+    from {
+        opacity: 0%;
+        transform: translate(0px, 0px);
+    }
+    to{
+        opacity: 100%;
+        transform: translate(0px, 0px);
+    }
+} */
 /* -- STYLEGUIDE.CSS -- */
 
 .styles-wrapper [class^="style-"] {

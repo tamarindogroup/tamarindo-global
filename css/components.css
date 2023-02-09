@@ -9,19 +9,18 @@ svg.logo {
 /* ratio */ /* TODO - I think these should be pos rel too! */
 .ratio-9-16 {
     padding-bottom: 56.25%;
-    height: 0px !important; 
+    height: 0px !important;
 }
 
 .ratio-1-1 {
     padding-bottom: 100%;
-    height: 0px !important; 
+    height: 0px !important;
 }
 
 .ratio-9-16 img {
     position: absolute;
     inset: 0px;
 }
-
 
 /* page navbar */
 .page-navbar {
@@ -32,20 +31,18 @@ svg.logo {
     font-size: var(--step--1);
 }
 
-
 /* panel */
 /* potentially the same as boxout? Or card */
 .panel {
     padding: var(--space-m-l);
 }
-.panel:not[class^=style] {
+.panel:not[class^='style'] {
     background-color: var(--color-light-bg);
     color: var(--color-light-text);
 }
 
-
 /* tags */
-[class^="tag-"] {
+[class^='tag-'] {
     display: inline-flex;
     padding: 0.5em;
     font-size: 0.75rem;
@@ -54,11 +51,11 @@ svg.logo {
     letter-spacing: 0.03em;
     pointer-events: none;
 }
-[class^="tag-"]:before {
+[class^='tag-']:before {
     content: ' ';
     height: 1em;
     width: 1em;
-    flex: 0 0 1em; 
+    flex: 0 0 1em;
     margin-right: 0.75em;
     position: relative;
     top: 0.1em;
@@ -70,31 +67,31 @@ svg.logo {
     pointer-events: none;
 }
 .tag-members {
-    --icon-url: url("https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/6232180a378e375eb73eb6b6_icon-lock.svg");
+    --icon-url: url('https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/6232180a378e375eb73eb6b6_icon-lock.svg');
     background-color: var(--coral);
     color: white;
-    display: none!important;
+    display: none !important;
 }
 .tag-open {
-    --icon-url: url("https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/62321cdc8499f54243b06c4b_icon-unlock.svg");
+    --icon-url: url('https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/62321cdc8499f54243b06c4b_icon-unlock.svg');
     background-color: var(--navy-080);
     color: white;
-    display: none!important;
+    display: none !important;
 }
 .tag-archive {
-    --icon-url: url("https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/63698225601219760c21b84e_archive.svg");
+    --icon-url: url('https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/63698225601219760c21b84e_archive.svg');
     background-color: var(--coral);
     color: white;
     margin-bottom: 2rem;
 }
 .tag-members::after {
-    content: "Members";
+    content: 'Members';
 }
 .tag-open::after {
-    content: "Free to access";
+    content: 'Free to access';
 }
 .tag-archive::after {
-    content: "This content is from our archive. Some formatting or links may be broken."
+    content: 'This content is from our archive. Some formatting or links may be broken.';
 }
 .tag-large {
     font-size: 1rem;
@@ -102,27 +99,26 @@ svg.logo {
     letter-spacing: 0px;
 }
 
-
 /* hero */
 
 .hero {
     background-color: var(--color-bg);
-    min-height: calc( 300px + 15vw );
+    min-height: calc(300px + 15vw);
 }
-.hero__body, .hero__metadata {
+.hero__body,
+.hero__metadata {
     --flow-space: 2rem;
 }
 .big-hero__heading {
     font-size: var(--step-6, 3.82rem);
-    line-height: 1.05;  
+    line-height: 1.05;
 }
 .hero__bg {
     background-color: var(--color-dark-bg);
 }
 .hero__side-img-wrapper {
-    height: calc( 100% - 2rem);
+    height: calc(100% - 2rem);
 }
-
 
 /* 
 <div data-poster-url="https://assets.website-files.com/6361890e4c4a656c784edebb/638fc7e877dc5c70977b856c_pexels-rachel-claire-7666608-poster-00001.jpg" data-video-urls="https://assets.website-files.com/6361890e4c4a656c784edebb/638fc7e877dc5c70977b856c_pexels-rachel-claire-7666608-transcode.mp4,https://assets.website-files.com/6361890e4c4a656c784edebb/638fc7e877dc5c70977b856c_pexels-rachel-claire-7666608-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="w-background-video w-background-video-atom"><video id="ade1c5b6-2bd3-241a-2d40-0bacb50908f5-video" autoplay="" loop="" style="background-image:url(&quot;https://assets.website-files.com/6361890e4c4a656c784edebb/638fc7e877dc5c70977b856c_pexels-rachel-claire-7666608-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="https://assets.website-files.com/6361890e4c4a656c784edebb/638fc7e877dc5c70977b856c_pexels-rachel-claire-7666608-transcode.mp4" data-wf-ignore="true"><source src="https://assets.website-files.com/6361890e4c4a656c784edebb/638fc7e877dc5c70977b856c_pexels-rachel-claire-7666608-transcode.webm" data-wf-ignore="true"></video><noscript><style>
@@ -140,9 +136,9 @@ svg.logo {
     }
   }</style><img data-wf-bgvideo-fallback-img="true" src="https://assets.website-files.com/6361890e4c4a656c784edebb/638fc7e877dc5c70977b856c_pexels-rachel-claire-7666608-poster-00001.jpg" alt=""/></noscript><div aria-live="polite"><button aria-controls="ade1c5b6-2bd3-241a-2d40-0bacb50908f5-video" type="button" data-w-bg-video-control="true" class="w-backgroundvideo-backgroundvideoplaypausebutton w-background-video--control"><span><img src="https://assets.website-files.com/6022af993a6b2191db3ed10c/628299f8aa233b83918e24fd_Pause.svg" alt="Pause video"></span><span hidden=""><img src="https://assets.website-files.com/6022af993a6b2191db3ed10c/628298b20ae0236682d4b87f_Play-24.svg" alt="Play video"></span></button></div></div> */
 
-
 /* nav */
-.nav, .nav-menu {
+.nav,
+.nav-menu {
     background-color: var(--color-bg);
     color: var(--color-text);
 }
@@ -155,7 +151,8 @@ svg.logo {
     background-color: var(--color-text);
     color: var(--color-bg);
 }
-.nav-link, .button--nav {
+.nav-link,
+.button--nav {
     /* font-weight: var(--caps-weight);
     line-height: var(--caps-line-height);
     text-transform: var(--caps-text-transform);
@@ -193,7 +190,6 @@ a.nav-link:hover {
     }
 }
 
-
 /* items */
 .item {
     --metadata-display: block;
@@ -224,7 +220,7 @@ a.nav-link:hover {
     height: 250px;
     transition: transform 0.25s;
 }
-.item[data-item-format="subdued"] {
+.item[data-item-format='subdued'] {
     --metadata-display: none;
     --desc-display: none;
 }
@@ -233,7 +229,6 @@ a.nav-link:hover {
     height: 85%;
     max-height: 240px;
 }
-
 
 /* featured grid */
 .feat-grid {
@@ -249,26 +244,30 @@ a.nav-link:hover {
     grid-column: 1 / -1;
 }
 /* single item variation */
-.feat-grid[data-feat-grid="1"] { /* TO DO - REVIEW THIS APPROACH */
+.feat-grid[data-feat-grid='1'] {
+    /* TO DO - REVIEW THIS APPROACH */
     /* grid-template-columns: 1fr; */
     /* grid-template-rows: 1fr; */
 }
 /* make single item taller */
-.feat-grid[data-feat-grid="1"] .feat-grid__item { /* TO DO - REVIEW THIS APPROACH */
+.feat-grid[data-feat-grid='1'] .feat-grid__item {
+    /* TO DO - REVIEW THIS APPROACH */
     /* min-height: 420px; */
 }
 /* only show excerpt for first item */
 .feat-grid__item-wrapper:not(:first-child) .item__desc {
     display: none;
 }
-.feat-grid__item-wrapper:hover .item__img-wrapper, .item.item--feat:hover .item__img-wrapper {
+.feat-grid__item-wrapper:hover .item__img-wrapper,
+.item.item--feat:hover .item__img-wrapper {
     transform: scale(1.05);
 }
 .feat-grid__item-wrapper:hover a {
     text-decoration: underline;
 }
 /* adjust style of item when inside featured grid*/
-.feat-grid .item, .item.item--feat {
+.feat-grid .item,
+.item.item--feat {
     height: 100%;
     min-height: 180px;
 }
@@ -276,12 +275,14 @@ a.nav-link:hover {
 :not(.feat-grid) .item--feat {
     min-height: 420px;
 }
-.feat-grid .item__img-wrapper, .item.item--feat .item__img-wrapper {
+.feat-grid .item__img-wrapper,
+.item.item--feat .item__img-wrapper {
     position: absolute;
     inset: 0px;
     height: 100%;
 }
-.feat-grid .item__content, .item.item--feat .item__content {
+.feat-grid .item__content,
+.item.item--feat .item__content {
     position: relative;
     padding: var(--space-m-l);
     height: 100%;
@@ -291,27 +292,35 @@ a.nav-link:hover {
     margin-top: 0px !important; /* override flow utility */
 }
 /* if item has a fixed ratio and is featured, we need to make content absolute to correctly cover item */
-.item.item--feat[class*="ratio-"] .item__content {
+.item.item--feat[class*='ratio-'] .item__content {
     position: absolute;
     inset: 0px;
 }
-.feat-grid .item__img-wrapper:after, .item.item--feat .item__img-wrapper:after {
+.feat-grid .item__img-wrapper:after,
+.item.item--feat .item__img-wrapper:after {
     position: absolute;
     inset: 0px;
-    content: "";
+    content: '';
     width: 100%;
     height: 100%;
-    background: linear-gradient(30deg, rgb(9, 44, 60) 7%, rgba(9, 44, 60, 0.59) 41%, rgba(255, 255, 255, 0)), linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    background: linear-gradient(
+            30deg,
+            rgb(9, 44, 60) 7%,
+            rgba(9, 44, 60, 0.59) 41%,
+            rgba(255, 255, 255, 0)
+        ),
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
 }
 .feat-grid .item__metadata {
     display: none;
 }
 /* for feat items, make link cover whole item */
-.feat-grid .item a::after, .item.item--feat a::after {
+.feat-grid .item a::after,
+.item.item--feat a::after {
     position: absolute;
     width: 100%;
     height: 100%;
-    content: "";
+    content: '';
     inset: 0px;
 }
 @media only screen and (max-width: 991px) {
@@ -321,18 +330,14 @@ a.nav-link:hover {
     .feat-grid .item {
         min-height: 320px;
     }
-  }
+}
 @media only screen and (max-width: 767px) {
-  }
-
-
-
+}
 
 /* bit of a hack to remove the min-height on a feat item */
 .item--feat.ratio-1-1 {
     min-height: 180px;
 }
-
 
 /* pagination */
 .pagination .pagination__link {
@@ -346,10 +351,9 @@ a.nav-link:hover {
     text-decoration: underline;
 }
 
-
 /* testimonial */
 .testimonial::after {
-    content:'"';
+    content: '"';
     font-size: 10rem;
     font-style: italic;
     position: absolute;
@@ -357,13 +361,11 @@ a.nav-link:hover {
     left: 0.1em;
 }
 
-
 /* tabs */
 .events-tabs__link.w--current {
     color: var(--color-accent);
     text-decoration: underline;
 }
-
 
 /* footer */
 .footer__bottom {
@@ -374,9 +376,8 @@ a.nav-link:hover {
     text-decoration: none !important;
 }
 .footer a:hover {
-    text-decoration: underline !important; 
+    text-decoration: underline !important;
 }
-
 
 /* page-navbar */
 /* TODO - hacky fix to remove link underlines in footer */
@@ -384,18 +385,16 @@ a.nav-link:hover {
     text-decoration: none !important;
 }
 .page-navbar a:hover {
-    text-decoration: underline !important; 
+    text-decoration: underline !important;
 }
 .page-navbar__btn {
-	color: currentColor;
-  }
-
+    color: currentColor;
+}
 
 /* video */
 lite-youtube {
     max-width: 100%;
 }
-
 
 /* banner */
 .banner {
@@ -407,10 +406,7 @@ lite-youtube {
     display: none !important;
 }
 .banner.banner--icon {
-
 }
-
-
 
 /* arrow links */
 .arrow-link {
@@ -420,8 +416,8 @@ lite-youtube {
     transition: transform 0.25s;
 }
 .arrow-link::after {
-    content: "";
-    --icon-url: url("https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/638bc45cefc5216d06f6fe2e_arrow.svg");
+    content: '';
+    --icon-url: url('https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/638bc45cefc5216d06f6fe2e_arrow.svg');
     -webkit-mask: var(--icon-url) no-repeat 50% 50%;
     mask: var(--icon-url) no-repeat 50% 50%;
     -webkit-mask-size: cover;
@@ -438,7 +434,6 @@ lite-youtube {
     transform: translate(0.5em, 0em);
 }
 
-
 /* tabs */
 .button.w-tab-link {
     background-color: var(--color-pale-bg);
@@ -450,8 +445,6 @@ lite-youtube {
     color: var(--color-bg);
     border-color: var(--color-text);
 }
-
-
 
 /* grid list */
 /* support either applied to rich text or directly on a list */
@@ -472,7 +465,6 @@ lite-youtube {
     margin-left: 0px;
 }
 
-
 /* section heading */
 .section-heading {
     margin-bottom: var(--space-m-l);
@@ -485,7 +477,6 @@ lite-youtube {
     max-width: 100%;
 }
 
-
 /* slider */
 .slider {
     height: auto;
@@ -494,10 +485,9 @@ lite-youtube {
     flex-wrap: wrap;
     align-content: center;
 }
-.w-slide[aria-hidden="true"] {
+.w-slide[aria-hidden='true'] {
     xheight: 0px;
 }
-
 
 /* [class^="tag-"]:before {
     content: ' ';
@@ -519,51 +509,42 @@ lite-youtube {
     background-color: var(--coral);
     color: white;
 } */
-    
 
-
-
-
-
-    
-    
-    /* add commas between taglist items */
-    /* .taglist__item:not(:last-child):after {
+/* add commas between taglist items */
+/* .taglist__item:not(:last-child):after {
         content: ",";
         display: inline-block;
         color: white;
     } */
-      
-    /* colored tint */
-    /* .client-list__img {
+
+/* colored tint */
+/* .client-list__img {
     		-webkit-filter: saturate(0%);
     		filter: saturate(0%);
     		filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.289 0.289 0.289 0 0.133 0.271 0.271 0.271 0 0.188 0.212 0.212 0.212 0 0.365 0 0 0 1 0'/></filter></svg>#grayscale");
         } */
-    /* fix for Safari as poor implementation of SVG filters */
-    /* https://github.com/Fyrd/caniuse/issues/3803 */
-    /* https://www.bram.us/2021/06/23/css-at-supports-rules-to-target-only-firefox-safari-chromium/#safari */
-    	/* @supports (background: -webkit-named-image(i)) {
+/* fix for Safari as poor implementation of SVG filters */
+/* https://github.com/Fyrd/caniuse/issues/3803 */
+/* https://www.bram.us/2021/06/23/css-at-supports-rules-to-target-only-firefox-safari-chromium/#safari */
+/* @supports (background: -webkit-named-image(i)) {
         .client-list__img {
             -webkit-filter: saturate(0%) !important;
             filter: saturate(0%) !important;
             }
       } */
-    
-    
-	/* remove focus outline on sections in Safari */
-    .sect:focus, .section-id:focus {
-    		outline: none;
-    }
-    
-    
-    /* expand size of lighbox video player. WF lightbox controls occupy left/right 5% */
-    .w-lightbox-frame, .w-lightbox-embed {
-        width: 90vw;
-        height: 90vh;
-    }
-    
-	
+
+/* remove focus outline on sections in Safari */
+.sect:focus,
+.section-id:focus {
+    outline: none;
+}
+
+/* expand size of lighbox video player. WF lightbox controls occupy left/right 5% */
+.w-lightbox-frame,
+.w-lightbox-embed {
+    width: 90vw;
+    height: 90vh;
+}
 
 /* Tabs */
 
@@ -572,5 +553,38 @@ lite-youtube {
 }
 
 .tabbed .sect {
-    padding-top: var(--space-3xl)
+    padding-top: var(--space-3xl);
 }
+
+/* animate tabs fading in */
+.sect[role='tabpanel']:not([hidden]) .wrapper {
+    animation: tabAnimateIn 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+@keyframes tabAnimateIn {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+/* 
+.sect[role="tabpanel"][data-tam-tabactive="false"] .wrapper {
+    animation: tabAnimate reverse 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.sect[role="tabpanel"][data-tam-tabactive="true"] .wrapper {
+    animation: tabAnimate 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@keyframes tabAnimate {
+    from {
+        opacity: 0%;
+        transform: translate(0px, 0px);
+    }
+    to{
+        opacity: 100%;
+        transform: translate(0px, 0px);
+    }
+} */
