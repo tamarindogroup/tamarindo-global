@@ -588,3 +588,9 @@ lite-youtube {
         transform: translate(0px, 0px);
     }
 } */
+
+/* message panels */
+/* style headings and links in rich text for message panels */
+.message.w-richtext :is(h1, h2, h3, h4, h5) {
+    font-size: var(--step-3);
+}
