@@ -8,15 +8,15 @@
 }
 /* set text color to accent defined by style/theme */
 .text-color-accent {
-	color: var(--color-accent);
+    color: var(--color-accent);
 }
 /* set text color to heading color defined by style/theme */
 .text-color-heading {
-	color: var(--color-heading);
+    color: var(--color-heading);
 }
 /* set text color to bg color defined by style/theme */
-.text-color-heading {
-	color: var(--color-bg);
+.text-color-bg {
+    color: var(--color-bg);
 }
 
 /* background */
@@ -41,7 +41,6 @@
 .bg-color-heading {
     background-color: var(--color-heading);
 }
-
 
 /* standard text color styles */
 
@@ -306,7 +305,3 @@
 .bg-color-coral-180 {
     background-color: var(--coral-180);
 }
-
-
-
-
