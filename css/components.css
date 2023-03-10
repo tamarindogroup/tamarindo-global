@@ -272,8 +272,9 @@ a.nav-link:hover {
     min-height: 180px;
 }
 /* if feat item but not inside grid, make taller */
+/* disabling for member portal page */
 :not(.feat-grid) .item--feat {
-    min-height: 420px;
+    /* min-height: 420px; */
 }
 .feat-grid .item__img-wrapper,
 .item.item--feat .item__img-wrapper {
