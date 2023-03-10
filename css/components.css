@@ -315,8 +315,9 @@ a.nav-link:hover {
     display: none;
 }
 /* for feat items, make link cover whole item */
-.feat-grid .item a::after,
-.item.item--feat a::after {
+/* update - exclude child arrow links */
+.feat-grid .item a:not(.arrow-link)::after,
+.item.item--feat a:not(.arrow-link)::after {
     position: absolute;
     width: 100%;
     height: 100%;

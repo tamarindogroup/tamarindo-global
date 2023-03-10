@@ -7,6 +7,7 @@ Modified slightly to target any .sect descendents of .tabbed component
 document.addEventListener('DOMContentLoaded', function (event) {
     // Check if we're using new tabbed layout first - this var is set on page in WF
     if (!useNewLayout) {
+        // if (!{{wf {&quot;path&quot;:&quot;dev-use-new-layout&quot;,&quot;type&quot;:&quot;Bool&quot;\} }}) {
         console.log('Old layout');
         return;
     }
@@ -17,8 +18,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
         // Get relevant elements and collections
         const tabbed = document.querySelector('.tabbed');
         const tablist = tabbed.querySelector('ul');
-        const tabs = tablist.querySelectorAll('a');
-        const panels = tabbed.querySelectorAll('.sect');
+        const tabs = tablist.querySelectorAll(
+            'li:not(.w-condition-invisible) a'
+        ); /* exclude any hidden tabs */
+        const panels = tabbed.querySelectorAll(
+            '.sect:not(.w-condition-invisible)'
+        ); /* exclude any hidden panels */
 
         // The tab switching function
         const switchTab = (oldTab, newTab, updateHash) => {
