@@ -14,7 +14,7 @@ data-tam-load-id="IDENTIFIER"
 
 */
 
-document.addEventListener('DOMContentLoaded', (event) => {
+(function () {
     $('[data-tam-load-element="load-target"]').each(function (i) {
         var load_target = $(this);
         var load_collection = load_target.attr('data-tam-load-collection');
@@ -31,4 +31,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 "']"
         );
     });
-});
+})();
