@@ -20,6 +20,11 @@ data-tam-load-id="IDENTIFIER"
         var load_collection = load_target.attr('data-tam-load-collection');
         var load_item = load_target.attr('data-tam-load-item');
         var load_id = load_target.attr('data-tam-load-id');
+
+        /* if one of these attributes is not defined, skip to next iteration */
+        /* this prevents us making lots of unnecessary load() requests that return 404 */
+        if (!load_item || !load_collection || !load_id) return true;
+
         load_target.load(
             '/' +
                 load_collection +
