@@ -2334,6 +2334,15 @@ a.nav-link:hover {
     height: 250px;
     transition: transform 0.25s;
 }
+/* if not using an image, remove the placeholder image and the overlay */
+.item__img-wrapper.item__img-wrapper--blank {
+    background: none;
+}
+:is(.feat-grid, .item.item--feat)
+    .item__img-wrapper.item__img-wrapper--blank:after {
+    content: '';
+    background: none;
+}
 .item[data-item-format='subdued'] {
     --metadata-display: none;
     --desc-display: none;
@@ -2388,7 +2397,7 @@ a.nav-link:hover {
 /* if feat item but not inside grid, make taller */
 /* disabling for member portal page */
 :not(.feat-grid) .item--feat {
-    /* min-height: 420px; */
+    min-height: 420px;
 }
 .feat-grid .item__img-wrapper,
 .item.item--feat .item__img-wrapper {
@@ -2709,6 +2718,12 @@ lite-youtube {
 /* style headings and links in rich text for message panels */
 .message.w-richtext :is(h1, h2, h3, h4, h5) {
     font-size: var(--step-3);
+}
+
+/* hack fix for SVG logos without defined dimensions not appearing in Chrome */
+img.logos__img[src*='.svg'] {
+    height: 100px;
+    width: 100px;
 }
 
 /* -- STYLEGUIDE.CSS -- */
