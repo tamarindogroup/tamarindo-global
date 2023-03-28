@@ -2112,6 +2112,20 @@ html.wf-design-mode .w-embed:empty {
     display: inline-block;
 }
 
+/* overflow */
+.u-overflow-auto {
+    overflow: auto;
+}
+.u-overflow-visible {
+    overflow: visible;
+}
+.u-overflow-hidden {
+    overflow: hidden;
+}
+.u-overflow-scroll {
+    overflow: scroll;
+}
+
 /* -- COMPONENTS.CSS -- */
 
 /* brand logo */

@@ -102,3 +102,17 @@
 .inline-block {
     display: inline-block;
 }
+
+/* overflow */
+.u-overflow-auto {
+    overflow: auto;
+}
+.u-overflow-visible {
+    overflow: visible;
+}
+.u-overflow-hidden {
+    overflow: hidden;
+}
+.u-overflow-scroll {
+    overflow: scroll;
+}
