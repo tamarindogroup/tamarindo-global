@@ -1,5 +1,11 @@
 /* -- COMPONENTS.CSS -- */
 
+/* section */
+.section {
+    padding-top: var(--space-xl-2xl);
+    padding-bottom: var(--space-xl-2xl);
+}
+
 /* brand logo */
 svg.logo {
     height: 32px;
@@ -546,6 +552,7 @@ lite-youtube {
 
 /* remove focus outline on sections in Safari */
 .sect:focus,
+.section:focus,
 .section-id:focus {
     outline: none;
 }
@@ -559,16 +566,14 @@ lite-youtube {
 
 /* Tabs */
 
-.tabbed .sect {
+.tabbed .sect,
+.tabbed .section {
     min-height: 100vh;
-}
-
-.tabbed .sect {
     padding-top: var(--space-3xl);
 }
 
 /* animate tabs fading in */
-.sect[role='tabpanel']:not([hidden]) .wrapper {
+:is(.sect, .section)[role='tabpanel']:not([hidden]) .wrapper {
     animation: tabAnimateIn 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 @keyframes tabAnimateIn {

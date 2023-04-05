@@ -31,5 +31,19 @@
 .l-gap-row-m {
     row-gap: var(--space-m);
 }
+.l-gap-row-s {
+    row-gap: var(--space-s);
+}
+.l-gap-col-s {
+    column-gap: var(--space-s);
+}
+.l-gap-none {
+    gap: 0px;
+}
 
-
+.row {
+    margin-inline: calc(-0.5 * var(--grid-gutter));
+}
+.col {
+    padding-inline: calc(0.5 * var(--grid-gutter));
+}

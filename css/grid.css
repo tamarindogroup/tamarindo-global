@@ -14,10 +14,10 @@
 .wrapper {
     max-width: var(--grid-max-width);
     padding-inline: var(--grid-gutter); /* left and right padding */
-    margin-inline: auto;
+    /* margin-inline: auto; */ /* set in WF */
 }
 
 .grid {
-    display: grid;
+    /* display: grid; */ /* set in WF */
     gap: var(--grid-gutter);
 }
