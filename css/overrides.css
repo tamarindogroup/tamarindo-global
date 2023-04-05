@@ -1,3 +1,5 @@
+/* -- OVERRIDES.CSS -- */
+
 /* Colors */
 
 /* text */
@@ -22,7 +24,7 @@
 /* background */
 
 /* styling without background color */
-.style-no-bg {
+.bg-color-transparent {
     background-color: transparent;
 }
 /* set bg color to bg color defined by style/theme */
@@ -304,4 +306,12 @@
 }
 .bg-color-coral-180 {
     background-color: var(--coral-180);
+}
+
+/* Underlines */
+.text-no-underline {
+    text-decoration: none;
+}
+.text-hover-underline:hover {
+    text-decoration: underline;
 }

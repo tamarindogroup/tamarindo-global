@@ -15,6 +15,7 @@ data-tam-load-id="IDENTIFIER"
 */
 
 (function () {
+    /* waits for jQuery to load*/
     var waitForJQuery = setInterval(function () {
         if (typeof $ != 'undefined') {
             load();

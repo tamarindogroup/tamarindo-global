@@ -1,47 +1,47 @@
 /* -- COLORS.CSS -- */
 
-/* Colors */
+/* - Color values - */
 :root {
-    --magenta: #FF00FF;
-    --white: #FFFFFF;
+    --magenta: #ff00ff;
+    --white: #ffffff;
     --black: #000000;
-    --navy-010: #E6E9EB;
-    --navy-020: #CCD3D7;
-    --navy-040: #99A8AF;
-    --navy-060: #667D87;
-    --navy-080: #33525F;
+    --navy-010: #e6e9eb;
+    --navy-020: #ccd3d7;
+    --navy-040: #99a8af;
+    --navy-060: #667d87;
+    --navy-080: #33525f;
     --navy-100: #002637;
-    --navy-120: #001E2C;
+    --navy-120: #001e2c;
     --navy-140: #001721;
-    --navy-160: #000F16;
-    --navy-180: #00080B;
-    --sand-060: #FFF8EC;
-    --sand-100: #FFF4E0;
-    --sand-110: #E6DCCA;
-    --sand-120: #CCC3B3;
+    --navy-160: #000f16;
+    --navy-180: #00080b;
+    --sand-060: #fff8ec;
+    --sand-100: #fff4e0;
+    --sand-110: #e6dcca;
+    --sand-120: #ccc3b3;
     --sand-140: #999286;
-    --sand-160: #66625A;
-    --sand-180: #33312D;
-    --slate-010: #EFF0F0;
-    --slate-020: #D5D7D8;
-    --slate-040: #B9BEC1;
-    --slate-060: #808D93;
-    --slate-080: #65747B;
-    --slate-100: #4C5B61;
+    --sand-160: #66625a;
+    --sand-180: #33312d;
+    --slate-010: #eff0f0;
+    --slate-020: #d5d7d8;
+    --slate-040: #b9bec1;
+    --slate-060: #808d93;
+    --slate-080: #65747b;
+    --slate-100: #4c5b61;
     --slate-120: #364045;
-    --slate-140: #1F2528;
-    --slate-160: #090B0B;
-    --coral-010: #FDEEEF;
-    --coral-020: #FBDCDE;
-    --coral-040: #F6B9BD;
-    --coral-060: #F2969C;
-    --coral-080: #ED737B;
-    --coral-100: #E9505A;
-    --coral-120: #BA4048;
-    --coral-140: #8C3036;
-    --coral-160: #5D2024;
-    --coral-180: #2F1012;
-    
+    --slate-140: #1f2528;
+    --slate-160: #090b0b;
+    --coral-010: #fdeeef;
+    --coral-020: #fbdcde;
+    --coral-040: #f6b9bd;
+    --coral-060: #f2969c;
+    --coral-080: #ed737b;
+    --coral-100: #e9505a;
+    --coral-120: #ba4048;
+    --coral-140: #8c3036;
+    --coral-160: #5d2024;
+    --coral-180: #2f1012;
+
     /* basic aliases for key colors */
     --navy: var(--navy-100);
     --sand: var(--sand-100);
@@ -49,11 +49,11 @@
     --slate: var(--slate-100);
 }
 
-/* themes */
+/* - Themes - */
 
 /* primary - also default */
-:root, .theme-primary { 
-
+:root,
+.theme-primary {
     /* dark */
     --color-dark-bg: var(--navy);
     --color-dark-heading: var(--sand);
@@ -83,12 +83,9 @@
     --color-loud-heading: var(--sand);
     --color-loud-text: var(--white);
     --color-loud-accent: var(--navy);
-
 }
-
 /* secondary */
 .theme-secondary {
-    
     /* dark */
     --color-dark-bg: var(--coral);
     --color-dark-heading: var(--sand);
@@ -118,12 +115,9 @@
     --color-loud-heading: var(--coral);
     --color-loud-text: var(--white);
     --color-loud-accent: var(--coral);
-
 }
-
 /* tertiary */
 .theme-tertiary {
-    
     /* dark */
     --color-dark-bg: var(--navy-140);
     --color-dark-heading: var(--white);
@@ -154,10 +148,8 @@
     --color-loud-text: var(--white);
     --color-loud-accent: var(--navy-160);
 }
-
 /* monotone */
 .theme-monotone {
-    
     /* dark */
     --color-dark-bg: var(--slate-140);
     --color-dark-heading: var(--slate-010);
@@ -181,7 +173,7 @@
     --color-stark-heading: var(--slate-160);
     --color-stark-text: var(--slate-160);
     --color-stark-accent: var(--coral);
-    
+
     /* loud */
     --color-loud-bg: var(--coral);
     --color-loud-heading: var(--white);
@@ -189,359 +181,76 @@
     --color-loud-accent: var(--slate-140);
 }
 
-/* styles */
+/* - Styles - */
 
 /* dark */
 .style-dark {
-	--color-bg: var(--color-dark-bg);
+    --color-bg: var(--color-dark-bg);
     --color-heading: var(--color-dark-heading);
     --color-text: var(--color-dark-text);
     --color-accent: var(--color-dark-accent);
 }
-
 /* light */
 .style-light {
-	--color-bg: var(--color-light-bg);
+    --color-bg: var(--color-light-bg);
     --color-heading: var(--color-light-heading);
     --color-text: var(--color-light-text);
     --color-accent: var(--color-light-accent);
 }
-
 /* pale */
 .style-pale {
-	--color-bg: var(--color-pale-bg);
+    --color-bg: var(--color-pale-bg);
     --color-heading: var(--color-pale-heading);
     --color-text: var(--color-pale-text);
     --color-accent: var(--color-pale-accent);
 }
-
 /* stark - also default */
-:root, .style-stark {
-	--color-bg: var(--color-stark-bg);
+:root,
+.style-stark {
+    --color-bg: var(--color-stark-bg);
     --color-heading: var(--color-stark-heading);
     --color-text: var(--color-stark-text);
     --color-accent: var(--color-stark-accent);
 }
-
 /* loud */
 .style-loud {
-	--color-bg: var(--color-loud-bg);
+    --color-bg: var(--color-loud-bg);
     --color-heading: var(--color-loud-heading);
     --color-text: var(--color-loud-text);
     --color-accent: var(--color-loud-accent);
 }
 
+/* Implement themes and styles - */
 
-
-
-/* set default colors on elements */
-
-/* .text-color-text {
-    color: var(--color-text);
-} */
-
-/* accent color is defined by theme/style */
-/* .text-color-accent {
-	color: var(--color-accent);
-} */
-
-/* default stylings to all themed and styled elements */
-[class~="style-dark"], 
-[class~="style-light"], 
-[class~="style-stark"], 
-[class~="style-loud"],
-[class~="style-pale"],  
-[class~="theme-primary"], 
-[class~="theme-secondary"], 
-[class~="theme-tertiary"],
-[class~="theme-monochrome"] {
+/* apply text and bg color to all themed and styled elements */
+.style-dark,
+.style-light,
+.style-stark,
+.style-loud,
+.style-pale,
+.theme-primary,
+.theme-secondary,
+.theme-tertiary,
+.theme-monotone {
     /* color will cascade to descendents */
-    color: var(--color-text); 
-    /* bg color does not cascade */ 
-    background-color: var(--color-bg); 
+    color: var(--color-text);
+    /* bg color does not cascade */
+    background-color: var(--color-bg);
 }
-
-/* styling without background color */
-/* .style-no-bg {
-    background-color: transparent;
-} */
 
 /* default heading color */
-h1, h2, h3, h4, h5, h6, [class^="heading-"], .text-color-heading {    
-    color: var(--color-heading); 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+[class^='heading-'] {
+    color: var(--color-heading);
 }
 
-
-
-/* standard text color styles */
-
-/* .text-color-magenta {
-    color: var(--magenta);
+a,
+.text-style-link {
+    color: var(--color-accent);
+    text-decoration-color: var(--color-accent);
 }
-.text-color-white {
-    color: var(--white);
-}
-.text-color-black {
-    color: var(--black);
-}
-.text-color-navy {
-    color: var(--navy);
-}
-.text-color-sand {
-    color: var(--sand);
-}
-.text-color-slate {
-    color: var(--slate);
-}
-.text-color-coral {
-    color: var(--coral);
-}
-.text-color-navy-010 {
-    color: var(--navy-010);
-}
-.text-color-navy-020 {
-    color: var(--navy-020);
-}
-.text-color-navy-040 {
-    color: var(--navy-040);
-}
-.text-color-navy-060 {
-    color: var(--navy-060);
-}
-.text-color-navy-080 {
-    color: var(--navy-080);
-}
-.text-color-navy-100 {
-    color: var(--navy-100);
-}
-.text-color-navy-120 {
-    color: var(--navy-120);
-}
-.text-color-navy-140 {
-    color: var(--navy-140);
-}
-.text-color-navy-160 {
-    color: var(--navy-160);
-}
-.text-color-navy-180 {
-    color: var(--navy-180);
-}
-.text-color-sand-060 {
-    color: var(--sand-060);
-}
-.text-color-sand-100 {
-    color: var(--sand-100);
-}
-.text-color-sand-110 {
-    color: var(--sand-110);
-}
-.text-color-sand-120 {
-    color: var(--sand-120);
-}
-.text-color-sand-140 {
-    color: var(--sand-140);
-}
-.text-color-sand-160 {
-    color: var(--sand-160);
-}
-.text-color-sand-180 {
-    color: var(--sand-180);
-}
-.text-color-slate-010 {
-    color: var(--slate-010);
-}
-.text-color-slate-020 {
-    color: var(--slate-020);
-}
-.text-color-slate-040 {
-    color: var(--slate-040);
-}
-.text-color-slate-060 {
-    color: var(--slate-060);
-}
-.text-color-slate-080 {
-    color: var(--slate-080);
-}
-.text-color-slate-100 {
-    color: var(--slate-100);
-}
-.text-color-slate-120 {
-    color: var(--slate-120);
-}
-.text-color-slate-140 {
-    color: var(--slate-140);
-}
-.text-color-slate-160 {
-    color: var(--slate-160);
-}
-.text-color-coral-010 {
-    color: var(--coral-010);
-}
-.text-color-coral-020 {
-    color: var(--coral-020);
-}
-.text-color-coral-040 {
-    color: var(--coral-040);
-}
-.text-color-coral-060 {
-    color: var(--coral-060);
-}
-.text-color-coral-080 {
-    color: var(--coral-080);
-}
-.text-color-coral-100 {
-    color: var(--coral-100);
-}
-.text-color-coral-120 {
-    color: var(--coral-120);
-}
-.text-color-coral-140 {
-    color: var(--coral-140);
-}
-.text-color-coral-160 {
-    color: var(--coral-160);
-}
-.text-color-coral-180 {
-    color: var(--coral-180);
-} */
-
-/* background colors */
-
-/* .bg-color-magenta {
-    background-color: var(--magenta);
-}
-.bg-color-white {
-    background-color: var(--white);
-}
-.bg-color-black {
-    background-color: var(--black);
-}
-.bg-color-navy {
-    background-color: var(--navy);
-}
-.bg-color-sand {
-    background-color: var(--sand);
-}
-.bg-color-slate {
-    background-color: var(--slate);
-}
-.bg-color-coral {
-    background-color: var(--coral);
-}
-.bg-color-navy-010 {
-    background-color: var(--navy-010);
-}
-.bg-color-navy-020 {
-    background-color: var(--navy-020);
-}
-.bg-color-navy-040 {
-    background-color: var(--navy-040);
-}
-.bg-color-navy-060 {
-    background-color: var(--navy-060);
-}
-.bg-color-navy-080 {
-    background-color: var(--navy-080);
-}
-.bg-color-navy-100 {
-    background-color: var(--navy-100);
-}
-.bg-color-navy-120 {
-    background-color: var(--navy-120);
-}
-.bg-color-navy-140 {
-    background-color: var(--navy-140);
-}
-.bg-color-navy-160 {
-    background-color: var(--navy-160);
-}
-.bg-color-navy-180 {
-    background-color: var(--navy-180);
-}
-.bg-color-sand-060 {
-    background-color: var(--sand-060);
-}
-.bg-color-sand-100 {
-    background-color: var(--sand-100);
-}
-.bg-color-sand-110 {
-    background-color: var(--sand-110);
-}
-.bg-color-sand-120 {
-    background-color: var(--sand-120);
-}
-.bg-color-sand-140 {
-    background-color: var(--sand-140);
-}
-.bg-color-sand-160 {
-    background-color: var(--sand-160);
-}
-.bg-color-sand-180 {
-    background-color: var(--sand-180);
-}
-.bg-color-slate-010 {
-    background-color: var(--slate-010);
-}
-.bg-color-slate-020 {
-    background-color: var(--slate-020);
-}
-.bg-color-slate-040 {
-    background-color: var(--slate-040);
-}
-.bg-color-slate-060 {
-    background-color: var(--slate-060);
-}
-.bg-color-slate-080 {
-    background-color: var(--slate-080);
-}
-.bg-color-slate-100 {
-    background-color: var(--slate-100);
-}
-.bg-color-slate-120 {
-    background-color: var(--slate-120);
-}
-.bg-color-slate-140 {
-    background-color: var(--slate-140);
-}
-.bg-color-slate-160 {
-    background-color: var(--slate-160);
-}
-.bg-color-coral-010 {
-    background-color: var(--coral-010);
-}
-.bg-color-coral-020 {
-    background-color: var(--coral-020);
-}
-.bg-color-coral-040 {
-    background-color: var(--coral-040);
-}
-.bg-color-coral-060 {
-    background-color: var(--coral-060);
-}
-.bg-color-coral-080 {
-    background-color: var(--coral-080);
-}
-.bg-color-coral-100 {
-    background-color: var(--coral-100);
-}
-.bg-color-coral-120 {
-    background-color: var(--coral-120);
-}
-.bg-color-coral-140 {
-    background-color: var(--coral-140);
-}
-.bg-color-coral-160 {
-    background-color: var(--coral-160);
-}
-.bg-color-coral-180 {
-    background-color: var(--coral-180);
-} */
-
-/* set bg color to bg color defined by style/theme if not already in use */
-/* .bg-color-bg {
-    background-color: var(--color-bg);
-} */
-
-
-
-

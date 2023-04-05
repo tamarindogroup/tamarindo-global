@@ -1,65 +1,120 @@
 /* -- RESET.CSS -- */
 
-	/* based on Andy Bell and Josh Comeau's resets
-  https://piccalil.li/blog/a-modern-css-reset/
-  https://www.joshwcomeau.com/css/custom-css-reset/
-  */
+/* based on Andy Bell and Josh Comeau's resets
+https://piccalil.li/blog/a-modern-css-reset/
+https://www.joshwcomeau.com/css/custom-css-reset/
+*/
 
-  *, *::before, *::after {
-      box-sizing: border-box;
-    }
-  body,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  figure,
-  blockquote,
-  dl,
-  dd,
-  img,
-  li,
-  ul,
-  ol {
-      margin: 0;
-      /* font-size: 1rem;  */
-      /* set consistent "flow" spacing for all elements - see the utilities section for more details */
-      /* edit - no longer setting font size here as it prevents resizing type by inheritance */
-    }
-  html, body {
-      height: 100%;
-  }
-  body {
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-  }
-  img, picture, video, canvas, svg {
-      display: block;
-      max-width: 100%;
-  }
-  input, button, textarea, select {
-      font: inherit;
-  }
-  p, h1, h2, h3, h4, h5, h6 {
-      overflow-wrap: break-word;
-  }
-  a:not([class]) {
-      text-decoration-skip-ink: auto;
-    }
-  
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
-/* Webflow resets */
-.w-nav-brand, .w-nav-link, .w-dropdown-btn, .w-dropdown-toggle, .w-dropdown-link, .w-dropdown-list { /* remove WF default text colours and inherit instead */
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd,
+img,
+li,
+ul,
+ol {
+    margin: 0;
+}
+
+/* Set core body defaults */
+html,
+body {
+    height: 100%;
+}
+body {
+    /* line-height: 1.5; */
+    /* font-size: 1rem;  */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* break lines of text */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* Link elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* -- Webflow resets -- */
+
+/* remove WF default text colours and inherit instead */
+.w-nav-brand,
+.w-nav-link,
+.w-dropdown-btn,
+.w-dropdown-toggle,
+.w-dropdown-link,
+.w-dropdown-list {
     color: inherit;
     background-color: transparent;
 }
-.w-nav-link, .w-dropdown, .w-dropdown-btn, .w-dropdown-toggle, .w-dropdown-link {
+
+.w-nav-link,
+.w-dropdown,
+.w-dropdown-btn,
+.w-dropdown-toggle,
+.w-dropdown-link {
     margin: 0px; /* WF applies auto margin */
     padding: 0px;
 }
+
 .wf-empty {
     outline: initial !important;
     outline-offset: initial !important;
@@ -71,6 +126,7 @@
     line-height: initial;
     vertical-align: initial;
 }
+
 .w-tab-link.w--current {
     background-color: transparent;
 }
