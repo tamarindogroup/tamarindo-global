@@ -279,7 +279,7 @@ html.wf-design-mode .w-embed:empty {
   background-color: var(--magenta);
 } */
 
-.styleguide__columns .col {
+.styleguide__columns [class^='col'] {
     min-height: 50px;
     border: 1px solid var(--dev-blue);
     background-color: white;

@@ -1,14 +1,66 @@
-.l-grid-3up {
-    /* styles set in WF */
+/* -- LAYOUT.CSS -- */
+
+/* Fluid grid from Utopia */
+/* @link https://utopia.fyi/grid/calculator?c=320,16,1.125,1272,16,1.25,6,3,&s=0.75|0.5|0.25|0.125,1.5|2|3|4|6|8|12,s-l&g=s,l,xl,12 */
+
+/* updated calc to run from 320px to 1280px instead of default 992px in Utopia */
+:root {
+    --grid-max-width: 80rem;
+    --grid-gutter: var(--space-s-l, clamp(1rem, calc(0.67rem + 1.67vw), 2rem));
+    --grid-columns: 12;
 }
 
-.l-grid-4up {
-    /* styles set in WF */
+.wrapper {
+    max-width: var(--grid-max-width);
+    padding-inline: var(--grid-gutter); /* left and right padding */
+    /* margin-inline: auto; */ /* set in WF */
 }
 
-.l-flex-col {
-    /* styles set in WF */
+/* default to 4-col grid */
+/* similar approach to Andy Bel */
+/* https://archive.hankchizljaw.com/wrote/create-a-responsive-grid-layout-with-no-media-queries-using-css-grid/ */
+.grid {
+    display: grid; /* set in WF */
+    gap: var(--grid-gutter, 1rem);
+    /* grid-auto-columns: 1fr; */
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    grid-template-rows: auto;
 }
+
+/* 2 col grid on desktop */
+.grid.grid--2up {
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+}
+/* 3 col grid on desktop */
+.grid.grid--3up {
+    grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+}
+/* 4 col grid on desktop */
+.grid.grid--4up {
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+/* 5 col grid on desktop - not in use */
+/* .grid.grid--5up {
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+} */
+/* 6 col grid on desktop */
+.grid.grid--6up {
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+}
+
+/* when screen width gets too narrow for minmax, make any large minmaxes small */
+@media screen and (max-width: 478px) {
+    .grid.grid--2up,
+    .grid.grid--3up {
+        grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    }
+}
+
+/* TO DO - remove magic numbers from grid minmaxes. Something like this: */
+/* cw = (n * x) + ((n-1) * y)
+x = c/n - y + y/n
+c is our maxwidth (80rem)
+y is our gap (gutter) */
 
 .l-gap-l {
     gap: var(--space-l);
@@ -46,4 +98,156 @@
 }
 .col {
     padding-inline: calc(0.5 * var(--grid-gutter));
+}
+
+.col-dsk-1 {
+    width: 8.333%;
+}
+.col-dsk-2 {
+    width: 16.667%;
+}
+.col-dsk-3 {
+    width: 25%;
+}
+.col-dsk-4 {
+    width: 33.333%;
+}
+.col-dsk-5 {
+    width: 41.667%;
+}
+.col-dsk-6 {
+    width: 50%;
+}
+.col-dsk-7 {
+    width: 58.333%;
+}
+.col-dsk-8 {
+    width: 66.667%;
+}
+.col-dsk-9 {
+    width: 75%;
+}
+.col-dsk-10 {
+    width: 83.333%;
+}
+.col-dsk-11 {
+    width: 91.667%;
+}
+.col-dsk-12 {
+    width: 100%;
+}
+
+@media screen and (max-width: 991px) {
+    .col-tab-1 {
+        width: 8.333%;
+    }
+    .col-tab-2 {
+        width: 16.667%;
+    }
+    .col-tab-3 {
+        width: 25%;
+    }
+    .col-tab-4 {
+        width: 33.333%;
+    }
+    .col-tab-5 {
+        width: 41.667%;
+    }
+    .col-tab-6 {
+        width: 50%;
+    }
+    .col-tab-7 {
+        width: 58.333%;
+    }
+    .col-tab-8 {
+        width: 66.667%;
+    }
+    .col-tab-9 {
+        width: 75%;
+    }
+    .col-tab-10 {
+        width: 83.333%;
+    }
+    .col-tab-11 {
+        width: 91.667%;
+    }
+    .col-tab-12 {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 767px) {
+    .col-mbl-1 {
+        width: 8.333%;
+    }
+    .col-mbl-2 {
+        width: 16.667%;
+    }
+    .col-mbl-3 {
+        width: 25%;
+    }
+    .col-mbl-4 {
+        width: 33.333%;
+    }
+    .col-mbl-5 {
+        width: 41.667%;
+    }
+    .col-mbl-6 {
+        width: 50%;
+    }
+    .col-mbl-7 {
+        width: 58.333%;
+    }
+    .col-mbl-8 {
+        width: 66.667%;
+    }
+    .col-mbl-9 {
+        width: 75%;
+    }
+    .col-mbl-10 {
+        width: 83.333%;
+    }
+    .col-mbl-11 {
+        width: 91.667%;
+    }
+    .col-mbl-12 {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 478px) {
+    .col-mbp-1 {
+        width: 8.333%;
+    }
+    .col-mbp-2 {
+        width: 16.667%;
+    }
+    .col-mbp-3 {
+        width: 25%;
+    }
+    .col-mbp-4 {
+        width: 33.333%;
+    }
+    .col-mbp-5 {
+        width: 41.667%;
+    }
+    .col-mbp-6 {
+        width: 50%;
+    }
+    .col-mbp-7 {
+        width: 58.333%;
+    }
+    .col-mbp-8 {
+        width: 66.667%;
+    }
+    .col-mbp-9 {
+        width: 75%;
+    }
+    .col-mbp-10 {
+        width: 83.333%;
+    }
+    .col-mbp-11 {
+        width: 91.667%;
+    }
+    .col-mbp-12 {
+        width: 100%;
+    }
 }
