@@ -612,7 +612,52 @@ lite-youtube {
 }
 
 /* hack fix for SVG logos without defined dimensions not appearing in Chrome */
-img.logos__img[src*='.svg'] {
+/* no longer needed as we're applying fixed (max) size to all logo img elements */
+/* img.logos__img[src*='.svg'] {
     height: 100px;
     width: 100px;
+} */
+
+/* logo grids */
+.logos__list {
+    --logo-width: 9rem;
+    --logo-height: 3rem;
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(var(--logo-width), 1fr));
+    grid-template-rows: auto;
+}
+.logos__img-wrapper {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    filter: saturate(0%);
+    transition-property: filter 100ms ease;
+}
+.logos__img-wrapper:hover {
+    filter: saturate(100%);
+}
+.logos__img {
+    width: var(--logo-width);
+    height: var(--logo-height);
+    max-height: 100%;
+    object-fit: contain;
+}
+/* for headline sponsors use larger logos */
+.logos__list[data-logo-size='large'] {
+    --logo-width: 13rem;
+    --logo-height: 5rem;
+}
+
+/* on small screens reduce gap and reduce logo size  */
+@media screen and (max-width: 767px) {
+    .logos__list {
+        --logo-width: 6rem;
+        gap: var(--grid-gutter);
+    }
+    .logos__list[data-logo-size='large'] {
+        --logo-width: 8rem;
+        --logo-height: 3rem;
+    }
 }
