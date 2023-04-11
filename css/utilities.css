@@ -32,8 +32,22 @@
     --flow-space: 1em;
 }
 /* scaled flow-space */
+.no-flow,
+.flow-000 {
+    --flow-space: 0px !important;
+}
+.flow-025 {
+    --flow-space: 0.25em;
+}
+.flow-050 {
+    --flow-space: 0.5em;
+}
 .flow-200 {
     --flow-space: 2em;
+}
+.flow-reset,
+.flow-100 {
+    --flow-space: 1em;
 }
 /* increase flow spacing above buttons to give greater separation from rest of content */
 .button,
@@ -45,12 +59,6 @@
     margin-top: 0px;
 }
 /* no-flow allows us to exclude specific elements */
-.no-flow {
-    --flow-space: 0px !important;
-}
-.flow-reset {
-    --flow-space: 1em;
-}
 .flow-reset-child * {
     --flow-space: 1em;
 }
