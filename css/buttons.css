@@ -2,11 +2,20 @@
 
 /* apply relevant theme/style colors */
 
-.button {
+.button,
+.hbspt-form input:where([type='submit']) {
     background-color: var(--color-heading);
     color: var(--color-bg);
-    /* transition: transform 0.25s; */
-    /* border: 0px !important; */
+    position: relative;
+    display: inline-block;
+    padding: 0.75em 1.5em;
+    flex: 0 0 auto;
+    transition: transform 200ms ease, opacity 200ms ease;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border: 0px;
+    cursor: pointer;
 }
 
 .button.button--outline {
@@ -28,6 +37,7 @@
 }
 
 /* darken button on hover */
+/* TODO inputs dont support psuedo elements, so this doesn't work for HS buttons */
 .button:hover::after {
     opacity: 1;
 }
