@@ -56,6 +56,9 @@
         --form-color-button-text: var(--color-bg); */
 }
 
+/* Hubspot form styling. 
+Based on https://github.com/HubSpot/cms-theme-boilerplate/blob/master/src/css/elements/_forms.css */
+
 /* Spacing */
 :is(
         .hbspt-form form,
