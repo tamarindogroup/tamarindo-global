@@ -24,6 +24,7 @@ function css() {
                     'components.css',
                     'styleguide.css',
                     'overrides.css',
+                    'memberstack.css',
                 ])
             )
             .pipe(concat('style.css'))

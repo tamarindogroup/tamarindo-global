@@ -1,3 +1,5 @@
+/* -- MEMBERSTACK.CSS -- */
+
 /* remove cancel membership button */
 .ms-portal .ms-portal-sub-cancel {
     display: none !important;
@@ -14,10 +16,13 @@
     margin-top: 1em;
     margin-bottom: 1em;
 }
-.ms-portal .ms-portal-billing:first-of-type .ms-portal-h1:after {
+.ms-portal .ms-portal-billing .ms-portal-h1:after {
     content: 'To cancel your membership please contact the team at membership@tamarindo.global';
 }
-.ms-portal .ms-portal-content:first-of-type .ms-portal-h1:after {
+.ms-portal
+    .ms-portal-account
+    .ms-portal-content:first-of-type
+    .ms-portal-h1:after {
     content: 'To change your details please contact the team at membership@tamarindo.global';
 }
 

@@ -3031,3 +3031,46 @@ lite-youtube {
 .text-hover-underline:hover {
     text-decoration: underline;
 }
+
+/* -- MEMBERSTACK.CSS -- */
+
+/* remove cancel membership button */
+.ms-portal .ms-portal-sub-cancel {
+    display: none !important;
+    pointer-events: none !important;
+}
+
+/* add text re cancellation and change of details */
+.ms-portal
+    :is(.ms-portal-billing:first-of-type, .ms-portal-content:first-of-type)
+    .ms-portal-h1:after {
+    display: block;
+    font-weight: 400;
+    font-size: 1rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.ms-portal .ms-portal-billing .ms-portal-h1:after {
+    content: 'To cancel your membership please contact the team at membership@tamarindo.global';
+}
+.ms-portal
+    .ms-portal-account
+    .ms-portal-content:first-of-type
+    .ms-portal-h1:after {
+    content: 'To change your details please contact the team at membership@tamarindo.global';
+}
+
+/* remove update profile button and update email button */
+.ms-portal
+    .ms-portal-button:is(
+        [data-cy='profileUpdateButton'],
+        [data-cy='profileEmailButton']
+    ) {
+    display: none !important;
+    pointer-events: none !important;
+}
+
+/* disable editing of password or email fields */
+.ms-portal .ms-portal-form :is(#infoForm, input[data-cy='emailField']) {
+    pointer-events: none !important;
+}
