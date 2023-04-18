@@ -130,3 +130,7 @@ a:not([class]) {
 .w-tab-link.w--current {
     background-color: transparent;
 }
+/* remove default grey bg from menu button on mob */
+.w-nav-button.w--open {
+    background-color: unset;
+}
