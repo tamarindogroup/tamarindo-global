@@ -2449,6 +2449,10 @@ lite-youtube {
 .arrow-link:hover::after {
     transform: translate(0.5em, 0em);
 }
+/* progressive enhancement - if a link in an .item is hovered, animate the arrow link inside the .item */
+.item :has(a:hover) .arrow-link::after {
+    transform: translate(0.5em, 0em);
+}
 
 /* tabs */
 .button.w-tab-link {
