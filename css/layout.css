@@ -27,6 +27,10 @@
     grid-template-rows: auto;
 }
 
+/* 1 col grid stack */
+.grid.grid--1up {
+    grid-template-columns: 1fr;
+}
 /* 2 col grid on desktop */
 .grid.grid--2up {
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
