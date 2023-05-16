@@ -134,6 +134,12 @@ a:not([class]) {
 .w-nav-button.w--open {
     background-color: unset;
 }
+/* set form element text size to 1rem (16px) */
+/* this helps avoid the ios auto zoom issue on focused input elements */
+.w-input,
+.w-select {
+    font-size: 1rem;
+}
 
 /* -- COLORS.CSS -- */
 
@@ -142,6 +148,7 @@ a:not([class]) {
     --magenta: #ff00ff;
     --white: #ffffff;
     --black: #000000;
+    --navy-005: #f4f5f6;
     --navy-010: #e6e9eb;
     --navy-020: #ccd3d7;
     --navy-040: #99a8af;
@@ -2923,6 +2930,9 @@ lite-youtube {
 }
 .bg-color-coral {
     background-color: var(--coral);
+}
+.bg-color-navy-005 {
+    background-color: var(--navy-005);
 }
 .bg-color-navy-010 {
     background-color: var(--navy-010);

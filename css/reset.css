@@ -134,3 +134,9 @@ a:not([class]) {
 .w-nav-button.w--open {
     background-color: unset;
 }
+/* set form element text size to 1rem (16px) */
+/* this helps avoid the ios auto zoom issue on focused input elements */
+.w-input,
+.w-select {
+    font-size: 1rem;
+}

@@ -199,6 +199,9 @@
 .bg-color-coral {
     background-color: var(--coral);
 }
+.bg-color-navy-005 {
+    background-color: var(--navy-005);
+}
 .bg-color-navy-010 {
     background-color: var(--navy-010);
 }
