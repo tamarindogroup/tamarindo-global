@@ -284,6 +284,8 @@
     /* show link */
     --links-display: block;
 
+    /* content fill item */
+    --inner-template-rows: 1fr;
     /* make header fill spare space to push metadata and link to bottom */
     --content-template-rows: 1fr auto auto;
 }
