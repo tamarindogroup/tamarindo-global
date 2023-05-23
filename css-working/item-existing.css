@@ -1,0 +1,267 @@
+/* existing styles */
+
+/* tags */
+[class^='tag-'] {
+    display: inline-flex;
+    padding: 0.5em;
+    font-size: 0.75rem;
+    cursor: default;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    pointer-events: none;
+}
+[class^='tag-']:before {
+    content: ' ';
+    height: 1em;
+    width: 1em;
+    flex: 0 0 1em;
+    margin-right: 0.75em;
+    position: relative;
+    top: 0.1em;
+    -webkit-mask: var(--icon-url) no-repeat 50% 50%;
+    mask: var(--icon-url) no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: currentColor;
+    pointer-events: none;
+}
+.tag-members {
+    --icon-url: url('https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/6232180a378e375eb73eb6b6_icon-lock.svg');
+    background-color: var(--coral);
+    color: white;
+    display: none !important;
+}
+.tag-open {
+    --icon-url: url('https://uploads-ssl.webflow.com/5e8f1e9eb1c84d1c2a2cea16/62321cdc8499f54243b06c4b_icon-unlock.svg');
+    background-color: var(--navy-080);
+    color: white;
+    display: none !important;
+}
+.tag-archive {
+    --icon-url: url('https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/63698225601219760c21b84e_archive.svg');
+    background-color: var(--coral);
+    color: white;
+    margin-bottom: 2rem;
+}
+.tag-members::after {
+    content: 'Members';
+}
+.tag-open::after {
+    content: 'Free to access';
+}
+.tag-archive::after {
+    content: 'This content is from our archive. Some formatting or links may be broken.';
+}
+.tag-large {
+    font-size: 1rem;
+    text-transform: unset;
+    letter-spacing: 0px;
+}
+
+/* items */
+.item {
+    --metadata-display: block;
+    --desc-display: block;
+    overflow: hidden;
+    position: relative;
+}
+.item__metadata {
+    display: var(--metadata-display, block);
+    position: absolute;
+    --flow-space: 0px; /* pin to top of item */
+    top: 0px;
+    right: 0px;
+    margin-top: 0px;
+}
+.item__desc {
+    display: var(--desc-display, block);
+}
+
+.item__img-wrapper {
+    background-color: var(--color-dark-bg);
+    background-image: url('https://uploads-ssl.webflow.com/6361890e4c4a656c784edebb/63bc2c823541ddb7f4f41381_item-placeholder-v2.jpg');
+    background-size: auto 75%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+    height: 250px;
+    transition: transform 0.25s;
+}
+/* if not using an image, remove the placeholder image and the overlay */
+.item__img-wrapper.item__img-wrapper--blank {
+    background: none;
+}
+:is(.feat-grid, .item.item--feat)
+    .item__img-wrapper.item__img-wrapper--blank:after {
+    content: '';
+    background: none;
+}
+.item[data-item-format='subdued'] {
+    --metadata-display: none;
+    --desc-display: none;
+}
+
+/* .item__boxout-img {
+    position: absolute;
+    height: 240px;
+    max-height: 85%;
+} */
+
+/* report items using attributes and grid */
+.item[data-tam-item-type='report'] {
+    display: grid;
+    column-gap: 2rem;
+    row-gap: 1rem;
+}
+/* by default, image and boxout are full width and first row */
+.item[data-tam-item-type='report'] :is(.item__boxout, .item__img-wrapper) {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+}
+/* by default, content is full width and second row */
+.item[data-tam-item-type='report'] .item__content {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+}
+/* if featured, img is all rows */
+.item[data-tam-item-type='report'][data-tam-item-appearance='featured']
+    .item__img-wrapper {
+    grid-column: 1 / -1;
+    grid-row: 1 / 3;
+}
+.item[data-tam-item-type='report'][data-tam-item-appearance='featured']
+    .item__boxout-img {
+    height: 300px;
+}
+/* if feat, on large screens, content is next to boxout */
+@media only screen and (min-width: 992px) {
+    .item[data-tam-item-appearance='featured'][data-tam-item-type='report'] {
+        grid-template-columns: 2fr 1fr;
+    }
+    .item[data-tam-item-appearance='featured'][data-tam-item-type='report']
+        .item__content {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+    .item[data-tam-item-appearance='featured'][data-tam-item-type='report']
+        .item__boxout {
+        grid-column: 2 / 3;
+    }
+}
+
+/* featured grid */
+.feat-grid {
+    gap: var(--space-2xs);
+    text-decoration: none;
+}
+.feat-grid__item-wrapper:first-child {
+    grid-row: 1 / 4; /* first item is taller */
+    min-height: 420px;
+}
+/* if only one feat item, make it full width */
+.feat-grid > :only-child {
+    grid-column: 1 / -1;
+}
+/* single item variation */
+.feat-grid[data-feat-grid='1'] {
+    /* TO DO - REVIEW THIS APPROACH */
+    /* grid-template-columns: 1fr; */
+    /* grid-template-rows: 1fr; */
+}
+/* make single item taller */
+.feat-grid[data-feat-grid='1'] .feat-grid__item {
+    /* TO DO - REVIEW THIS APPROACH */
+    /* min-height: 420px; */
+}
+/* only show excerpt for first item */
+.feat-grid__item-wrapper:not(:first-child) .item__desc {
+    display: none;
+}
+.feat-grid__item-wrapper:hover .item__img-wrapper,
+.item.item--feat:hover .item__img-wrapper {
+    transform: scale(1.05);
+}
+.feat-grid__item-wrapper:hover a {
+    text-decoration: underline;
+}
+/* adjust style of item when inside featured grid*/
+.feat-grid .item,
+.item.item--feat {
+    height: 100%;
+    min-height: 180px;
+}
+/* if feat item but not inside grid, make taller */
+/* disabling for member portal page */
+:not(.feat-grid) .item--feat {
+    min-height: 420px;
+}
+.feat-grid .item__img-wrapper,
+.item.item--feat .item__img-wrapper {
+    position: absolute;
+    inset: 0px;
+    height: 100%;
+}
+.feat-grid .item__content,
+.item.item--feat .item__content {
+    position: relative;
+    padding: var(--space-m-l);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* pin text to bottom of item */
+    margin-top: 0px !important; /* override flow utility */
+}
+/* if item has a fixed ratio and is featured, we need to make content absolute to correctly cover item */
+.item.item--feat[class*='ratio-'] .item__content {
+    position: absolute;
+    inset: 0px;
+}
+.feat-grid .item__img-wrapper:after,
+.item.item--feat .item__img-wrapper:after {
+    position: absolute;
+    inset: 0px;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+            30deg,
+            rgb(9, 44, 60) 7%,
+            rgba(9, 44, 60, 0.59) 41%,
+            rgba(255, 255, 255, 0)
+        ),
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+}
+.feat-grid .item__metadata {
+    display: none;
+}
+/* for feat items, make link cover whole item */
+/* update - exclude child arrow links */
+.feat-grid .item a:not(.arrow-link)::after,
+.item.item--feat a:not(.arrow-link)::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: '';
+    inset: 0px;
+}
+@media only screen and (max-width: 991px) {
+    .feat-grid__item-wrapper:first-child {
+        grid-row: 1 / 1;
+    }
+    .feat-grid .item {
+        min-height: 320px;
+    }
+}
+@media only screen and (max-width: 767px) {
+}
+
+/* bit of a hack to remove the min-height on a feat item */
+.item--feat.ratio-1-1 {
+    min-height: 180px;
+}
+
+/* progressive enhancement - if a link in an .item is hovered, animate the arrow link inside the .item */
+.item :has(a:hover) .arrow-link::after {
+    transform: translate(0.5em, 0em);
+}

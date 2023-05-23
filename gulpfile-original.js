@@ -49,24 +49,7 @@ function watch() {
     gulp.watch('css/*.css', css);
     /* when compiled css file changes, reload */
     gulp.watch('dist/*.css').on('change', browserSync.reload);
-
-    /* and same for dev */
-    gulp.watch('css-dev/*.css', css_dev);
-    gulp.watch('dist-dev/*.css').on('change', browserSync.reload);
-}
-
-/* extra function to do any dev css */
-function css_dev() {
-    return (
-        gulp
-            .src('css-dev/*.css')
-            .pipe(concat('style-dev.css'))
-            .pipe(gulp.dest('dist-dev/css'))
-            /* stream changes to all browsers */
-            .pipe(browserSync.stream())
-    );
 }
 
 exports.css = css;
 exports.watch = watch;
-exports.css_dev = css_dev;
