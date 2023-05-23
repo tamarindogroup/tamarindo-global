@@ -277,22 +277,22 @@
     /* show location */
     --location-display: block;
 
-    /* show image and leave in default position */
-    --img-display: block;
-    --img-ratio: 3 / 2;
-
     /* styling */
     --item-border: 1px solid var(--navy-010);
     --item-bg: none;
-
-    /* not sure why this is required - otherwise gap above image */
-    --inner-template-rows: min-content;
 
     /* show link */
     --links-display: block;
 
     /* make header fill spare space to push metadata and link to bottom */
     --content-template-rows: 1fr auto auto;
+}
+.item[data-tam-item-type='event'][data-tam-event-style='flagship'] {
+    /* make style dark */
+    --item-bg: var(--color-dark-bg);
+    --color-heading: var(--color-dark-heading);
+    color: var(--color-dark-text);
+    --color-accent: var(--color-dark-accent);
 }
 
 .item[data-tam-item-type='report'] {
@@ -343,21 +343,7 @@
     --inner-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
 }
 
-/* variants */
-
-.item[data-tam-item-type='article'][data-tam-item-appearance='featured'] {
-    --img-display: block;
-    --img-location: ; /* tbd */
-    --date-display: block;
-}
-
-.item[data-tam-item-type='event'][data-tam-event-style='flagship'] {
-    /* make style dark */
-    --item-bg: var(--color-dark-bg);
-    --color-heading: var(--color-dark-heading);
-    color: var(--color-dark-text);
-    --color-accent: var(--color-dark-accent);
-}
+/****** OTHER  ********/
 
 /* EVENTS - hide date if date override set (experimental, as we cannot use conditional display on components in collection lists) */
 .item[data-tam-date-override]:not([data-tam-date-override=''])
@@ -365,8 +351,6 @@
     > :first-child {
     display: none;
 }
-
-/****** OTHER  ********/
 
 /* Hide images if not set */
 :is(.item__img, .item__boxout-img)[src*='placeholder'] {
@@ -376,8 +360,8 @@
     display: none;
 }
 
-/* NOTES 
-
+/****** NOTES ********/
+/*
 custom attributes: 
 
 data-tam-item-type = report/event/person/session/article/video/case
