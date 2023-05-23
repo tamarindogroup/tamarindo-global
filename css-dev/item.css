@@ -263,6 +263,14 @@
 
     /* increase heading size */
     --heading-size: var(--step-2);
+
+    /* show links */
+    --links-display: block;
+}
+
+.item[data-tam-item-type='article'][data-tam-item-appearance='muted'] {
+    --img-display: none;
+    --item-bg: transparent;
 }
 
 .item[data-tam-item-type='event'] {
@@ -317,6 +325,9 @@
 }
 
 .item[data-tam-item-type='leadership-council'] {
+    /* increase item size */
+    --item-min-h: 240px;
+
     --img-display: block;
     --body-display: block;
     --links-display: block;
