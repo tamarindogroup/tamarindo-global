@@ -60,6 +60,7 @@ function css_dev() {
     return (
         gulp
             .src('css-dev/*.css')
+            .pipe(order(['item.css']))
             .pipe(concat('style-dev.css'))
             .pipe(gulp.dest('dist-dev/css'))
             /* stream changes to all browsers */

@@ -27,7 +27,7 @@
 
 .item {
     /* if item is not a direct child of grid then set item full height */
-    height: 100%;
+    height: var(--item-height, 100%);
 
     /* min height to avoid v small text only items */
     min-height: var(--item-min-h, 120px);
@@ -50,7 +50,7 @@
 
     /* grid */
     display: grid;
-    gap: var(--space-s, 1rem);
+    gap: var(--inner-gap, var(--space-s));
     grid-template-rows: var(--inner-template-rows);
     grid-template-columns: var(--inner-template-columns);
 
@@ -76,9 +76,10 @@
     height: 100%;
 
     /* default grid placement in first row */
-    grid-column: var(--img-col, 1 / 2);
-    grid-row: var(--img-row, 1 / 2);
+    grid-column: var(--img-col) !important;
+    grid-row: var(--img-row) !important;
     align-self: end; /* is this needed? */
+    order: var(--img-order);
 
     /* hide image wrapper if image not set */
 }
@@ -103,25 +104,28 @@
     aspect-ratio: var(--img-ratio);
 
     /* default grid placement in first row */
-    grid-column: var(--boxout-col, 1 / 2);
-    grid-row: var(--boxout-row, 1 / 2);
+    grid-column: var(--boxout-col, 1 / 2) !important;
+    grid-row: var(--boxout-row, 1 / 2) !important;
 
     /* center boxout child img */
     justify-content: center;
     align-items: center;
+    padding: var(--boxout-padding, 1rem);
 }
 .item__boxout-img {
     /* set preferred sizes on the child image. NB this is a bit of a magic number */
-    height: clamp(180px, 80%, 240px);
+    /* height: clamp(180px, 80%, 240px); */
+    height: var(--boxout-height, 220px);
 }
 .item__content {
     /* styling */
     padding: var(--content-padding, var(--space-s));
 
     /* grid placement */
-    grid-column: var(--content-col);
-    grid-row: var(--content-row);
+    grid-column: var(--content-col) !important;
+    grid-row: var(--content-row) !important;
     align-self: var(--content-align-self);
+    order: var(--content-order);
 
     /* grid */
     display: grid;
@@ -222,7 +226,8 @@
     /* show image */
     --img-display: block;
     /* image to bottom */
-    --img-row: 2 / 3;
+    /* --img-row: 2 / 3; */
+    --img-order: 3;
     /* image ratio */
     --img-ratio: 3 / 2;
 
@@ -233,9 +238,17 @@
 
     /* make content row take all spare space */
     --inner-template-rows: 1fr auto;
+
+    /* A note on responsive layouts here. Ideally we'd set something like: 
+    --inner-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    ...which would allow us to swap to a horizontal layout (image next to content) rather than vertical, when there is sufficient horizontal space.
+    However, because we define 2 rows with --inner-template-rows, even if both image and content elements are placed horizontally in a single row, we are still defining a second empty row, and thus an extra gap appears at the bottom of .item__inner. 
+    (We have to define both --inner-template rows to achive the "flex-grow effect" that pushes the metadata down and keeps all images at the same height)
+    We could instead consider container queries to allow for horizontal layouts when there's enough space.
+    */
 }
 
-.item[data-tam-item-type='article'][data-tam-item-appearance='featured'] {
+.item[data-tam-item-type='article'][data-tam-item-appearance='bold'] {
     /* increase item size */
     --item-min-h: 320px;
 
@@ -269,26 +282,55 @@
 }
 
 .item[data-tam-item-type='article'][data-tam-item-appearance='muted'] {
+    /* no image */
     --img-display: none;
     --item-bg: transparent;
+
+    /* styling */
+    --item-border: 1px solid var(--navy-010);
+    --item-bg: none;
+}
+
+.item[data-tam-item-type='article'][data-tam-item-appearance='basic'] {
+    /* no image */
+    --img-display: none;
+    --item-bg: transparent;
+    /* no body */
+    --body-display: none;
+
+    /* all content sits at top naturally and item is size of content */
+    --inner-template-rows: min-content;
+    --content-template-rows: min-content;
+    --metadata-align-self: start;
+    --item-height: auto;
+    --content-padding: 0px;
 }
 
 .item[data-tam-item-type='event'] {
     /* show location */
     --location-display: block;
 
-    /* styling */
-    --item-border: 1px solid var(--navy-010);
-    --item-bg: none;
+    /* show image */
+    --img-display: block;
 
     /* show link */
     --links-display: block;
 
-    /* content fill item */
-    --inner-template-rows: 1fr;
     /* make header fill spare space to push metadata and link to bottom */
     --content-template-rows: 1fr auto auto;
 }
+.item[data-tam-item-type='event'][data-tam-item-appearance='muted'] {
+    /* hide image */
+    --img-display: none;
+
+    /* styling */
+    --item-border: 1px solid var(--navy-010);
+    --item-bg: none;
+
+    /* content fill item */
+    --inner-template-rows: 1fr;
+}
+
 .item[data-tam-item-type='event'][data-tam-event-style='flagship'] {
     /* make style dark */
     --item-bg: var(--color-dark-bg);
@@ -299,20 +341,52 @@
 
 .item[data-tam-item-type='report'] {
     /* show image */
-    --img-display: block;
-    --img-ratio: 3 / 2;
+    /* --img-display: block;
+    --img-ratio: 3 / 2; */
+    --img-display: none;
 
     /* show boxout */
     --boxout-display: flex;
+    --boxout-row: 1 / 2;
+    --content-row: 2 / 3;
 
     /* styling */
     --overlay: var(--overlay-default);
 
-    /* fixed size of image row, content takes remainder */
+    /* fixed size of boxout row, content takes remainder */
     --inner-template-rows: auto 1fr;
 
     /* date sits at bottom of item */
     --metadata-align-self: end;
+
+    /* no gap to tighten up spacing */
+    --inner-gap: 0px;
+}
+.item[data-tam-item-type='report'][data-tam-item-appearance='bold'] {
+    /* increase item size */
+    --item-min-h: 320px;
+
+    /* place image behind everything */
+    --img-display: block;
+    --img-row: 1 / 3;
+    --img-col: 1 / 2;
+    --content-row: 2 / 3;
+    --content-col: 1 / 2;
+
+    /* remove aspect ratio to avoid overflow */
+    --img-ratio: unset;
+
+    /* change text colors to dark style */
+    --item-bg: var(--color-dark-bg);
+    --color-heading: var(--color-dark-heading);
+    --color-text: var(--color-dark-text);
+    --color-accent: var(--color-dark-accent);
+
+    /* increase heading size */
+    --heading-size: var(--step-2);
+
+    /* show links */
+    --links-display: block;
 }
 
 .item[data-tam-item-type='person'] {
@@ -367,9 +441,43 @@
 custom attributes: 
 
 data-tam-item-type = report/event/person/session/article/video/case
-data-tam-item-appearance = featured/?
+data-tam-item-appearance = bold/(default)/muted/basic
 
 TODO:
 - how to restructure e.g. report items so the item is arrange horizontally with the images on the RHS?
+
+Terminology:
+
+appearances
+bold > default > muted > basic
+- default
+    - normally image and summary present
+- bold
+    - image placed in backdrop with overlay
+- muted
+    - no image
+- basic
+    - no summary, just heading
+
+other variants
+- flagship (event)
+    - a way of highlighting a certain event
+- featured (article, report)
+    - highlighting specific items
+
+other word ideas
+- spotlight
+- highlighted
+- subdued
+- minimal
+- essential
+- basic
+- striking
+- showcased
+- flaunt
+- prominent
+- illuminated
+- strong, bold
+
 
 */
