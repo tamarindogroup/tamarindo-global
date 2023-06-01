@@ -27,12 +27,22 @@
 
 .item {
     /* if item is not a direct child of grid then set item full height */
-    height: var(--item-height, 100%);
+    height: var(--item-height);
 
     /* min height to avoid v small text only items */
-    min-height: var(--item-min-h, 120px);
+    min-height: var(--item-min-height);
 
-    /* some default values */
+    /****** Default values for all item custom props. If no default needed custom prop is commented out ******/
+
+    /* sizes */
+    --item-height: 100%;
+    --item-min-height: 120px;
+    --item-min-height-bold: 320px;
+    --item-min-height-muted: 120px;
+    --item-min-height-basic: auto;
+
+    /* styling */
+    --overlay: none;
     --overlay-default: linear-gradient(
             30deg,
             rgb(9, 44, 60) 7%,
@@ -40,6 +50,59 @@
             rgba(255, 255, 255, 0)
         ),
         linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    --item-bg: var(--navy-005);
+    --item-border: none;
+    --border-default: 1px solid var(--navy-010);
+    --item-type-size: var(--step--1);
+    --heading-size: var(--step-1);
+
+    /* inner grid */
+    --inner-gap: var(--space-s);
+    --inner-template-rows: auto;
+    --inner-template-columns: auto;
+
+    /* hide/show elements */
+    /* NB there seems to be a CSS quirk whereby if we set the display property of an element with an empty custom prop, it renders as display: inline, even though it has a browser default of block - 
+    EDIT - use of var() overrides browser's default user agent stylesheet for all elements - https://stackoverflow.com/questions/36291825/falling-back-to-good-default-value-when-a-css-custom-property-is-not-set */
+    --img-display: block;
+    --boxout-display: none;
+    --header-display: block;
+    --type-display: block;
+    --heading-display: block;
+    --metadata-display: block;
+    --tag-display: none;
+    --date-display: block;
+    --location-display: none;
+    --body-display: none;
+    --links-display: none;
+    --tags-display: none;
+
+    /* content */
+    /* --content-col: auto; */
+    /* --content-row: auto; */
+    /* --content-align-self: auto; */
+    /* --content-order: 0; */
+    /* --content-template-rows: auto; */
+
+    /* metadata */
+    /* --metadata-col: auto; */
+    /* --metadata-row: auto; */
+    /* --metadata-align-self: auto; */
+
+    /* image */
+    --img-ratio: 3 / 2;
+    /* --img-col: auto; */
+    /* --img-row: auto; */
+    /* --img-order: 0; */
+
+    /* boxout */
+    --boxout-col: 1 / 2;
+    --boxout-row: 1 / 2;
+    --boxout-padding: 1rem;
+    --boxout-height: 220px;
+
+    /* content */
+    --content-padding: var(--space-s);
 }
 
 .item__inner {
@@ -50,7 +113,7 @@
 
     /* grid */
     display: grid;
-    gap: var(--inner-gap, var(--space-s));
+    gap: var(--inner-gap);
     grid-template-rows: var(--inner-template-rows);
     grid-template-columns: var(--inner-template-columns);
 
@@ -59,7 +122,7 @@
     color: var(--color-text);
 
     /* styling */
-    background: var(--item-bg, var(--navy-005));
+    background: var(--item-bg);
     border: var(--item-border);
 
     /* interaction */
@@ -67,7 +130,7 @@
 }
 .item__img-wrapper {
     /* default visibility */
-    display: var(--img-display, none);
+    display: var(--img-display);
 
     /* default aspect ratio */
     aspect-ratio: var(--img-ratio);
@@ -88,7 +151,7 @@
     content: '';
     position: absolute;
     inset: 0px;
-    background: var(--overlay, none);
+    background: var(--overlay);
     pointer-events: none;
 }
 .item__img {
@@ -98,28 +161,27 @@
 }
 .item__boxout {
     /* default visibility */
-    display: var(--boxout-display, none);
+    display: var(--boxout-display);
 
     /* aspect ratio should be same as main img unless otherwise specified, as boxout normally sits directly above main img */
     aspect-ratio: var(--img-ratio);
 
     /* default grid placement in first row */
-    grid-column: var(--boxout-col, 1 / 2) !important;
-    grid-row: var(--boxout-row, 1 / 2) !important;
+    grid-column: var(--boxout-col) !important;
+    grid-row: var(--boxout-row) !important;
 
     /* center boxout child img */
     justify-content: center;
     align-items: center;
-    padding: var(--boxout-padding, 1rem);
+    padding: var(--boxout-padding);
 }
 .item__boxout-img {
     /* set preferred sizes on the child image. NB this is a bit of a magic number */
-    /* height: clamp(180px, 80%, 240px); */
-    height: var(--boxout-height, 220px);
+    height: var(--boxout-height);
 }
 .item__content {
     /* styling */
-    padding: var(--content-padding, var(--space-s));
+    padding: var(--content-padding);
 
     /* grid placement */
     grid-column: var(--content-col) !important;
@@ -136,29 +198,29 @@
 }
 .item__header {
     /* default visibility */
-    display: var(--header-display, block);
+    display: var(--header-display);
 }
 .item__type {
     /* default visibility */
-    display: var(--type-display, block);
+    display: var(--type-display);
 
     /* set to caps style */
     font-weight: var(--caps-weight);
     line-height: var(--caps-line-height);
     text-transform: var(--caps-text-transform);
     letter-spacing: var(--caps-letter-spacing);
-    font-size: var(--type-size, var(--step--1));
+    font-size: var(--item-type-size);
     color: var(--color-accent);
 }
 .item__heading {
     /* default visibility */
-    display: var(--heading-display, block);
+    display: var(--heading-display);
 
     /* reduce space between eyebrow and heading */
     --flow-space: 0.25em;
 
     /* styling */
-    font-size: var(--heading-size, var(--step-1));
+    font-size: var(--heading-size);
     text-decoration: underline 2px transparent;
 
     /* hover interaction */
@@ -166,7 +228,7 @@
 }
 .item__metadata {
     /* default visibility */
-    display: var(--metadata-display, block);
+    display: var(--metadata-display);
 
     /* grid placement */
     grid-column: var(--metadata-col);
@@ -175,33 +237,33 @@
 }
 .item__tag {
     /* default visibility */
-    display: var(--tag-display, none);
+    display: var(--tag-display);
 }
 .item__date {
     /* default visibility */
-    display: var(--date-display, block);
+    display: var(--date-display);
 }
 .item__location {
     /* default visibility */
-    display: var(--location-display, none);
+    display: var(--location-display);
 }
 .item__body {
     /* default visibility */
-    display: var(--body-display, none);
+    display: var(--body-display);
 }
 .item__desc {
     /* default visibility */
 }
 .item__links {
     /* default visibility */
-    display: var(--links-display, none);
+    display: var(--links-display);
 
     /* restore color */
     color: var(--color-accent);
 }
 .item__tags {
     /* default visibility */
-    display: var(--tags-display, none);
+    display: var(--tags-display);
 }
 
 /* INTERACTION */
@@ -223,13 +285,8 @@
     /* show body */
     --body-display: block;
 
-    /* show image */
-    --img-display: block;
     /* image to bottom */
-    /* --img-row: 2 / 3; */
     --img-order: 3;
-    /* image ratio */
-    --img-ratio: 3 / 2;
 
     /* date to bottom and take all spare space */
     --metadata-row: 3 / 4;
@@ -250,14 +307,14 @@
 
 .item[data-tam-item-type='article'][data-tam-item-appearance='bold'] {
     /* increase item size */
-    --item-min-h: 320px;
+    --item-min-height: var(--item-min-height-bold);
 
     /* place image behind content */
     --img-col: 1 / 2;
     --img-row: 1 / 2;
     --content-col: 1 / 2;
     --content-row: 1 / 2;
-    --inner-template-rows: auto;
+    /* --inner-template-rows: auto; */
 
     /* remove aspect ratio to avoid overflow */
     --img-ratio: unset;
@@ -287,8 +344,11 @@
     --item-bg: transparent;
 
     /* styling */
-    --item-border: 1px solid var(--navy-010);
+    --item-border: var(--border-default);
     --item-bg: none;
+
+    /* content expand to fill */
+    --inner-template-rows: 1fr;
 }
 
 .item[data-tam-item-type='article'][data-tam-item-appearance='basic'] {
@@ -304,17 +364,18 @@
     --metadata-align-self: start;
     --item-height: auto;
     --content-padding: 0px;
+    --item-min-height: var(--item-min-height-basic);
 }
 
 .item[data-tam-item-type='event'] {
     /* show location */
     --location-display: block;
 
-    /* show image */
-    --img-display: block;
-
     /* show link */
     --links-display: block;
+
+    /* content fill spare space */
+    --inner-template-rows: auto 1fr;
 
     /* make header fill spare space to push metadata and link to bottom */
     --content-template-rows: 1fr auto auto;
@@ -324,7 +385,7 @@
     --img-display: none;
 
     /* styling */
-    --item-border: 1px solid var(--navy-010);
+    --item-border: var(--border-default);
     --item-bg: none;
 
     /* content fill item */
@@ -340,15 +401,11 @@
 }
 
 .item[data-tam-item-type='report'] {
-    /* show image */
-    /* --img-display: block;
-    --img-ratio: 3 / 2; */
+    /* hide image */
     --img-display: none;
 
     /* show boxout */
     --boxout-display: flex;
-    --boxout-row: 1 / 2;
-    --content-row: 2 / 3;
 
     /* styling */
     --overlay: var(--overlay-default);
@@ -364,9 +421,9 @@
 }
 .item[data-tam-item-type='report'][data-tam-item-appearance='bold'] {
     /* increase item size */
-    --item-min-h: 320px;
+    --item-min-height: var(--item-min-height-bold);
 
-    /* place image behind everything */
+    /* show image and place behind everything */
     --img-display: block;
     --img-row: 1 / 3;
     --img-col: 1 / 2;
@@ -402,9 +459,8 @@
 
 .item[data-tam-item-type='leadership-council'] {
     /* increase item size */
-    --item-min-h: 240px;
+    --item-min-height: 240px;
 
-    --img-display: block;
     --body-display: block;
     --links-display: block;
 

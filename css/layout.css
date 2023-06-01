@@ -17,7 +17,7 @@
 }
 
 /* default to 4-col grid */
-/* similar approach to Andy Bel */
+/* similar approach to Andy Bell */
 /* https://archive.hankchizljaw.com/wrote/create-a-responsive-grid-layout-with-no-media-queries-using-css-grid/ */
 .grid {
     display: grid; /* set in WF */

@@ -616,7 +616,7 @@ lite-youtube {
 
 /* Tabs */
 
-.tabbed .sect--panel {
+.tabbed .tab-panel {
     min-height: 100vh;
     padding-top: var(--space-3xl);
 }

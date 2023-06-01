@@ -885,6 +885,21 @@ blockquote,
     font-weight: 700;
 }
 
+/* reduce major heading sizes by a step 
+(for rich text elements where we can't manually control heading sizes) */
+.heading-downstep-1 h1 {
+    font-size: var(--step-4);
+}
+.heading-downstep-1 h2 {
+    font-size: var(--step-3);
+}
+.heading-downstep-1 h3 {
+    font-size: var(--step-2);
+}
+.heading-downstep-1 h4 {
+    font-size: var(--step-1);
+}
+
 
 /* -- BUTTONS.CSS -- */
 
@@ -941,6 +956,11 @@ blockquote,
     transition: opacity 0.15s ease;
 }
 
+/* button wider */
+.button--wider {
+    min-width: 180px;
+}
+
 /* -- LAYOUT.CSS -- */
 
 /* Fluid grid from Utopia */
@@ -960,7 +980,7 @@ blockquote,
 }
 
 /* default to 4-col grid */
-/* similar approach to Andy Bel */
+/* similar approach to Andy Bell */
 /* https://archive.hankchizljaw.com/wrote/create-a-responsive-grid-layout-with-no-media-queries-using-css-grid/ */
 .grid {
     display: grid; /* set in WF */
@@ -1879,6 +1899,12 @@ html.wf-design-mode .w-embed:empty {
 .flow-200 {
     --flow-space: 2em;
 }
+.flow-300 {
+    --flow-space: 3em;
+}
+.flow-400 {
+    --flow-space: 4em;
+}
 .flow-reset,
 .flow-100 {
     --flow-space: 1em;
@@ -2577,8 +2603,7 @@ lite-youtube {
 
 /* Tabs */
 
-.tabbed .sect,
-.tabbed .section {
+.tabbed .tab-panel {
     min-height: 100vh;
     padding-top: var(--space-3xl);
 }
@@ -3049,6 +3074,14 @@ lite-youtube {
 }
 .text-hover-underline:hover {
     text-decoration: underline;
+}
+
+/* border */
+.border-navy {
+    border: 1px solid var(--navy);
+}
+.border-navy-010 {
+    border: 1px solid var(--navy-010);
 }
 
 /* -- MEMBERSTACK.CSS -- */

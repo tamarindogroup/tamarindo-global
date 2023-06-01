@@ -52,3 +52,8 @@
     opacity: 0;
     transition: opacity 0.15s ease;
 }
+
+/* button wider */
+.button--wider {
+    min-width: 180px;
+}

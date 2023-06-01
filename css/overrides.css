@@ -318,3 +318,11 @@
 .text-hover-underline:hover {
     text-decoration: underline;
 }
+
+/* border */
+.border-navy {
+    border: 1px solid var(--navy);
+}
+.border-navy-010 {
+    border: 1px solid var(--navy-010);
+}

@@ -45,6 +45,12 @@
 .flow-200 {
     --flow-space: 2em;
 }
+.flow-300 {
+    --flow-space: 3em;
+}
+.flow-400 {
+    --flow-space: 4em;
+}
 .flow-reset,
 .flow-100 {
     --flow-space: 1em;

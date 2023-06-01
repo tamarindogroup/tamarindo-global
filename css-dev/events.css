@@ -1,0 +1,54 @@
+/****** GENERAL ******/
+/* we need to apply this class where the style changes in a very local context - e.g. the .hero__content. Otherwise the style color custom props (--color-bg etc) are already locked in and cannot be modified  */
+.style-willchange {
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+/****** ******/
+
+/* for flagship events, set page to dark style */
+.page[data-tam-event-style='flagship'] {
+    --color-bg: var(--color-dark-bg);
+    --color-heading: var(--color-dark-heading);
+    --color-text: var(--color-dark-text);
+    --color-accent: var(--color-dark-accent);
+}
+
+/* for flagship events, change styling of hero and extend color block to edge of screen */
+.page:not([data-tam-event-style='flagship']).event-hero {
+    /* TODO - improve this */
+    background-color: var(--color-pale-bg);
+}
+.page[data-tam-event-style='flagship'] .hero__content {
+    position: relative;
+    z-index: 1;
+    /* loud style */
+    --color-bg: var(--color-loud-bg);
+    --color-heading: var(--color-loud-heading);
+    --color-text: var(--color-loud-text);
+    --color-accent: var(--color-loud-accent);
+}
+.page[data-tam-event-style='flagship'] .hero__content:before {
+    height: 100%;
+    content: '';
+    background-color: var(--color-bg);
+    display: block;
+    position: absolute;
+    right: 100%;
+    top: 0px;
+    width: max(calc(100vw - var(--grid-max-width)), var(--grid-gutter));
+    z-index: -1;
+}
+.page[data-tam-event-style='flagship'] .event-hero {
+    padding-top: var(--space-l-xl);
+    padding-bottom: var(--space-l-xl);
+}
+
+/* for default/flagship events, hide flagship/default intro sections */
+/* TODO TEMP */
+.page:not([data-tam-event-style='flagship']) #intro-flagship {
+    display: none;
+}
+.page[data-tam-event-style='flagship'] #intro-default {
+    display: none;
+}
