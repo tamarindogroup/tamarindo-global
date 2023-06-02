@@ -136,15 +136,17 @@
     aspect-ratio: var(--img-ratio);
 
     /* fill grid row */
-    height: 100%;
+    height: var(--img-wrapper-height, 100%);
 
     /* default grid placement in first row */
     grid-column: var(--img-col) !important;
     grid-row: var(--img-row) !important;
-    align-self: end; /* is this needed? */
+    align-self: var(--img-align-self, end); /* is this needed? */
     order: var(--img-order);
 
-    /* hide image wrapper if image not set */
+    /* allow for round images */
+    border-radius: var(--img-radius);
+    overflow: hidden;
 }
 .item__img-wrapper::after {
     /* overlay if boxout on top of img */
@@ -234,6 +236,9 @@
     grid-column: var(--metadata-col);
     grid-row: var(--metadata-row);
     align-self: var(--metadata-align-self);
+
+    /* adjust top margin if desired */
+    --flow-space: var(--metadata-flow-space, var(--flow-space));
 }
 .item__tag {
     /* default visibility */
@@ -449,6 +454,21 @@
 .item[data-tam-item-type='person'] {
     --img-ratio: 1 / 1;
     --img-display: block;
+}
+
+/* small person size */
+.item[data-tam-item-type='person'][data-tam-item-appearance='muted'] {
+    /* 2 col layout with image a fixed size and a circle */
+    --inner-template-columns: 4rem 1fr;
+    --heading-size: var(--step-0);
+    --item-min-height: none;
+    --item-bg: transparent;
+    --inner-gap: var(--space-xs);
+    --img-wrapper-height: auto;
+    --content-padding: 0px;
+    --img-align-self: start;
+    --img-radius: 50%;
+    --metadata-flow-space: 0em;
 }
 
 .item[data-tam-item-type='video'] {
