@@ -56,6 +56,11 @@ html.wf-design-mode div.dev-code .w-embed:hover {
     cursor: pointer;
 }
 
+/* warn when CSS is loaded from localhost */
+html.wf-design-mode div.dev-code[data-tam-code-src='local'] {
+    background-color: magenta;
+}
+
 /* Add a baseline grid to a page or element */
 .dev-baseline-grid {
     background-image: linear-gradient(
