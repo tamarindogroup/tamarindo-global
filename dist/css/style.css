@@ -3083,6 +3083,9 @@ lite-youtube {
 .border-navy-010 {
     border: 1px solid var(--navy-010);
 }
+.border-special {
+    border: 4px solid var(--navy-080);
+}
 
 /* -- MEMBERSTACK.CSS -- */
 
