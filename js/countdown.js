@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', function (event) {
     (function () {
-        return;
-
         // Get the target date and time from the countdown attr
         // Convert the date string to a native JavaScript date object
         const targetDateStr =
