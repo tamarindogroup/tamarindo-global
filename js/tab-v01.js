@@ -1,20 +1,13 @@
-/* Accessible WF tab component, based on Heydon Pickering's https://inclusive-components.design/tabbed-interfaces/ */
+/* Accessible WF tab component, based on Heydon Pickering's https://inclusive-components.design/tabbed-interfaces/ 
+Modified slightly to target any .sect descendents of .tabbed component 
+
+
+*/
 
 document.addEventListener('DOMContentLoaded', function (event) {
-    /* check if we are on staging or live */
-    if (!window.location.hostname.match(/webflow\.io/)) {
-        var TG_ENV = {
-            domain: 'live',
-        };
-    } else {
-        var TG_ENV = {
-            domain: 'staging',
-        };
-        //return;
-    }
-
     // Check if we're using new tabbed layout first - this var is set on page in WF
     if (!useNewLayout) {
+        // if (!{{wf {&quot;path&quot;:&quot;dev-use-new-layout&quot;,&quot;type&quot;:&quot;Bool&quot;\} }}) {
         console.log('Old layout');
         return;
     }
@@ -29,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             'li:not(.w-condition-invisible) a'
         ); /* exclude any hidden tabs */
         const panels = tabbed.querySelectorAll(
-            '.tab-panel:not(.w-condition-invisible)'
+            '.sect:not(.w-condition-invisible)'
         ); /* exclude any hidden panels */
 
         // The tab switching function
@@ -74,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 history.pushState({}, '', newTab.href);
             }
 
-            console.log('The tab has been changed to tab ' + newTab.id);
+            console.log('The tab has been changed');
         };
 
         // Add the tablist role to the first <ul> in the .tabbed container
@@ -193,10 +186,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
         var linkEls = document.querySelectorAll(
             '[href*="#"]:not([role="tab"])'
         );
-        console.log(linkEls);
         linkEls.forEach((el) => {
             el.addEventListener('click', (e) => {
-                console.log('non-tab hash click on ' + el);
+                console.log('non-tab hash click');
                 var linkHash = getHashFromLink(e.currentTarget);
                 var targetTab = getTabFromHashStr(linkHash);
                 var currentTab = getCurrentTab();
@@ -207,3 +199,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
         });
     })();
 });
+
+// html {
+//     scroll-behavior: smooth !important;
+// }
+// .sect {
+//     scroll-margin-top: unset;
+// }
