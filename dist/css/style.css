@@ -978,6 +978,9 @@ blockquote,
     padding-inline: var(--grid-gutter); /* left and right padding */
     /* margin-inline: auto; */ /* set in WF */
 }
+.wrapper.wrapper--no-padding {
+    padding-inline: 0px;
+}
 
 /* default to 4-col grid */
 /* similar approach to Andy Bell */

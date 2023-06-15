@@ -45,18 +45,19 @@
 }
 
 /* for default/flagship events, hide flagship/default intro sections */
-/* TODO TEMP */
-.page:not([data-tam-event-style='flagship']) .tabbed {
+/* TODO TEMP  */
+.page.page--events-new:not([data-tam-event-style='flagship']) .tabbed {
     display: none;
 }
-.page[data-tam-event-style='flagship'] #about-default {
+.page.page--events-new[data-tam-event-style='flagship'] #about-default {
     display: none;
 }
 /* hide slogan */
-.page:not([data-tam-event-style='flagship']) .event-hero__boxout {
+.page.page--events-new:not([data-tam-event-style='flagship'])
+    .event-hero__boxout {
     display: none;
 }
-.page:not([data-tam-event-style='flagship']) .page-navbar {
+.page.page--events-new:not([data-tam-event-style='flagship']) .page-navbar {
     display: none;
 }
 

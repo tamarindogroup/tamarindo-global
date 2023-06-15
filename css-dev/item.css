@@ -15,7 +15,7 @@
 }
 .item__img-wrapper {
     height: unset;
-    background: none !important;
+    background: none;
 }
 .item {
     overflow: visible !important;
@@ -454,6 +454,16 @@
 .item[data-tam-item-type='person'] {
     --img-ratio: 1 / 1;
     --img-display: block;
+    /* image is fixed size, content grows to fill remaining space */
+    --inner-template-rows: max-content 1fr;
+}
+.item[data-tam-item-type='person'] .item__img {
+    opacity: 1;
+    filter: brightness(120%) contrast(90%) saturate(0%);
+    mix-blend-mode: screen;
+}
+.item[data-tam-item-type='person'] .item__img-wrapper {
+    background-color: var(--color-dark-bg);
 }
 
 /* small person size */
