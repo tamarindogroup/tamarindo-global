@@ -431,7 +431,7 @@ a.nav-link:hover {
 
 /* footer */
 .footer__main {
-    border-top-color: var(--color-text);
+    border-top: var(--color-text) 1px solid;
 }
 /* TODO - hacky fix to remove link underlines in footer */
 .footer a {

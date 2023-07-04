@@ -329,6 +329,9 @@
 .border-special {
     border: 4px solid var(--navy-080);
 }
+.border-white {
+    border: 1px solid white;
+}
 
 /* accent color bold bits of headings */
 /* :is(h1, h2, h3, h4, h5, h6, [class^='heading-']).text-accent-bold
