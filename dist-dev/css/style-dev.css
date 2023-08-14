@@ -636,3 +636,10 @@ other word ideas
     padding-top: 0px;
     min-height: 0px;
 } */
+
+/* on flagship event template pages, hide non-featured speakers in featured speaker section */
+.page[data-tam-event-style='flagship']
+    section#featured-speakers
+    [data-tam-speaker-type=''] {
+    display: none;
+}

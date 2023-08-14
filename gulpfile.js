@@ -34,6 +34,19 @@ function css() {
     );
 }
 
+/* extra function to do any dev css */
+function css_dev() {
+    return (
+        gulp
+            .src('css-dev/*.css')
+            .pipe(order(['item.css']))
+            .pipe(concat('style-dev.css'))
+            .pipe(gulp.dest('dist-dev/css'))
+            /* stream changes to all browsers */
+            .pipe(browserSync.stream())
+    );
+}
+
 function watch() {
     browserSync.init({
         ui: {
@@ -53,19 +66,6 @@ function watch() {
     /* and same for dev */
     gulp.watch('css-dev/*.css', css_dev);
     gulp.watch('dist-dev/*.css').on('change', browserSync.reload);
-}
-
-/* extra function to do any dev css */
-function css_dev() {
-    return (
-        gulp
-            .src('css-dev/*.css')
-            .pipe(order(['item.css']))
-            .pipe(concat('style-dev.css'))
-            .pipe(gulp.dest('dist-dev/css'))
-            /* stream changes to all browsers */
-            .pipe(browserSync.stream())
-    );
 }
 
 exports.css = css;
