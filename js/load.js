@@ -32,6 +32,7 @@ data-tam-load-status="STATUS"
 function tamarindoLoad() {
     $('[data-tam-load-element="load-target"]').each(function (i) {
         var load_target = $(this);
+        var load_target_el = load_target[0];
 
         /* v1 */
         var load_collection = load_target.attr('data-tam-load-collection');
@@ -45,7 +46,7 @@ function tamarindoLoad() {
         var load_status = load_target.attr('data-tam-load-status');
 
         /* if a path attribute, we are using v2 */
-        if (load_target.hasAttribute('data-tam-load-path')) {
+        if (load_target_el.hasAttribute('data-tam-load-path')) {
             /* check for path and id values - this prevents us making lots of unnecessary load() requests that return 404 */
             if (!load_path || !load_id) return true;
             /* if load has already been carried out for this item, ignore */
@@ -59,10 +60,7 @@ function tamarindoLoad() {
                     "']",
                 function () {
                     console.log('successful load');
-                    load_target.setAttribute(
-                        'data-tam-load-status',
-                        'complete'
-                    );
+                    load_target.attr('data-tam-load-status', 'complete');
                 }
             );
         } else {
