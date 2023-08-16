@@ -24,6 +24,11 @@ data-tam-load-status="STATUS"
     /* waits for jQuery to load*/
     var waitForJQuery = setInterval(function () {
         if (typeof $ != 'undefined') {
+            $.ajaxSetup({
+                // Disable caching of AJAX responses
+                cache: false,
+            });
+
             tamarindoLoad();
             clearInterval(waitForJQuery);
         }
