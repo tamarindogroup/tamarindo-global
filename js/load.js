@@ -29,9 +29,35 @@ data-tam-load-status="STATUS"
         }
     }, 10);
 })();
-function tamarindoLoad() {
-    $('[data-tam-load-element="load-target"]').each(function (i) {
-        var load_target = $(this);
+
+function tamarindoLoad(jquery_obj) {
+    /* if fn has scope defined, look for descendent elements within this scope. */
+    if (jquery_obj) {
+        console.log('load function with scope');
+        $('[data-tam-load-element="load-target"]', jquery_obj).each(function (
+            i
+        ) {
+            /* do function */
+            doTheLoading(this);
+        });
+    } else {
+        console.log('load function without scope');
+        /* Otherwise just search whole document by default */
+        $('[data-tam-load-element="load-target"]').each(function (i) {
+            /* do function */
+            doTheLoading(this);
+        });
+    }
+
+    /* check if descendents need loading */
+    function checkForLoading(jquery_obj) {
+        if ($('[data-tam-load-element="load-target"]', jquery_obj).length > 0) {
+            return true;
+        } else return false;
+    }
+
+    function doTheLoading(that) {
+        var load_target = $(that);
         var load_target_el = load_target[0];
 
         /* v1 */
@@ -59,8 +85,17 @@ function tamarindoLoad() {
                     load_id +
                     "']",
                 function () {
-                    console.log('successful load');
+                    console.log('successful load v2');
+                    /* update status */
                     load_target.attr('data-tam-load-status', 'complete');
+
+                    /* check if there are elements within newly loaded HTML that need loading */
+                    if (checkForLoading(load_target)) {
+                        console.log(
+                            'There are elements within newly loaded HTML that need loading'
+                        );
+                        tamarindoLoad(load_target);
+                    }
                 }
             );
         } else {
@@ -75,8 +110,11 @@ function tamarindoLoad() {
                     ' ' +
                     "[data-tam-load-element='load-source'][data-tam-load-id='" +
                     load_id +
-                    "']"
+                    "']",
+                function () {
+                    console.log('successful load v1');
+                }
             );
         }
-    });
+    }
 }
