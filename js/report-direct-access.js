@@ -84,7 +84,9 @@ $('document').ready(function () {
                 document.querySelector('#report').classList.remove('hidden');
             },
             onFormSubmitted: function ($form) {
-                document.getElementById('showPDF').classList.remove('hidden');
+                document
+                    .querySelector('#view-report')
+                    .classList.remove('hidden');
             },
         });
     }

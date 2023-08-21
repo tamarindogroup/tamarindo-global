@@ -9,6 +9,7 @@
 - hidden HS form on submission for member btn form - we don't actually need to see the submission message.
 - Also we don't really need the member btn form at all - we end up with a weird shift because of the swapping of one button for another. And we don't need the legal blurb...
 - re-look at triggering the FB viewer more effectively with the form submission
+- combine this script with the report-direct-access.js script to avoid duplication
 */
 
 $('document').ready(function () {

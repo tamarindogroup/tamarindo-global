@@ -1,0 +1,41 @@
+<!--Table of Contents-->
+<!-- this is broken at the moment
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const id = entry.target.getAttribute("id");
+    if (entry.isIntersecting) {
+      document.querySelectorAll(".active").forEach((z) => {
+        z.classList.remove("active")
+      });
+      document.querySelector(`a[href="#${id}"]`).classList.add("active");
+    }
+  });
+}, { rootMargin: '0px 0px -75% 0px' });
+
+document.getElementById("info-body").querySelectorAll("h3").forEach(function(heading, i) { // runs a function for all h2 elements inside your rich text element
+  heading.setAttribute("id", "info-" + i); // gives each h2 a unique id
+  observer.observe(heading);
+  let str = heading.innerHTML; // adds section titles to slugs
+  str = str.replace(/\s+/g, '-').replace(/[°&\/\\#,+()$~%.'":;*?<>{}]/g, "").toLowerCase(); // replaces spaces with hyphens, removes special characters and extra spaces from the headings, and applies lowercase in slugs
+  heading.setAttribute("id", "info-" + str); // gives each heading a unique id
+  //heading.style.scrollMarginTop = "6rem"; //this doesn't work as WF breaks scroll-margin-top
+  /* instead let's add a class and use a psuedo element */
+  heading.classList.add("scroll-offset-4rem");
+  
+  const item = document.createElement("a"); // creates an anchor element called "item" for each h2
+  item.innerHTML = heading.innerHTML // gives each item the text of the corresponding heading
+  item.setAttribute("class", "tocitem"); // gives each item the correct class
+  item.setAttribute("href", "#" + "info-" + str); // gives each item the correct anchor link
+  document.querySelector("#info-contents").appendChild(item); // places each item inside the Table of Contents div
+});
+</script>
+
+<style>
+	.scroll-offset-4rem:target:before {
+    content: "";
+    display: block;
+    height: 4rem;
+    margin: -4rem 0 0;
+}
+</style>-->

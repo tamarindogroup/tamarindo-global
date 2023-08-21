@@ -1,0 +1,90 @@
+<!-- structured event data -->
+
+<!--<script type="text/javascript">
+
+if ("{{wf {&quot;path&quot;:&quot;location&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}".match(/([dD]igital|[vV]irtual|[oO]nline)/)) { /* if location contains one of these words, assume its an online event */
+  var modeStr = "\"eventAttendanceMode\": \"https://schema.org/OnlineEventAttendanceMode\"";
+  var locStr = "\"location\": {\"@type\": \"VirtualLocation\", \"url\": \"https://www.awordaboutwind.com\"}";
+  }
+
+else { /* else its a real event */
+  var modeStr = "\"eventAttendanceMode\": \"https://schema.org/OfflineEventAttendanceMode\"";
+  var locStr = "\"location\": { \"@type\": \"Place\", \"name\": \"{{wf {&quot;path&quot;:&quot;location&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}\"}";   
+  }
+
+var eventStr = "\
+      \"@context\": \"https://schema.org\",\
+      \"@type\": \"Event\",\
+      \"name\": \"{{wf {&quot;path&quot;:&quot;name&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}\",\
+      \"startDate\": \"{{wf {&quot;path&quot;:&quot;start-date&quot;,&quot;transformers&quot;:[{&quot;name&quot;:&quot;date&quot;,&quot;arguments&quot;:[&quot;MMM DD, YYYY&quot;]\}],&quot;type&quot;:&quot;Date&quot;\} }}\",\
+      \"endDate\": \"{{wf {&quot;path&quot;:&quot;end-date&quot;,&quot;transformers&quot;:[{&quot;name&quot;:&quot;date&quot;,&quot;arguments&quot;:[&quot;MMM DD, YYYY&quot;]\}],&quot;type&quot;:&quot;Date&quot;\} }}\",\
+      \"eventStatus\": \"https://schema.org/EventScheduled\",\
+      \"image\": [\"{{wf {&quot;path&quot;:&quot;logo&quot;,&quot;type&quot;:&quot;ImageRef&quot;\} }}\"],\
+      \"description\": \"{{wf {&quot;path&quot;:&quot;short-description&quot;,&quot;type&quot;:&quot;PlainText&quot;\} }}\",\
+      \"organizer\": {\
+        \"@type\": \"Organization\",\
+        \"name\": \"A Word About Wind\",\
+        \"url\": \"https://www.awordaboutwind.com\"\
+      }"
+
+eventStr = "{" + eventStr + "," + modeStr + "," + locStr + "}";
+
+var s = document.createElement("script");
+s.type = "application/ld+json";
+// escape double-quotes with backslash
+s.innerHTML = eventStr;
+var head = document.getElementsByTagName("head")[0];
+head.appendChild(s);
+
+</script>-->
+
+<!-- countdown -->
+<script>
+    (function () {
+        return;
+
+        // Get the target date and time from the countdown attr
+        // Convert the date string to a native JavaScript date object
+        const targetDateStr =
+            document.getElementById('countdown').dataset.tamCountdownDate;
+        const targetDate = new Date(Date.parse(targetDateStr));
+
+        // Get the countdown elements
+        const daysElement = document.getElementById('countdown-days');
+        const hoursElement = document.getElementById('countdown-hours');
+        const minutesElement = document.getElementById('countdown-minutes');
+        const secondsElement = document.getElementById('countdown-seconds');
+
+        // Function to add leading zeroes
+        function addLeadingZero(value) {
+            return value < 10 ? `0${value}` : value;
+        }
+
+        // Function to update the countdown
+        function updateCountdown() {
+            // Calculate the remaining time
+            const now = new Date();
+            const diff = targetDate - now;
+
+            // Calculate the remaining days, hours, minutes, and seconds
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor(
+                (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+            );
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            // Update the countdown elements with leading zeroes
+            daysElement.textContent = addLeadingZero(days);
+            hoursElement.textContent = addLeadingZero(hours);
+            minutesElement.textContent = addLeadingZero(minutes);
+            secondsElement.textContent = addLeadingZero(seconds);
+        }
+
+        // Call the updateCountdown function initially
+        updateCountdown();
+
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+    })();
+</script>
