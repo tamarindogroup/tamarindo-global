@@ -81,7 +81,7 @@ $('document').ready(function () {
                 document.querySelector('#msg').classList.add('hidden');
 
                 /* show report and form block */
-                itemData.el.classList.remove('hidden');
+                document.querySelector('#report').classList.remove('hidden');
             },
             onFormSubmitted: function ($form) {
                 document.getElementById('showPDF').classList.remove('hidden');
