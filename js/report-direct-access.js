@@ -7,6 +7,9 @@ $('document').ready(function () {
         return;
     }
 
+    var reportEl = document.querySelector('#report');
+    var itemData = {};
+
     /* load data */
 
     function loadData() {
@@ -41,7 +44,6 @@ $('document').ready(function () {
         }
 
         /* update content of empty report element */
-        let reportEl = document.querySelector('#report');
         reportEl.querySelector('#report-img').src =
             reportDataEl.dataset.reportImgsrc;
         reportEl.querySelector('#report-bg').src =
@@ -54,7 +56,6 @@ $('document').ready(function () {
             reportDataEl.innerHTML;
 
         /* get url and name for PDF viewer and form */
-        var itemData = {};
         itemData.url = reportDataEl.dataset.reportUrl;
         itemData.name = reportDataEl.dataset.reportName;
         itemData.el = reportEl;
