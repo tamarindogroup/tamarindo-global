@@ -1,28 +1,18 @@
-/* notes */
+/* Load item details, forms and enable chosen PDF viewer */
+/* updated 2023-08-21 to replace FlippingBook with browser default PDF viewer. */
 
-/*
-- change ID of button to view-report
-- potentially remove reference to newLayout
+/* further improvements that could be made:
+- remove FB stuff
 - remove adobe pdf stuff
-- have added in check for logged in, so we only need to load one form instead of two
-- abstracted submit button class
+- add in check for logged in, so we only need to load one form instead of two
+- abstract submit button class
 - hidden HS form on submission for member btn form - we don't actually need to see the submission message.
 - Also we don't really need the member btn form at all - we end up with a weird shift because of the swapping of one button for another. And we don't need the legal blurb...
 - re-look at triggering the FB viewer more effectively with the form submission
-
-
-- change access types to:
-data-tam-member-access="open" / "open-form" / "closed"
-data-tam-nonmember-access="open" / "open-form" / "closed"
-open = free to access
-open-form = free to access on submission of form
-closed = no access 
-
-
-
-/* Load item details, forms and enable chosen PDF viewer */
+*/
 
 $('document').ready(function () {
+    /* submit button class for HS forms */
     var buttonClassStr = 'button button--accent';
 
     /* check if we are on staging or live */
@@ -65,65 +55,83 @@ $('document').ready(function () {
     (function getItemData() {
         itemData.url = itemDataEl.dataset.itemUrl;
         itemData.name = itemDataEl.dataset.itemName;
-        itemData.flippingBookId = itemDataEl.dataset.itemFlippingbookId;
+        itemData.flippingBookId = itemDataEl.dataset.itemFlippingbookId; //FB is no longer used, so this returns undefined
+        itemData.flippingBookId = undefined; // manually override FB id so we can force default display method without removing old FB ids
         itemData.memberAccess = itemDataEl.dataset.itemMemberAccess;
         itemData.nonmemberAccess = itemDataEl.dataset.itemNonmemberAccess;
-        itemData.useNewLayout = itemDataEl.dataset.itemUseNewLayout;
+        // itemData.useNewLayout = itemDataEl.dataset.itemUseNewLayout;
         itemData.memberFormID = itemDataEl.dataset.itemHsFormIdMember;
         itemData.memberFormID = '';
         itemData.nonmemberFormID = itemDataEl.dataset.itemHsFormIdNonmember;
         itemData.nonmemberFormID = '';
 
         /* choose pdf display method */
-        /* if fbID is set, use fb */
-        if (itemData.flippingBookId.length > 0) {
-            itemData.displayMethod = 'flippingbook';
-        } else {
-            /* otherwise use default PDF browser display */
-            itemData.displayMethod = 'default';
+        (function getDisplayMethod() {
+            // if fb id is not set at all, use default pdf display
+            if (itemData.flippingBookId === undefined) {
+                itemData.displayMethod = 'default';
+                return;
+            }
+            // if fb id is set and is a non-empty string, try to use FB
+            else if (itemData.flippingBookId.length > 0) {
+                itemData.displayMethod = 'flippingbook';
+            }
+
+            // otherwise use default
+            else {
+                /* otherwise use default PDF browser display */
+                itemData.displayMethod = 'default';
+            }
+        })();
+    })();
+
+    /* load third party scripts */
+    /* FB script has been moved to FB PDF function as for some reason not working correctly when separated from rest of FB code */
+    (function loadPDFScripts() {
+        /* Load Adobe PDF API if required */
+        if (itemData.displayMethod == 'adobe') {
+            var adobeScript = document.createElement('script');
+            adobeScript.async = true;
+            adobeScript.onload = function () {
+                console.log('Adobe script loaded');
+            };
+            adobeScript.src =
+                'https://documentcloud.adobe.com/view-sdk/main.js';
+            document.head.appendChild(adobeScript);
         }
     })();
 
-    /* load forms depending on access settings and logged in status */
+    /* load forms depending on access settings */
+    /* currently this loads both a member and non-member form, it may be possible to load only one depending on user login status */
     (function loadForms() {
-        /* check if member is logged in, if so them load appropriate member form */
-        MemberStack.onReady.then(function (member) {
-            if (member.loggedIn) {
-                loadMemberForms();
-            } else {
-                loadNonMemberForms();
-            }
-        });
-
-        /* forms for members */
-        function loadMemberForms() {
-            if (itemData.memberAccess == 'Click to view PDF') {
-                loadMemberBtnForm();
-            } else if (itemData.memberAccess == 'Submit form to access') {
-                loadMemberAccessForm();
-            } else {
-            }
+        /* for members */
+        if (itemData.memberAccess == 'Click to view PDF') {
+            loadMemberBtnForm();
+        } else if (itemData.memberAccess == 'Submit form to access') {
+            loadMemberAccessForm();
+        } else {
         }
-        /* forms for non members */
-        function loadNonMemberForms() {
-            if (itemData.nonmemberAccess == 'Submit form to access') {
-                loadNonMemberAccessForm();
-            } else if (
-                itemData.nonmemberAccess == 'Submit form to request access'
-            ) {
-                loadNonMemberRequestForm();
-            } else if (itemData.nonmemberAccess == 'No access') {
-            } else {
-            }
+
+        /* for non-members */
+        if (itemData.nonmemberAccess == 'Submit form to access') {
+            loadNonMemberAccessForm();
+        } else if (
+            itemData.nonmemberAccess == 'Submit form to request access'
+        ) {
+            loadNonMemberRequestForm();
+        } else if (itemData.nonmemberAccess == 'No access') {
+        } else {
         }
     })();
 
     /* load PDF */
     function loadPDF() {
-        if (itemData.displayMethod == 'flippingbook') {
+        if (itemData.displayMethod == 'adobe') {
+            loadAdobe();
+        } else if (itemData.displayMethod == 'flippingbook') {
             loadFlippingBook(embedEl);
         } else {
-            /* something ? */
+            window.open(itemData.url, '_blank');
         }
     }
 
@@ -168,7 +176,6 @@ $('document').ready(function () {
                 'click',
                 function (event) {
                     /* we look for the fbTarget only once the click event has happened, so we can be sure the target exists */
-                    // var fbTargetSelector = ".fbo-embed[data-fbo-id='" + itemData.flippingBookId + "'] + div[data-fbo-lightbox='yes'] > a";
                     var fbTargetSelector = "div[data-fbo-lightbox='yes'] > a";
                     event.preventDefault(); /* override existing href */
 
@@ -187,7 +194,67 @@ $('document').ready(function () {
     }
     /* end loadFlippingBook() */
 
-    /****** FORMS  ******/
+    /* load PDF embed with Adobe */
+    function loadAdobe() {
+        /* when Adobe is ready enable PDF button */
+        if (window.AdobeDC) {
+            enablePDFLightbox();
+        } else {
+            document.addEventListener('adobe_dc_view_sdk.ready', () =>
+                enablePDFLightbox()
+            );
+        }
+
+        /* enable the btn and add a click event to show lightbox */
+        function enablePDFLightbox() {
+            if (showReportBtn) {
+                showReportBtn.addEventListener(
+                    'click',
+                    function (event) {
+                        displayPDFLightbox();
+                        event.preventDefault(); /* override existing href */
+                    },
+                    false
+                );
+                showReportBtn.disabled = false;
+            }
+        }
+
+        /* show the PDF modal */
+        function displayPDFLightbox() {
+            /* if on staging domain we use different Adobe API credentials */
+            var clientIdLive = 'bf8b2441691a4b3a9c58b2b48e852d88';
+            var clientIdStaging = 'ec59dc6b86d3487d84c75241a46cd956';
+            if (TG_ENV.domain == 'staging') {
+                var clientId = clientIdStaging;
+            } else {
+                var clientId = clientIdLive;
+            }
+
+            /* create PDF view using name and url */
+            var adobeDCView = new AdobeDC.View({ clientId: clientId });
+            adobeDCView.previewFile(
+                {
+                    content: {
+                        location: {
+                            url: itemData.url,
+                        },
+                    },
+                    metaData: {
+                        fileName: itemData.name,
+                    },
+                },
+                {
+                    embedMode: 'LIGHT_BOX',
+                    defaultViewMode: 'FIT_PAGE',
+                    dockPageControls: true,
+                    showDownloadPDF: false,
+                    showPrintPDF: false,
+                }
+            );
+        }
+    }
+    /* end loadAdobe() */
 
     /* one-click form for logged in members */
     function loadMemberBtnForm() {
@@ -205,7 +272,7 @@ $('document').ready(function () {
                 region: 'na1',
                 portalId: '3372701',
                 formId: '39d6ad68-5001-4781-874d-10d275050754' /* default form ID */,
-                submitButtonClass: buttonClassStr,
+                submitButtonClass: 'button' /* add class to submit button */,
                 onFormReady: function ($form) {
                     /* After form is loaded, update hidden ticket fields so we can track on HS */
                     $form
@@ -235,9 +302,7 @@ $('document').ready(function () {
                 onFormSubmitted: function ($form) {
                     loadPDF();
                     showReportBtn.classList.remove('hidden');
-                    document
-                        .querySelector(targetSelector)
-                        .classList.add('hidden');
+                    // setTimeout(function() {clickButton()}, 500); /* unsure if timeout is required */
                 },
             });
         });
@@ -258,7 +323,7 @@ $('document').ready(function () {
                     return '1cfe2718-7115-481d-8a24-9167f0fcad56';
                 }
             })(),
-            submitButtonClass: buttonClassStr,
+            submitButtonClass: 'button',
             onFormReady: function ($form) {
                 $form
                     .find('[name="TICKET.subject"]')
@@ -273,6 +338,7 @@ $('document').ready(function () {
             onFormSubmitted: function ($form) {
                 loadPDF();
                 showReportBtn.classList.remove('hidden');
+                // setTimeout(function() {clickButton()}, 500); /* unsure if timeout is required */
             },
         });
     }
@@ -291,7 +357,7 @@ $('document').ready(function () {
                     return '648469bd-a4bc-4716-8d60-b282a9dd164e';
                 }
             })(),
-            submitButtonClass: buttonClassStr,
+            submitButtonClass: 'button',
             onFormReady: function ($form) {
                 $form
                     .find('[name="TICKET.subject"]')
@@ -328,7 +394,7 @@ $('document').ready(function () {
                     return '2c6fd965-24fb-4990-ba84-90e9fe97047d';
                 }
             })(),
-            submitButtonClass: buttonClassStr,
+            submitButtonClass: 'button',
             onFormReady: function ($form) {
                 $form
                     .find('[name="TICKET.subject"]')
