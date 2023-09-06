@@ -73,3 +73,7 @@
     [data-tam-speaker-type=''] {
     display: none;
 }
+/* prevent bg from interfering with page content */
+.page-bg {
+    pointer-events: none;
+}
