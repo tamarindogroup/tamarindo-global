@@ -15,19 +15,19 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     // Check if we're using new tabbed layout first - this var is set on page in WF
     if (!useNewLayout) {
-        console.log('Old layout');
+        // console.log('Old layout');
         return;
     }
 
     // Check if this is a flagship event - this var is set on page in WF - if not then we don't load tabs
     if (eventStyle != 'flagship') {
-        console.log('Non-flagship event');
+        // console.log('Non-flagship event');
         return;
     }
 
     (function () {
-        console.log('New layout');
-        console.log('Flagship event');
+        // console.log('New layout');
+        // console.log('Flagship event');
 
         // Get relevant elements and collections
         const tabbed = document.querySelector('.tabbed');
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 history.pushState({}, '', newTab.href);
             }
 
-            console.log('The tab has been changed to tab ' + newTab.id);
+            // console.log('The tab has been changed to tab ' + newTab.id);
         };
 
         // Add the tablist role to the first <ul> in the .tabbed container
@@ -159,11 +159,16 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }
 
         function getTabFromHashStr(str) {
-            return tablist.querySelector('[href="#' + str + '"]');
+            /* get the tab that points to this hash, and that ISNT hidden by WF */
+            return tablist.querySelector(
+                'li:not(.w-condition-invisible) [href="#' + str + '"]'
+            );
         }
 
         function getCurrentTab() {
-            return tablist.querySelector('[aria-selected]');
+            return tablist.querySelector(
+                'li:not(.w-condition-invisible) [aria-selected]'
+            );
         }
 
         function getHash(updateHash) {
@@ -171,6 +176,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             var targetHash = getHashFromURL();
             // Find tab that targets this hash
             var targetTab = getTabFromHashStr(targetHash);
+            // console.log(targetTab);
             // If tab exists and is not current tab, then switch to it
             var currentTab = getCurrentTab();
 
@@ -183,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         window.addEventListener(
             'hashchange',
             () => {
-                console.log('The hash changed');
+                // console.log('The hash changed');
                 getHash(false);
                 /* if the hash changes we don't then need to update it. If we updated it here, we'd prevent the user from using Forward browser button */
             },
@@ -192,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         // Check for hash on page load
         if (window.location.hash) {
-            console.log('Page has loaded with a hash');
+            // console.log('Page has loaded with a hash');
             getHash(false); /* we don't need to update hash on page load */
         }
 
@@ -203,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         console.log(linkEls);
         linkEls.forEach((el) => {
             el.addEventListener('click', (e) => {
-                console.log('non-tab hash click on ' + el);
+                // console.log('non-tab hash click on ' + el);
                 var linkHash = getHashFromLink(e.currentTarget);
                 var targetTab = getTabFromHashStr(linkHash);
                 var currentTab = getCurrentTab();
