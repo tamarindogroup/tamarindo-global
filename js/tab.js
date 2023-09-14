@@ -13,12 +13,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
         //return;
     }
 
-    // Check if we're using new tabbed layout first - this var is set on page in WF
-    if (!useNewLayout) {
-        // console.log('Old layout');
-        return;
-    }
-
     // Check if this is a flagship event - this var is set on page in WF - if not then we don't load tabs
     if (eventStyle != 'flagship') {
         // console.log('Non-flagship event');
