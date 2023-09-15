@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
         //return;
     }
 
-    // Check if this is a tabbed event - this var is set on page in WF - if not then we don't load tabs
-    if (eventStyle != 'tabbed') {
+    // Check if this is a tabbed or flagship event - this var is set on page in WF - if not then we don't load tabs
+    if (eventStyle == 'default') {
         return;
     }
 
