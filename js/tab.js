@@ -13,16 +13,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
         //return;
     }
 
-    // Check if this is a flagship event - this var is set on page in WF - if not then we don't load tabs
-    if (eventStyle != 'flagship') {
-        // console.log('Non-flagship event');
+    // Check if this is a tabbed event - this var is set on page in WF - if not then we don't load tabs
+    if (eventStyle != 'tabbed') {
         return;
     }
 
     (function () {
-        // console.log('New layout');
-        // console.log('Flagship event');
-
         // Get relevant elements and collections
         const tabbed = document.querySelector('.tabbed');
         const tablist = tabbed.querySelector('ul');
